@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.kmps.mapper.MebFinancelcashMapper">
+    
+    <resultMap type="MebFinancelcash" id="MebFinancelcashResult">
+        <result property="id"    column="id"    />
+        <result property="mebid"    column="mebid"    />
+        <result property="sl"    column="sl"    />
+        <result property="actamt"    column="actamt"    />
+        <result property="nowamt"    column="nowamt"    />
+        <result property="ctype"    column="ctype"    />
+        <result property="bankneme"    column="bankneme"    />
+        <result property="subbankaddr"    column="subbankaddr"    />
+        <result property="accname"    column="accname"    />
+        <result property="cardno"    column="cardno"    />
+        <result property="cashSta"    column="cash_sta"    />
+        <result property="cashDesc"    column="cash_desc"    />
+        <result property="createtime"    column="createtime"    />
+        <result property="createby"    column="createby"    />
+        <result property="updatetime"    column="updatetime"    />
+        <result property="updateby"    column="updateby"    />
+        <result property="memo"    column="memo"    />
+        <result property="m1"    column="m1"    />
+        <result property="m2"    column="m2"    />
+        <result property="m3"    column="m3"    />
+    </resultMap>
+
+    <sql id="selectMebFinancelcashVo">
+        select id, mebid, sl, actamt, nowamt, ctype, bankneme, subbankaddr, accname, cardno, cash_sta, cash_desc, createtime, createby, updatetime, updateby, memo, m1, m2, m3 from meb_financelcash
+    </sql>
+
+    <select id="selectMebFinancelcashList" parameterType="MebFinancelcash" resultMap="MebFinancelcashResult">
+        <include refid="selectMebFinancelcashVo"/>
+        <where>  
+            <if test="mebid != null "> and mebid = #{mebid}</if>
+            <if test="sl != null  and sl != ''"> and sl = #{sl}</if>
+            <if test="actamt != null "> and actamt = #{actamt}</if>
+            <if test="nowamt != null "> and nowamt = #{nowamt}</if>
+            <if test="ctype != null "> and ctype = #{ctype}</if>
+            <if test="bankneme != null  and bankneme != ''"> and bankneme = #{bankneme}</if>
+            <if test="subbankaddr != null  and subbankaddr != ''"> and subbankaddr = #{subbankaddr}</if>
+            <if test="accname != null  and accname != ''"> and accname like concat('%', #{accname}, '%')</if>
+            <if test="cardno != null  and cardno != ''"> and cardno = #{cardno}</if>
+            <if test="cashSta != null "> and cash_sta = #{cashSta}</if>
+            <if test="cashDesc != null  and cashDesc != ''"> and cash_desc = #{cashDesc}</if>
+            <if test="createtime != null "> and createtime = #{createtime}</if>
+            <if test="createby != null "> and createby = #{createby}</if>
+            <if test="updatetime != null "> and updatetime = #{updatetime}</if>
+            <if test="updateby != null "> and updateby = #{updateby}</if>
+            <if test="memo != null  and memo != ''"> and memo = #{memo}</if>
+            <if test="m1 != null  and m1 != ''"> and m1 = #{m1}</if>
+            <if test="m2 != null  and m2 != ''"> and m2 = #{m2}</if>
+            <if test="m3 != null  and m3 != ''"> and m3 = #{m3}</if>
+        </where>
+    </select>
+    
+    <select id="selectMebFinancelcashById" parameterType="Long" resultMap="MebFinancelcashResult">
+        <include refid="selectMebFinancelcashVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMebFinancelcash" parameterType="MebFinancelcash" useGeneratedKeys="true" keyProperty="id">
+        insert into meb_financelcash
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="mebid != null ">mebid,</if>
+            <if test="sl != null  and sl != ''">sl,</if>
+            <if test="actamt != null ">actamt,</if>
+            <if test="nowamt != null ">nowamt,</if>
+            <if test="ctype != null ">ctype,</if>
+            <if test="bankneme != null  and bankneme != ''">bankneme,</if>
+            <if test="subbankaddr != null  and subbankaddr != ''">subbankaddr,</if>
+            <if test="accname != null  and accname != ''">accname,</if>
+            <if test="cardno != null  and cardno != ''">cardno,</if>
+            <if test="cashSta != null ">cash_sta,</if>
+            <if test="cashDesc != null  and cashDesc != ''">cash_desc,</if>
+            <if test="createtime != null ">createtime,</if>
+            <if test="createby != null ">createby,</if>
+            <if test="updatetime != null ">updatetime,</if>
+            <if test="updateby != null ">updateby,</if>
+            <if test="memo != null  and memo != ''">memo,</if>
+            <if test="m1 != null  and m1 != ''">m1,</if>
+            <if test="m2 != null  and m2 != ''">m2,</if>
+            <if test="m3 != null  and m3 != ''">m3,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="mebid != null ">#{mebid},</if>
+            <if test="sl != null  and sl != ''">#{sl},</if>
+            <if test="actamt != null ">#{actamt},</if>
+            <if test="nowamt != null ">#{nowamt},</if>
+            <if test="ctype != null ">#{ctype},</if>
+            <if test="bankneme != null  and bankneme != ''">#{bankneme},</if>
+            <if test="subbankaddr != null  and subbankaddr != ''">#{subbankaddr},</if>
+            <if test="accname != null  and accname != ''">#{accname},</if>
+            <if test="cardno != null  and cardno != ''">#{cardno},</if>
+            <if test="cashSta != null ">#{cashSta},</if>
+            <if test="cashDesc != null  and cashDesc != ''">#{cashDesc},</if>
+            <if test="createtime != null ">#{createtime},</if>
+            <if test="createby != null ">#{createby},</if>
+            <if test="updatetime != null ">#{updatetime},</if>
+            <if test="updateby != null ">#{updateby},</if>
+            <if test="memo != null  and memo != ''">#{memo},</if>
+            <if test="m1 != null  and m1 != ''">#{m1},</if>
+            <if test="m2 != null  and m2 != ''">#{m2},</if>
+            <if test="m3 != null  and m3 != ''">#{m3},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMebFinancelcash" parameterType="MebFinancelcash">
+        update meb_financelcash
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="mebid != null ">mebid = #{mebid},</if>
+            <if test="sl != null  and sl != ''">sl = #{sl},</if>
+            <if test="actamt != null ">actamt = #{actamt},</if>
+            <if test="nowamt != null ">nowamt = #{nowamt},</if>
+            <if test="ctype != null ">ctype = #{ctype},</if>
+            <if test="bankneme != null  and bankneme != ''">bankneme = #{bankneme},</if>
+            <if test="subbankaddr != null  and subbankaddr != ''">subbankaddr = #{subbankaddr},</if>
+            <if test="accname != null  and accname != ''">accname = #{accname},</if>
+            <if test="cardno != null  and cardno != ''">cardno = #{cardno},</if>
+            <if test="cashSta != null ">cash_sta = #{cashSta},</if>
+            <if test="cashDesc != null  and cashDesc != ''">cash_desc = #{cashDesc},</if>
+            <if test="createtime != null ">createtime = #{createtime},</if>
+            <if test="createby != null ">createby = #{createby},</if>
+            <if test="updatetime != null ">updatetime = #{updatetime},</if>
+            <if test="updateby != null ">updateby = #{updateby},</if>
+            <if test="memo != null  and memo != ''">memo = #{memo},</if>
+            <if test="m1 != null  and m1 != ''">m1 = #{m1},</if>
+            <if test="m2 != null  and m2 != ''">m2 = #{m2},</if>
+            <if test="m3 != null  and m3 != ''">m3 = #{m3},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMebFinancelcashById" parameterType="Long">
+        delete from meb_financelcash where id = #{id}
+    </delete>
+
+    <delete id="deleteMebFinancelcashByIds" parameterType="String">
+        delete from meb_financelcash where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.kmps.mapper.MebOpinionSaleafteroprMapper">
+    
+    <resultMap type="MebOpinionSaleafteropr" id="MebOpinionSaleafteroprResult">
+        <result property="id"    column="id"    />
+        <result property="opinionId"    column="opinion_id"    />
+        <result property="createId"    column="create_id"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="opinionPrice"    column="opinion_price"    />
+        <result property="desc"    column="desc"    />
+    </resultMap>
+
+    <sql id="selectMebOpinionSaleafteroprVo">
+        select id, opinion_id, create_id, create_by, create_time, opinion_price, desc from meb_opinion_saleafteropr
+    </sql>
+
+    <select id="selectMebOpinionSaleafteroprList" parameterType="MebOpinionSaleafteropr" resultMap="MebOpinionSaleafteroprResult">
+        <include refid="selectMebOpinionSaleafteroprVo"/>
+        <where>  
+            <if test="opinionId != null "> and opinion_id = #{opinionId}</if>
+            <if test="createId != null "> and create_id = #{createId}</if>
+            <if test="opinionPrice != null "> and opinion_price = #{opinionPrice}</if>
+            <if test="desc != null  and desc != ''"> and desc = #{desc}</if>
+        </where>
+    </select>
+    
+    <select id="selectMebOpinionSaleafteroprById" parameterType="Long" resultMap="MebOpinionSaleafteroprResult">
+        <include refid="selectMebOpinionSaleafteroprVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMebOpinionSaleafteropr" parameterType="MebOpinionSaleafteropr" useGeneratedKeys="true" keyProperty="id">
+        insert into meb_opinion_saleafteropr
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="opinionId != null ">opinion_id,</if>
+            <if test="createId != null ">create_id,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="opinionPrice != null ">opinion_price,</if>
+            <if test="desc != null  and desc != ''">desc,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="opinionId != null ">#{opinionId},</if>
+            <if test="createId != null ">#{createId},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="opinionPrice != null ">#{opinionPrice},</if>
+            <if test="desc != null  and desc != ''">#{desc},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMebOpinionSaleafteropr" parameterType="MebOpinionSaleafteropr">
+        update meb_opinion_saleafteropr
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="opinionId != null ">opinion_id = #{opinionId},</if>
+            <if test="createId != null ">create_id = #{createId},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="opinionPrice != null ">opinion_price = #{opinionPrice},</if>
+            <if test="desc != null  and desc != ''">desc = #{desc},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMebOpinionSaleafteroprById" parameterType="Long">
+        delete from meb_opinion_saleafteropr where id = #{id}
+    </delete>
+
+    <delete id="deleteMebOpinionSaleafteroprByIds" parameterType="String">
+        delete from meb_opinion_saleafteropr where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

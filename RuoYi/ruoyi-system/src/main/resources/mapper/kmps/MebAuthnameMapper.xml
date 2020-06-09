@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.kmps.mapper.MebAuthnameMapper">
+    
+    <resultMap type="MebAuthname" id="MebAuthnameResult">
+        <result property="id"    column="id"    />
+        <result property="mebid"    column="mebid"    />
+        <result property="mebidty"    column="mebidty"    />
+        <result property="realname"    column="realname"    />
+        <result property="idno"    column="idno"    />
+        <result property="fj1"    column="fj1"    />
+        <result property="fj2"    column="fj2"    />
+        <result property="fj3"    column="fj3"    />
+        <result property="fj4"    column="fj4"    />
+        <result property="auditopn"    column="auditopn"    />
+        <result property="authsta"    column="authsta"    />
+        <result property="createby"    column="createby"    />
+        <result property="createtime"    column="createtime"    />
+        <result property="auditor"    column="auditor"    />
+        <result property="audittime"    column="audittime"    />
+    </resultMap>
+
+    <sql id="selectMebAuthnameVo">
+        select id, mebid, mebidty, realname, idno, fj1, fj2, fj3, fj4, auditopn, authsta, createby, createtime, auditor, audittime from meb_authname
+    </sql>
+
+    <select id="selectMebAuthnameList" parameterType="MebAuthname" resultMap="MebAuthnameResult">
+        <include refid="selectMebAuthnameVo"/>
+        <where>  
+            <if test="mebid != null "> and mebid = #{mebid}</if>
+            <if test="mebidty != null "> and mebidty = #{mebidty}</if>
+            <if test="realname != null  and realname != ''"> and realname like concat('%', #{realname}, '%')</if>
+            <if test="idno != null  and idno != ''"> and idno = #{idno}</if>
+            <if test="fj1 != null  and fj1 != ''"> and fj1 = #{fj1}</if>
+            <if test="fj2 != null  and fj2 != ''"> and fj2 = #{fj2}</if>
+            <if test="fj3 != null  and fj3 != ''"> and fj3 = #{fj3}</if>
+            <if test="fj4 != null  and fj4 != ''"> and fj4 = #{fj4}</if>
+            <if test="auditopn != null  and auditopn != ''"> and auditopn = #{auditopn}</if>
+            <if test="authsta != null "> and authsta = #{authsta}</if>
+            <if test="createby != null "> and createby = #{createby}</if>
+            <if test="createtime != null "> and createtime = #{createtime}</if>
+            <if test="auditor != null "> and auditor = #{auditor}</if>
+            <if test="audittime != null "> and audittime = #{audittime}</if>
+        </where>
+    </select>
+    
+    <select id="selectMebAuthnameById" parameterType="Long" resultMap="MebAuthnameResult">
+        <include refid="selectMebAuthnameVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMebAuthname" parameterType="MebAuthname" useGeneratedKeys="true" keyProperty="id">
+        insert into meb_authname
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="mebid != null ">mebid,</if>
+            <if test="mebidty != null ">mebidty,</if>
+            <if test="realname != null  and realname != ''">realname,</if>
+            <if test="idno != null  and idno != ''">idno,</if>
+            <if test="fj1 != null  and fj1 != ''">fj1,</if>
+            <if test="fj2 != null  and fj2 != ''">fj2,</if>
+            <if test="fj3 != null  and fj3 != ''">fj3,</if>
+            <if test="fj4 != null  and fj4 != ''">fj4,</if>
+            <if test="auditopn != null  and auditopn != ''">auditopn,</if>
+            <if test="authsta != null ">authsta,</if>
+            <if test="createby != null ">createby,</if>
+            <if test="createtime != null ">createtime,</if>
+            <if test="auditor != null ">auditor,</if>
+            <if test="audittime != null ">audittime,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="mebid != null ">#{mebid},</if>
+            <if test="mebidty != null ">#{mebidty},</if>
+            <if test="realname != null  and realname != ''">#{realname},</if>
+            <if test="idno != null  and idno != ''">#{idno},</if>
+            <if test="fj1 != null  and fj1 != ''">#{fj1},</if>
+            <if test="fj2 != null  and fj2 != ''">#{fj2},</if>
+            <if test="fj3 != null  and fj3 != ''">#{fj3},</if>
+            <if test="fj4 != null  and fj4 != ''">#{fj4},</if>
+            <if test="auditopn != null  and auditopn != ''">#{auditopn},</if>
+            <if test="authsta != null ">#{authsta},</if>
+            <if test="createby != null ">#{createby},</if>
+            <if test="createtime != null ">#{createtime},</if>
+            <if test="auditor != null ">#{auditor},</if>
+            <if test="audittime != null ">#{audittime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMebAuthname" parameterType="MebAuthname">
+        update meb_authname
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="mebid != null ">mebid = #{mebid},</if>
+            <if test="mebidty != null ">mebidty = #{mebidty},</if>
+            <if test="realname != null  and realname != ''">realname = #{realname},</if>
+            <if test="idno != null  and idno != ''">idno = #{idno},</if>
+            <if test="fj1 != null  and fj1 != ''">fj1 = #{fj1},</if>
+            <if test="fj2 != null  and fj2 != ''">fj2 = #{fj2},</if>
+            <if test="fj3 != null  and fj3 != ''">fj3 = #{fj3},</if>
+            <if test="fj4 != null  and fj4 != ''">fj4 = #{fj4},</if>
+            <if test="auditopn != null  and auditopn != ''">auditopn = #{auditopn},</if>
+            <if test="authsta != null ">authsta = #{authsta},</if>
+            <if test="createby != null ">createby = #{createby},</if>
+            <if test="createtime != null ">createtime = #{createtime},</if>
+            <if test="auditor != null ">auditor = #{auditor},</if>
+            <if test="audittime != null ">audittime = #{audittime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMebAuthnameById" parameterType="Long">
+        delete from meb_authname where id = #{id}
+    </delete>
+
+    <delete id="deleteMebAuthnameByIds" parameterType="String">
+        delete from meb_authname where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

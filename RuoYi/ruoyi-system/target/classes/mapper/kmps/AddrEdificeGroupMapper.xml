@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.kmps.mapper.AddrEdificeGroupMapper">
+    
+    <resultMap type="AddrEdificeGroup" id="AddrEdificeGroupResult">
+        <result property="id"    column="id"    />
+        <result property="edificeId"    column="edifice_id"    />
+        <result property="edificeName"    column="edifice_name"    />
+        <result property="mebId"    column="meb_id"    />
+        <result property="mebJob"    column="meb_job"    />
+        <result property="layerNum"    column="layer_num"    />
+        <result property="layerStart"    column="layer_start"    />
+        <result property="layerEnd"    column="layer_end"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="endTime"    column="end_time"    />
+        <result property="addrSta"    column="addr_sta"    />
+    </resultMap>
+
+    <sql id="selectAddrEdificeGroupVo">
+        select id, edifice_id, edifice_name, meb_id, meb_job, layer_num, layer_start, layer_end, create_time, end_time, addr_sta from addr_edifice_group
+    </sql>
+
+    <select id="selectAddrEdificeGroupList" parameterType="AddrEdificeGroup" resultMap="AddrEdificeGroupResult">
+        <include refid="selectAddrEdificeGroupVo"/>
+        <where>  
+            <if test="edificeId != null "> and edifice_id = #{edificeId}</if>
+            <if test="edificeName != null  and edificeName != ''"> and edifice_name like concat('%', #{edificeName}, '%')</if>
+            <if test="mebId != null "> and meb_id = #{mebId}</if>
+            <if test="mebJob != null "> and meb_job = #{mebJob}</if>
+            <if test="layerNum != null "> and layer_num = #{layerNum}</if>
+            <if test="layerStart != null "> and layer_start = #{layerStart}</if>
+            <if test="layerEnd != null "> and layer_end = #{layerEnd}</if>
+            <if test="endTime != null "> and end_time = #{endTime}</if>
+            <if test="addrSta != null "> and addr_sta = #{addrSta}</if>
+        </where>
+    </select>
+    
+    <select id="selectAddrEdificeGroupById" parameterType="Long" resultMap="AddrEdificeGroupResult">
+        <include refid="selectAddrEdificeGroupVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertAddrEdificeGroup" parameterType="AddrEdificeGroup" useGeneratedKeys="true" keyProperty="id">
+        insert into addr_edifice_group
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="edificeId != null ">edifice_id,</if>
+            <if test="edificeName != null  and edificeName != ''">edifice_name,</if>
+            <if test="mebId != null ">meb_id,</if>
+            <if test="mebJob != null ">meb_job,</if>
+            <if test="layerNum != null ">layer_num,</if>
+            <if test="layerStart != null ">layer_start,</if>
+            <if test="layerEnd != null ">layer_end,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="endTime != null ">end_time,</if>
+            <if test="addrSta != null ">addr_sta,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="edificeId != null ">#{edificeId},</if>
+            <if test="edificeName != null  and edificeName != ''">#{edificeName},</if>
+            <if test="mebId != null ">#{mebId},</if>
+            <if test="mebJob != null ">#{mebJob},</if>
+            <if test="layerNum != null ">#{layerNum},</if>
+            <if test="layerStart != null ">#{layerStart},</if>
+            <if test="layerEnd != null ">#{layerEnd},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="endTime != null ">#{endTime},</if>
+            <if test="addrSta != null ">#{addrSta},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAddrEdificeGroup" parameterType="AddrEdificeGroup">
+        update addr_edifice_group
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="edificeId != null ">edifice_id = #{edificeId},</if>
+            <if test="edificeName != null  and edificeName != ''">edifice_name = #{edificeName},</if>
+            <if test="mebId != null ">meb_id = #{mebId},</if>
+            <if test="mebJob != null ">meb_job = #{mebJob},</if>
+            <if test="layerNum != null ">layer_num = #{layerNum},</if>
+            <if test="layerStart != null ">layer_start = #{layerStart},</if>
+            <if test="layerEnd != null ">layer_end = #{layerEnd},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="endTime != null ">end_time = #{endTime},</if>
+            <if test="addrSta != null ">addr_sta = #{addrSta},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAddrEdificeGroupById" parameterType="Long">
+        delete from addr_edifice_group where id = #{id}
+    </delete>
+
+    <delete id="deleteAddrEdificeGroupByIds" parameterType="String">
+        delete from addr_edifice_group where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

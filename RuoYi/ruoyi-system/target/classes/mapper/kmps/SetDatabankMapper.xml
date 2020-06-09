@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.kmps.mapper.SetDatabankMapper">
+    
+    <resultMap type="SetDatabank" id="SetDatabankResult">
+        <result property="id"    column="id"    />
+        <result property="bankName"    column="bank_name"    />
+        <result property="bankCode"    column="bank_code"    />
+        <result property="ico"    column="ico"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
+    <sql id="selectSetDatabankVo">
+        select id, bank_name, bank_code, ico, status from set_databank
+    </sql>
+
+    <select id="selectSetDatabankList" parameterType="SetDatabank" resultMap="SetDatabankResult">
+        <include refid="selectSetDatabankVo"/>
+        <where>  
+            <if test="bankName != null  and bankName != ''"> and bank_name like concat('%', #{bankName}, '%')</if>
+            <if test="bankCode != null  and bankCode != ''"> and bank_code = #{bankCode}</if>
+            <if test="ico != null  and ico != ''"> and ico = #{ico}</if>
+            <if test="status != null "> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectSetDatabankById" parameterType="Long" resultMap="SetDatabankResult">
+        <include refid="selectSetDatabankVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertSetDatabank" parameterType="SetDatabank">
+        insert into set_databank
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null ">id,</if>
+            <if test="bankName != null  and bankName != ''">bank_name,</if>
+            <if test="bankCode != null  and bankCode != ''">bank_code,</if>
+            <if test="ico != null  and ico != ''">ico,</if>
+            <if test="status != null ">status,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null ">#{id},</if>
+            <if test="bankName != null  and bankName != ''">#{bankName},</if>
+            <if test="bankCode != null  and bankCode != ''">#{bankCode},</if>
+            <if test="ico != null  and ico != ''">#{ico},</if>
+            <if test="status != null ">#{status},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSetDatabank" parameterType="SetDatabank">
+        update set_databank
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="bankName != null  and bankName != ''">bank_name = #{bankName},</if>
+            <if test="bankCode != null  and bankCode != ''">bank_code = #{bankCode},</if>
+            <if test="ico != null  and ico != ''">ico = #{ico},</if>
+            <if test="status != null ">status = #{status},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSetDatabankById" parameterType="Long">
+        delete from set_databank where id = #{id}
+    </delete>
+
+    <delete id="deleteSetDatabankByIds" parameterType="String">
+        delete from set_databank where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

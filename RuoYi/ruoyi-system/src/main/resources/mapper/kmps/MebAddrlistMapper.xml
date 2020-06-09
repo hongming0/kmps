@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.kmps.mapper.MebAddrlistMapper">
+    
+    <resultMap type="MebAddrlist" id="MebAddrlistResult">
+        <result property="id"    column="id"    />
+        <result property="mebid"    column="mebid"    />
+        <result property="name"    column="name"    />
+        <result property="phone"    column="phone"    />
+        <result property="cityno"    column="cityno"    />
+        <result property="addr"    column="addr"    />
+        <result property="zipcode"    column="zipcode"    />
+        <result property="addrsta"    column="addrsta"    />
+        <result property="createtime"    column="createtime"    />
+        <result property="createby"    column="createby"    />
+        <result property="updatetime"    column="updatetime"    />
+        <result property="updateby"    column="updateby"    />
+    </resultMap>
+
+    <sql id="selectMebAddrlistVo">
+        select id, mebid, name, phone, cityno, addr, zipcode, addrsta, createtime, createby, updatetime, updateby from meb_addrlist
+    </sql>
+
+    <select id="selectMebAddrlistList" parameterType="MebAddrlist" resultMap="MebAddrlistResult">
+        <include refid="selectMebAddrlistVo"/>
+        <where>  
+            <if test="mebid != null "> and mebid = #{mebid}</if>
+            <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
+            <if test="phone != null  and phone != ''"> and phone = #{phone}</if>
+            <if test="cityno != null  and cityno != ''"> and cityno = #{cityno}</if>
+            <if test="addr != null  and addr != ''"> and addr = #{addr}</if>
+            <if test="zipcode != null  and zipcode != ''"> and zipcode = #{zipcode}</if>
+            <if test="addrsta != null "> and addrsta = #{addrsta}</if>
+            <if test="createtime != null "> and createtime = #{createtime}</if>
+            <if test="createby != null "> and createby = #{createby}</if>
+            <if test="updatetime != null "> and updatetime = #{updatetime}</if>
+            <if test="updateby != null "> and updateby = #{updateby}</if>
+        </where>
+    </select>
+    
+    <select id="selectMebAddrlistById" parameterType="Long" resultMap="MebAddrlistResult">
+        <include refid="selectMebAddrlistVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMebAddrlist" parameterType="MebAddrlist" useGeneratedKeys="true" keyProperty="id">
+        insert into meb_addrlist
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="mebid != null ">mebid,</if>
+            <if test="name != null  and name != ''">name,</if>
+            <if test="phone != null  and phone != ''">phone,</if>
+            <if test="cityno != null  and cityno != ''">cityno,</if>
+            <if test="addr != null  and addr != ''">addr,</if>
+            <if test="zipcode != null  and zipcode != ''">zipcode,</if>
+            <if test="addrsta != null ">addrsta,</if>
+            <if test="createtime != null ">createtime,</if>
+            <if test="createby != null ">createby,</if>
+            <if test="updatetime != null ">updatetime,</if>
+            <if test="updateby != null ">updateby,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="mebid != null ">#{mebid},</if>
+            <if test="name != null  and name != ''">#{name},</if>
+            <if test="phone != null  and phone != ''">#{phone},</if>
+            <if test="cityno != null  and cityno != ''">#{cityno},</if>
+            <if test="addr != null  and addr != ''">#{addr},</if>
+            <if test="zipcode != null  and zipcode != ''">#{zipcode},</if>
+            <if test="addrsta != null ">#{addrsta},</if>
+            <if test="createtime != null ">#{createtime},</if>
+            <if test="createby != null ">#{createby},</if>
+            <if test="updatetime != null ">#{updatetime},</if>
+            <if test="updateby != null ">#{updateby},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMebAddrlist" parameterType="MebAddrlist">
+        update meb_addrlist
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="mebid != null ">mebid = #{mebid},</if>
+            <if test="name != null  and name != ''">name = #{name},</if>
+            <if test="phone != null  and phone != ''">phone = #{phone},</if>
+            <if test="cityno != null  and cityno != ''">cityno = #{cityno},</if>
+            <if test="addr != null  and addr != ''">addr = #{addr},</if>
+            <if test="zipcode != null  and zipcode != ''">zipcode = #{zipcode},</if>
+            <if test="addrsta != null ">addrsta = #{addrsta},</if>
+            <if test="createtime != null ">createtime = #{createtime},</if>
+            <if test="createby != null ">createby = #{createby},</if>
+            <if test="updatetime != null ">updatetime = #{updatetime},</if>
+            <if test="updateby != null ">updateby = #{updateby},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMebAddrlistById" parameterType="Long">
+        delete from meb_addrlist where id = #{id}
+    </delete>
+
+    <delete id="deleteMebAddrlistByIds" parameterType="String">
+        delete from meb_addrlist where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

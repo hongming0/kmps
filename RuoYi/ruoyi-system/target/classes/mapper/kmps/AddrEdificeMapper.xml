@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.kmps.mapper.AddrEdificeMapper">
+    
+    <resultMap type="AddrEdifice" id="AddrEdificeResult">
+        <result property="id"    column="id"    />
+        <result property="addrName"    column="addr_name"    />
+        <result property="addrPath"    column="addr_path"    />
+        <result property="province"    column="province"    />
+        <result property="city"    column="city"    />
+        <result property="area"    column="area"    />
+        <result property="longitude"    column="longitude"    />
+        <result property="latitude"    column="latitude"    />
+        <result property="layerNum"    column="layer_num"    />
+        <result property="userId"    column="user_id"    />
+        <result property="joinTime"    column="join_time"    />
+        <result property="leaveTime"    column="leave_time"    />
+        <result property="startTime"    column="start_time"    />
+        <result property="endTime"    column="end_time"    />
+        <result property="addrsta"    column="addrsta"    />
+    </resultMap>
+
+    <sql id="selectAddrEdificeVo">
+        select id, addr_name, addr_path, province, city, area, longitude, latitude, layer_num, user_id, join_time, leave_time, start_time, end_time, addrsta from addr_edifice
+    </sql>
+
+    <select id="selectAddrEdificeList" parameterType="AddrEdifice" resultMap="AddrEdificeResult">
+        <include refid="selectAddrEdificeVo"/>
+        <where>  
+            <if test="addrName != null  and addrName != ''"> and addr_name like concat('%', #{addrName}, '%')</if>
+            <if test="addrPath != null  and addrPath != ''"> and addr_path = #{addrPath}</if>
+            <if test="province != null  and province != ''"> and province = #{province}</if>
+            <if test="city != null  and city != ''"> and city = #{city}</if>
+            <if test="area != null  and area != ''"> and area = #{area}</if>
+            <if test="longitude != null "> and longitude = #{longitude}</if>
+            <if test="latitude != null "> and latitude = #{latitude}</if>
+            <if test="layerNum != null "> and layer_num = #{layerNum}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="joinTime != null "> and join_time = #{joinTime}</if>
+            <if test="leaveTime != null "> and leave_time = #{leaveTime}</if>
+            <if test="startTime != null "> and start_time = #{startTime}</if>
+            <if test="endTime != null "> and end_time = #{endTime}</if>
+            <if test="addrsta != null "> and addrsta = #{addrsta}</if>
+        </where>
+    </select>
+    
+    <select id="selectAddrEdificeById" parameterType="Long" resultMap="AddrEdificeResult">
+        <include refid="selectAddrEdificeVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertAddrEdifice" parameterType="AddrEdifice" useGeneratedKeys="true" keyProperty="id">
+        insert into addr_edifice
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="addrName != null  and addrName != ''">addr_name,</if>
+            <if test="addrPath != null  and addrPath != ''">addr_path,</if>
+            <if test="province != null  and province != ''">province,</if>
+            <if test="city != null  and city != ''">city,</if>
+            <if test="area != null  and area != ''">area,</if>
+            <if test="longitude != null ">longitude,</if>
+            <if test="latitude != null ">latitude,</if>
+            <if test="layerNum != null ">layer_num,</if>
+            <if test="userId != null ">user_id,</if>
+            <if test="joinTime != null ">join_time,</if>
+            <if test="leaveTime != null ">leave_time,</if>
+            <if test="startTime != null ">start_time,</if>
+            <if test="endTime != null ">end_time,</if>
+            <if test="addrsta != null ">addrsta,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="addrName != null  and addrName != ''">#{addrName},</if>
+            <if test="addrPath != null  and addrPath != ''">#{addrPath},</if>
+            <if test="province != null  and province != ''">#{province},</if>
+            <if test="city != null  and city != ''">#{city},</if>
+            <if test="area != null  and area != ''">#{area},</if>
+            <if test="longitude != null ">#{longitude},</if>
+            <if test="latitude != null ">#{latitude},</if>
+            <if test="layerNum != null ">#{layerNum},</if>
+            <if test="userId != null ">#{userId},</if>
+            <if test="joinTime != null ">#{joinTime},</if>
+            <if test="leaveTime != null ">#{leaveTime},</if>
+            <if test="startTime != null ">#{startTime},</if>
+            <if test="endTime != null ">#{endTime},</if>
+            <if test="addrsta != null ">#{addrsta},</if>
+         </trim>
+    </insert>
+
+    <update id="updateAddrEdifice" parameterType="AddrEdifice">
+        update addr_edifice
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="addrName != null  and addrName != ''">addr_name = #{addrName},</if>
+            <if test="addrPath != null  and addrPath != ''">addr_path = #{addrPath},</if>
+            <if test="province != null  and province != ''">province = #{province},</if>
+            <if test="city != null  and city != ''">city = #{city},</if>
+            <if test="area != null  and area != ''">area = #{area},</if>
+            <if test="longitude != null ">longitude = #{longitude},</if>
+            <if test="latitude != null ">latitude = #{latitude},</if>
+            <if test="layerNum != null ">layer_num = #{layerNum},</if>
+            <if test="userId != null ">user_id = #{userId},</if>
+            <if test="joinTime != null ">join_time = #{joinTime},</if>
+            <if test="leaveTime != null ">leave_time = #{leaveTime},</if>
+            <if test="startTime != null ">start_time = #{startTime},</if>
+            <if test="endTime != null ">end_time = #{endTime},</if>
+            <if test="addrsta != null ">addrsta = #{addrsta},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteAddrEdificeById" parameterType="Long">
+        delete from addr_edifice where id = #{id}
+    </delete>
+
+    <delete id="deleteAddrEdificeByIds" parameterType="String">
+        delete from addr_edifice where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

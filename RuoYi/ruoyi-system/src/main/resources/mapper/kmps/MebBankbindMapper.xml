@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.kmps.mapper.MebBankbindMapper">
+    
+    <resultMap type="MebBankbind" id="MebBankbindResult">
+        <result property="id"    column="id"    />
+        <result property="mebid"    column="mebid"    />
+        <result property="bankid"    column="bankid"    />
+        <result property="ctype"    column="ctype"    />
+        <result property="accname"    column="accname"    />
+        <result property="accidno"    column="accidno"    />
+        <result property="cardno"    column="cardno"    />
+        <result property="dscardno"    column="dscardno"    />
+        <result property="bankneme"    column="bankneme"    />
+        <result property="cityno"    column="cityno"    />
+        <result property="subbankaddr"    column="subbankaddr"    />
+        <result property="status"    column="status"    />
+        <result property="createtime"    column="createtime"    />
+        <result property="createby"    column="createby"    />
+        <result property="updatetime"    column="updatetime"    />
+        <result property="updateby"    column="updateby"    />
+    </resultMap>
+
+    <sql id="selectMebBankbindVo">
+        select id, mebid, bankid, ctype, accname, accidno, cardno, dscardno, bankneme, cityno, subbankaddr, status, createtime, createby, updatetime, updateby from meb_bankbind
+    </sql>
+
+    <select id="selectMebBankbindList" parameterType="MebBankbind" resultMap="MebBankbindResult">
+        <include refid="selectMebBankbindVo"/>
+        <where>  
+            <if test="mebid != null "> and mebid = #{mebid}</if>
+            <if test="bankid != null  and bankid != ''"> and bankid = #{bankid}</if>
+            <if test="ctype != null "> and ctype = #{ctype}</if>
+            <if test="accname != null  and accname != ''"> and accname like concat('%', #{accname}, '%')</if>
+            <if test="accidno != null  and accidno != ''"> and accidno = #{accidno}</if>
+            <if test="cardno != null  and cardno != ''"> and cardno = #{cardno}</if>
+            <if test="dscardno != null  and dscardno != ''"> and dscardno = #{dscardno}</if>
+            <if test="bankneme != null  and bankneme != ''"> and bankneme = #{bankneme}</if>
+            <if test="cityno != null  and cityno != ''"> and cityno = #{cityno}</if>
+            <if test="subbankaddr != null  and subbankaddr != ''"> and subbankaddr = #{subbankaddr}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="createtime != null "> and createtime = #{createtime}</if>
+            <if test="createby != null "> and createby = #{createby}</if>
+            <if test="updatetime != null "> and updatetime = #{updatetime}</if>
+            <if test="updateby != null "> and updateby = #{updateby}</if>
+        </where>
+    </select>
+    
+    <select id="selectMebBankbindById" parameterType="Long" resultMap="MebBankbindResult">
+        <include refid="selectMebBankbindVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMebBankbind" parameterType="MebBankbind" useGeneratedKeys="true" keyProperty="id">
+        insert into meb_bankbind
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="mebid != null ">mebid,</if>
+            <if test="bankid != null  and bankid != ''">bankid,</if>
+            <if test="ctype != null ">ctype,</if>
+            <if test="accname != null  and accname != ''">accname,</if>
+            <if test="accidno != null  and accidno != ''">accidno,</if>
+            <if test="cardno != null  and cardno != ''">cardno,</if>
+            <if test="dscardno != null  and dscardno != ''">dscardno,</if>
+            <if test="bankneme != null  and bankneme != ''">bankneme,</if>
+            <if test="cityno != null  and cityno != ''">cityno,</if>
+            <if test="subbankaddr != null  and subbankaddr != ''">subbankaddr,</if>
+            <if test="status != null ">status,</if>
+            <if test="createtime != null ">createtime,</if>
+            <if test="createby != null ">createby,</if>
+            <if test="updatetime != null ">updatetime,</if>
+            <if test="updateby != null ">updateby,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="mebid != null ">#{mebid},</if>
+            <if test="bankid != null  and bankid != ''">#{bankid},</if>
+            <if test="ctype != null ">#{ctype},</if>
+            <if test="accname != null  and accname != ''">#{accname},</if>
+            <if test="accidno != null  and accidno != ''">#{accidno},</if>
+            <if test="cardno != null  and cardno != ''">#{cardno},</if>
+            <if test="dscardno != null  and dscardno != ''">#{dscardno},</if>
+            <if test="bankneme != null  and bankneme != ''">#{bankneme},</if>
+            <if test="cityno != null  and cityno != ''">#{cityno},</if>
+            <if test="subbankaddr != null  and subbankaddr != ''">#{subbankaddr},</if>
+            <if test="status != null ">#{status},</if>
+            <if test="createtime != null ">#{createtime},</if>
+            <if test="createby != null ">#{createby},</if>
+            <if test="updatetime != null ">#{updatetime},</if>
+            <if test="updateby != null ">#{updateby},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMebBankbind" parameterType="MebBankbind">
+        update meb_bankbind
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="mebid != null ">mebid = #{mebid},</if>
+            <if test="bankid != null  and bankid != ''">bankid = #{bankid},</if>
+            <if test="ctype != null ">ctype = #{ctype},</if>
+            <if test="accname != null  and accname != ''">accname = #{accname},</if>
+            <if test="accidno != null  and accidno != ''">accidno = #{accidno},</if>
+            <if test="cardno != null  and cardno != ''">cardno = #{cardno},</if>
+            <if test="dscardno != null  and dscardno != ''">dscardno = #{dscardno},</if>
+            <if test="bankneme != null  and bankneme != ''">bankneme = #{bankneme},</if>
+            <if test="cityno != null  and cityno != ''">cityno = #{cityno},</if>
+            <if test="subbankaddr != null  and subbankaddr != ''">subbankaddr = #{subbankaddr},</if>
+            <if test="status != null ">status = #{status},</if>
+            <if test="createtime != null ">createtime = #{createtime},</if>
+            <if test="createby != null ">createby = #{createby},</if>
+            <if test="updatetime != null ">updatetime = #{updatetime},</if>
+            <if test="updateby != null ">updateby = #{updateby},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMebBankbindById" parameterType="Long">
+        delete from meb_bankbind where id = #{id}
+    </delete>
+
+    <delete id="deleteMebBankbindByIds" parameterType="String">
+        delete from meb_bankbind where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

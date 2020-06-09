@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.kmps.mapper.MebFriendMapper">
+    
+    <resultMap type="MebFriend" id="MebFriendResult">
+        <result property="id"    column="id"    />
+        <result property="pid"    column="pid"    />
+        <result property="bid"    column="bid"    />
+        <result property="createtime"    column="createtime"    />
+        <result property="status"    column="status"    />
+    </resultMap>
+
+    <sql id="selectMebFriendVo">
+        select id, pid, bid, createtime, status from meb_friend
+    </sql>
+
+    <select id="selectMebFriendList" parameterType="MebFriend" resultMap="MebFriendResult">
+        <include refid="selectMebFriendVo"/>
+        <where>  
+            <if test="pid != null "> and pid = #{pid}</if>
+            <if test="bid != null "> and bid = #{bid}</if>
+            <if test="createtime != null "> and createtime = #{createtime}</if>
+            <if test="status != null "> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectMebFriendById" parameterType="Long" resultMap="MebFriendResult">
+        <include refid="selectMebFriendVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMebFriend" parameterType="MebFriend" useGeneratedKeys="true" keyProperty="id">
+        insert into meb_friend
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pid != null ">pid,</if>
+            <if test="bid != null ">bid,</if>
+            <if test="createtime != null ">createtime,</if>
+            <if test="status != null ">status,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pid != null ">#{pid},</if>
+            <if test="bid != null ">#{bid},</if>
+            <if test="createtime != null ">#{createtime},</if>
+            <if test="status != null ">#{status},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMebFriend" parameterType="MebFriend">
+        update meb_friend
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="pid != null ">pid = #{pid},</if>
+            <if test="bid != null ">bid = #{bid},</if>
+            <if test="createtime != null ">createtime = #{createtime},</if>
+            <if test="status != null ">status = #{status},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMebFriendById" parameterType="Long">
+        delete from meb_friend where id = #{id}
+    </delete>
+
+    <delete id="deleteMebFriendByIds" parameterType="String">
+        delete from meb_friend where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

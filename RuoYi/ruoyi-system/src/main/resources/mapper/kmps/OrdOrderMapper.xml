@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.kmps.mapper.OrdOrderMapper">
+    
+    <resultMap type="OrdOrder" id="OrdOrderResult">
+        <result property="id"    column="id"    />
+        <result property="orderSl"    column="order_sl"    />
+        <result property="orderNum"    column="order_num"    />
+        <result property="price"    column="price"    />
+        <result property="edificeId"    column="edifice_id"    />
+        <result property="putinId"    column="putin_id"    />
+        <result property="putinPhone"    column="putin_phone"    />
+        <result property="sortId"    column="sort_id"    />
+        <result property="deliveryId"    column="delivery_id"    />
+        <result property="deliveryPhone"    column="delivery_phone"    />
+        <result property="sorTime"    column="sor_time"    />
+        <result property="pickupTime"    column="pickup_time"    />
+        <result property="finshTime"    column="finsh_time"    />
+        <result property="closeTime"    column="close_time"    />
+        <result property="closeDesc"    column="close_desc"    />
+        <result property="orderTime"    column="order_time"    />
+        <result property="payTime"    column="pay_time"    />
+        <result property="autocloseTime"    column="autoclose_time"    />
+        <result property="payMode"    column="pay_mode"    />
+        <result property="goodsNum"    column="goods_num"    />
+        <result property="orderClt"    column="order_clt"    />
+        <result property="thirdName"    column="third_name"    />
+        <result property="thirdNum"    column="third_num"    />
+        <result property="thirdTakeAddr"    column="third_take_addr"    />
+        <result property="thirdGiveAddr"    column="third_give_addr"    />
+        <result property="expectTime"    column="expect_time"    />
+        <result property="orderImgPath"    column="order_img_path"    />
+        <result property="floor"    column="floor"    />
+        <result property="orderSta"    column="order_sta"    />
+    </resultMap>
+
+    <sql id="selectOrdOrderVo">
+        select id, order_sl, order_num, price, edifice_id, putin_id, putin_phone, sort_id, delivery_id, delivery_phone, sor_time, pickup_time, finsh_time, close_time, close_desc, order_time, pay_time, autoclose_time, pay_mode, goods_num, order_clt, third_name, third_num, third_take_addr, third_give_addr, expect_time, order_img_path, floor, order_sta from ord_order
+    </sql>
+
+    <select id="selectOrdOrderList" parameterType="OrdOrder" resultMap="OrdOrderResult">
+        <include refid="selectOrdOrderVo"/>
+        <where>  
+            <if test="orderSl != null  and orderSl != ''"> and order_sl = #{orderSl}</if>
+            <if test="orderNum != null "> and order_num = #{orderNum}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="edificeId != null "> and edifice_id = #{edificeId}</if>
+            <if test="putinId != null "> and putin_id = #{putinId}</if>
+            <if test="putinPhone != null  and putinPhone != ''"> and putin_phone = #{putinPhone}</if>
+            <if test="sortId != null "> and sort_id = #{sortId}</if>
+            <if test="deliveryId != null "> and delivery_id = #{deliveryId}</if>
+            <if test="deliveryPhone != null  and deliveryPhone != ''"> and delivery_phone = #{deliveryPhone}</if>
+            <if test="sorTime != null "> and sor_time = #{sorTime}</if>
+            <if test="pickupTime != null "> and pickup_time = #{pickupTime}</if>
+            <if test="finshTime != null "> and finsh_time = #{finshTime}</if>
+            <if test="closeTime != null "> and close_time = #{closeTime}</if>
+            <if test="closeDesc != null  and closeDesc != ''"> and close_desc = #{closeDesc}</if>
+            <if test="orderTime != null "> and order_time = #{orderTime}</if>
+            <if test="payTime != null "> and pay_time = #{payTime}</if>
+            <if test="autocloseTime != null "> and autoclose_time = #{autocloseTime}</if>
+            <if test="payMode != null "> and pay_mode = #{payMode}</if>
+            <if test="goodsNum != null "> and goods_num = #{goodsNum}</if>
+            <if test="orderClt != null "> and order_clt = #{orderClt}</if>
+            <if test="thirdName != null  and thirdName != ''"> and third_name like concat('%', #{thirdName}, '%')</if>
+            <if test="thirdNum != null  and thirdNum != ''"> and third_num = #{thirdNum}</if>
+            <if test="thirdTakeAddr != null  and thirdTakeAddr != ''"> and third_take_addr = #{thirdTakeAddr}</if>
+            <if test="thirdGiveAddr != null  and thirdGiveAddr != ''"> and third_give_addr = #{thirdGiveAddr}</if>
+            <if test="expectTime != null "> and expect_time = #{expectTime}</if>
+            <if test="orderImgPath != null  and orderImgPath != ''"> and order_img_path = #{orderImgPath}</if>
+            <if test="floor != null "> and floor = #{floor}</if>
+            <if test="orderSta != null "> and order_sta = #{orderSta}</if>
+        </where>
+    </select>
+    
+    <select id="selectOrdOrderById" parameterType="Long" resultMap="OrdOrderResult">
+        <include refid="selectOrdOrderVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertOrdOrder" parameterType="OrdOrder" useGeneratedKeys="true" keyProperty="id">
+        insert into ord_order
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="orderSl != null  and orderSl != ''">order_sl,</if>
+            <if test="orderNum != null ">order_num,</if>
+            <if test="price != null ">price,</if>
+            <if test="edificeId != null ">edifice_id,</if>
+            <if test="putinId != null ">putin_id,</if>
+            <if test="putinPhone != null  and putinPhone != ''">putin_phone,</if>
+            <if test="sortId != null ">sort_id,</if>
+            <if test="deliveryId != null ">delivery_id,</if>
+            <if test="deliveryPhone != null  and deliveryPhone != ''">delivery_phone,</if>
+            <if test="sorTime != null ">sor_time,</if>
+            <if test="pickupTime != null ">pickup_time,</if>
+            <if test="finshTime != null ">finsh_time,</if>
+            <if test="closeTime != null ">close_time,</if>
+            <if test="closeDesc != null  and closeDesc != ''">close_desc,</if>
+            <if test="orderTime != null ">order_time,</if>
+            <if test="payTime != null ">pay_time,</if>
+            <if test="autocloseTime != null ">autoclose_time,</if>
+            <if test="payMode != null ">pay_mode,</if>
+            <if test="goodsNum != null ">goods_num,</if>
+            <if test="orderClt != null ">order_clt,</if>
+            <if test="thirdName != null  and thirdName != ''">third_name,</if>
+            <if test="thirdNum != null  and thirdNum != ''">third_num,</if>
+            <if test="thirdTakeAddr != null  and thirdTakeAddr != ''">third_take_addr,</if>
+            <if test="thirdGiveAddr != null  and thirdGiveAddr != ''">third_give_addr,</if>
+            <if test="expectTime != null ">expect_time,</if>
+            <if test="orderImgPath != null  and orderImgPath != ''">order_img_path,</if>
+            <if test="floor != null ">floor,</if>
+            <if test="orderSta != null ">order_sta,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="orderSl != null  and orderSl != ''">#{orderSl},</if>
+            <if test="orderNum != null ">#{orderNum},</if>
+            <if test="price != null ">#{price},</if>
+            <if test="edificeId != null ">#{edificeId},</if>
+            <if test="putinId != null ">#{putinId},</if>
+            <if test="putinPhone != null  and putinPhone != ''">#{putinPhone},</if>
+            <if test="sortId != null ">#{sortId},</if>
+            <if test="deliveryId != null ">#{deliveryId},</if>
+            <if test="deliveryPhone != null  and deliveryPhone != ''">#{deliveryPhone},</if>
+            <if test="sorTime != null ">#{sorTime},</if>
+            <if test="pickupTime != null ">#{pickupTime},</if>
+            <if test="finshTime != null ">#{finshTime},</if>
+            <if test="closeTime != null ">#{closeTime},</if>
+            <if test="closeDesc != null  and closeDesc != ''">#{closeDesc},</if>
+            <if test="orderTime != null ">#{orderTime},</if>
+            <if test="payTime != null ">#{payTime},</if>
+            <if test="autocloseTime != null ">#{autocloseTime},</if>
+            <if test="payMode != null ">#{payMode},</if>
+            <if test="goodsNum != null ">#{goodsNum},</if>
+            <if test="orderClt != null ">#{orderClt},</if>
+            <if test="thirdName != null  and thirdName != ''">#{thirdName},</if>
+            <if test="thirdNum != null  and thirdNum != ''">#{thirdNum},</if>
+            <if test="thirdTakeAddr != null  and thirdTakeAddr != ''">#{thirdTakeAddr},</if>
+            <if test="thirdGiveAddr != null  and thirdGiveAddr != ''">#{thirdGiveAddr},</if>
+            <if test="expectTime != null ">#{expectTime},</if>
+            <if test="orderImgPath != null  and orderImgPath != ''">#{orderImgPath},</if>
+            <if test="floor != null ">#{floor},</if>
+            <if test="orderSta != null ">#{orderSta},</if>
+         </trim>
+    </insert>
+
+    <update id="updateOrdOrder" parameterType="OrdOrder">
+        update ord_order
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="orderSl != null  and orderSl != ''">order_sl = #{orderSl},</if>
+            <if test="orderNum != null ">order_num = #{orderNum},</if>
+            <if test="price != null ">price = #{price},</if>
+            <if test="edificeId != null ">edifice_id = #{edificeId},</if>
+            <if test="putinId != null ">putin_id = #{putinId},</if>
+            <if test="putinPhone != null  and putinPhone != ''">putin_phone = #{putinPhone},</if>
+            <if test="sortId != null ">sort_id = #{sortId},</if>
+            <if test="deliveryId != null ">delivery_id = #{deliveryId},</if>
+            <if test="deliveryPhone != null  and deliveryPhone != ''">delivery_phone = #{deliveryPhone},</if>
+            <if test="sorTime != null ">sor_time = #{sorTime},</if>
+            <if test="pickupTime != null ">pickup_time = #{pickupTime},</if>
+            <if test="finshTime != null ">finsh_time = #{finshTime},</if>
+            <if test="closeTime != null ">close_time = #{closeTime},</if>
+            <if test="closeDesc != null  and closeDesc != ''">close_desc = #{closeDesc},</if>
+            <if test="orderTime != null ">order_time = #{orderTime},</if>
+            <if test="payTime != null ">pay_time = #{payTime},</if>
+            <if test="autocloseTime != null ">autoclose_time = #{autocloseTime},</if>
+            <if test="payMode != null ">pay_mode = #{payMode},</if>
+            <if test="goodsNum != null ">goods_num = #{goodsNum},</if>
+            <if test="orderClt != null ">order_clt = #{orderClt},</if>
+            <if test="thirdName != null  and thirdName != ''">third_name = #{thirdName},</if>
+            <if test="thirdNum != null  and thirdNum != ''">third_num = #{thirdNum},</if>
+            <if test="thirdTakeAddr != null  and thirdTakeAddr != ''">third_take_addr = #{thirdTakeAddr},</if>
+            <if test="thirdGiveAddr != null  and thirdGiveAddr != ''">third_give_addr = #{thirdGiveAddr},</if>
+            <if test="expectTime != null ">expect_time = #{expectTime},</if>
+            <if test="orderImgPath != null  and orderImgPath != ''">order_img_path = #{orderImgPath},</if>
+            <if test="floor != null ">floor = #{floor},</if>
+            <if test="orderSta != null ">order_sta = #{orderSta},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteOrdOrderById" parameterType="Long">
+        delete from ord_order where id = #{id}
+    </delete>
+
+    <delete id="deleteOrdOrderByIds" parameterType="String">
+        delete from ord_order where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>

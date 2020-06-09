@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="32dc7c5d-b19b-4a58-9450-338f0cb24d64" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1cQxdod6QihNpxsxeZ9ooKor5lQ" />
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/kmps/service/impl" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/kmps/service/impl" />
+      <recent name="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/kmps/service" />
+      <recent name="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/kmps/domain" />
+      <recent name="$PROJECT_DIR$/ruoyi-system/src/main/java/com/ruoyi/kmps/mapper" />
+      <recent name="$PROJECT_DIR$/ruoyi-system/src/main/resources/mapper/kmps" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="RuoYiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="ruoyi-admin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ruoyi.RuoYiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>$USER_HOME$/.subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="32dc7c5d-b19b-4a58-9450-338f0cb24d64" name="Default Changelist" comment="" />
+      <created>1590474707074</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590474707074</updated>
+      <workItem from="1590474708398" duration="7581000" />
+      <workItem from="1590484447844" duration="2127000" />
+      <workItem from="1590541547213" duration="6062000" />
+      <workItem from="1590647694320" duration="6531000" />
+      <workItem from="1590667252485" duration="1152000" />
+      <workItem from="1590802803258" duration="5644000" />
+      <workItem from="1590980237921" duration="333000" />
+      <workItem from="1591059992379" duration="180000" />
+      <workItem from="1591091383264" duration="2000" />
+      <workItem from="1591322604961" duration="4001000" />
+      <workItem from="1591405304883" duration="5099000" />
+      <workItem from="1591493970419" duration="10992000" />
+      <workItem from="1591665105733" duration="4218000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ruoyi-admin/src/main/java/com/ruoyi/web/controller/kmps/MebAuthnameController.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

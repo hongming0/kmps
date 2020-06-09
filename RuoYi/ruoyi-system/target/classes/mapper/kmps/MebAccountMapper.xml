@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.kmps.mapper.MebAccountMapper">
+    
+    <resultMap type="MebAccount" id="MebAccountResult">
+        <result property="id"    column="id"    />
+        <result property="type"    column="type"    />
+        <result property="phone"    column="phone"    />
+        <result property="account"    column="account"    />
+        <result property="password"    column="password"    />
+        <result property="salt"    column="salt"    />
+        <result property="email"    column="email"    />
+        <result property="regtime"    column="regtime"    />
+        <result property="regip"    column="regip"    />
+        <result property="regclt"    column="regclt"    />
+        <result property="regcha"    column="regcha"    />
+        <result property="refcode"    column="refcode"    />
+        <result property="puid"    column="puid"    />
+        <result property="accsta"    column="accsta"    />
+        <result property="lastlogintime"    column="lastlogintime"    />
+        <result property="lastloginip"    column="lastloginip"    />
+        <result property="passerr"    column="passerr"    />
+        <result property="m1"    column="m1"    />
+        <result property="m2"    column="m2"    />
+        <result property="m3"    column="m3"    />
+        <result property="mebmoney"    column="mebmoney"    />
+        <result property="fremoney"    column="fremoney"    />
+        <result property="tpoints"    column="tpoints"    />
+        <result property="version"    column="version"    />
+    </resultMap>
+
+    <sql id="selectMebAccountVo">
+        select id, type, phone, account, password, salt, email, regtime, regip, regclt, regcha, refcode, puid, accsta, lastlogintime, lastloginip, passerr, m1, m2, m3, mebmoney, fremoney, tpoints, version from meb_account
+    </sql>
+
+    <select id="selectMebAccountList" parameterType="MebAccount" resultMap="MebAccountResult">
+        <include refid="selectMebAccountVo"/>
+        <where>  
+            <if test="type != null "> and type = #{type}</if>
+            <if test="phone != null  and phone != ''"> and phone = #{phone}</if>
+            <if test="account != null  and account != ''"> and account = #{account}</if>
+            <if test="password != null  and password != ''"> and password = #{password}</if>
+            <if test="salt != null  and salt != ''"> and salt = #{salt}</if>
+            <if test="email != null  and email != ''"> and email = #{email}</if>
+            <if test="regtime != null "> and regtime = #{regtime}</if>
+            <if test="regip != null  and regip != ''"> and regip = #{regip}</if>
+            <if test="regclt != null "> and regclt = #{regclt}</if>
+            <if test="regcha != null  and regcha != ''"> and regcha = #{regcha}</if>
+            <if test="refcode != null  and refcode != ''"> and refcode = #{refcode}</if>
+            <if test="puid != null "> and puid = #{puid}</if>
+            <if test="accsta != null "> and accsta = #{accsta}</if>
+            <if test="lastlogintime != null "> and lastlogintime = #{lastlogintime}</if>
+            <if test="lastloginip != null  and lastloginip != ''"> and lastloginip = #{lastloginip}</if>
+            <if test="passerr != null "> and passerr = #{passerr}</if>
+            <if test="m1 != null  and m1 != ''"> and m1 = #{m1}</if>
+            <if test="m2 != null  and m2 != ''"> and m2 = #{m2}</if>
+            <if test="m3 != null  and m3 != ''"> and m3 = #{m3}</if>
+            <if test="mebmoney != null "> and mebmoney = #{mebmoney}</if>
+            <if test="fremoney != null "> and fremoney = #{fremoney}</if>
+            <if test="tpoints != null "> and tpoints = #{tpoints}</if>
+            <if test="version != null "> and version = #{version}</if>
+        </where>
+    </select>
+    
+    <select id="selectMebAccountById" parameterType="Long" resultMap="MebAccountResult">
+        <include refid="selectMebAccountVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertMebAccount" parameterType="MebAccount" useGeneratedKeys="true" keyProperty="id">
+        insert into meb_account
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="type != null ">type,</if>
+            <if test="phone != null  and phone != ''">phone,</if>
+            <if test="account != null  and account != ''">account,</if>
+            <if test="password != null  and password != ''">password,</if>
+            <if test="salt != null  and salt != ''">salt,</if>
+            <if test="email != null  and email != ''">email,</if>
+            <if test="regtime != null ">regtime,</if>
+            <if test="regip != null  and regip != ''">regip,</if>
+            <if test="regclt != null ">regclt,</if>
+            <if test="regcha != null  and regcha != ''">regcha,</if>
+            <if test="refcode != null  and refcode != ''">refcode,</if>
+            <if test="puid != null ">puid,</if>
+            <if test="accsta != null ">accsta,</if>
+            <if test="lastlogintime != null ">lastlogintime,</if>
+            <if test="lastloginip != null  and lastloginip != ''">lastloginip,</if>
+            <if test="passerr != null ">passerr,</if>
+            <if test="m1 != null  and m1 != ''">m1,</if>
+            <if test="m2 != null  and m2 != ''">m2,</if>
+            <if test="m3 != null  and m3 != ''">m3,</if>
+            <if test="mebmoney != null ">mebmoney,</if>
+            <if test="fremoney != null ">fremoney,</if>
+            <if test="tpoints != null ">tpoints,</if>
+            <if test="version != null ">version,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="type != null ">#{type},</if>
+            <if test="phone != null  and phone != ''">#{phone},</if>
+            <if test="account != null  and account != ''">#{account},</if>
+            <if test="password != null  and password != ''">#{password},</if>
+            <if test="salt != null  and salt != ''">#{salt},</if>
+            <if test="email != null  and email != ''">#{email},</if>
+            <if test="regtime != null ">#{regtime},</if>
+            <if test="regip != null  and regip != ''">#{regip},</if>
+            <if test="regclt != null ">#{regclt},</if>
+            <if test="regcha != null  and regcha != ''">#{regcha},</if>
+            <if test="refcode != null  and refcode != ''">#{refcode},</if>
+            <if test="puid != null ">#{puid},</if>
+            <if test="accsta != null ">#{accsta},</if>
+            <if test="lastlogintime != null ">#{lastlogintime},</if>
+            <if test="lastloginip != null  and lastloginip != ''">#{lastloginip},</if>
+            <if test="passerr != null ">#{passerr},</if>
+            <if test="m1 != null  and m1 != ''">#{m1},</if>
+            <if test="m2 != null  and m2 != ''">#{m2},</if>
+            <if test="m3 != null  and m3 != ''">#{m3},</if>
+            <if test="mebmoney != null ">#{mebmoney},</if>
+            <if test="fremoney != null ">#{fremoney},</if>
+            <if test="tpoints != null ">#{tpoints},</if>
+            <if test="version != null ">#{version},</if>
+         </trim>
+    </insert>
+
+    <update id="updateMebAccount" parameterType="MebAccount">
+        update meb_account
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="type != null ">type = #{type},</if>
+            <if test="phone != null  and phone != ''">phone = #{phone},</if>
+            <if test="account != null  and account != ''">account = #{account},</if>
+            <if test="password != null  and password != ''">password = #{password},</if>
+            <if test="salt != null  and salt != ''">salt = #{salt},</if>
+            <if test="email != null  and email != ''">email = #{email},</if>
+            <if test="regtime != null ">regtime = #{regtime},</if>
+            <if test="regip != null  and regip != ''">regip = #{regip},</if>
+            <if test="regclt != null ">regclt = #{regclt},</if>
+            <if test="regcha != null  and regcha != ''">regcha = #{regcha},</if>
+            <if test="refcode != null  and refcode != ''">refcode = #{refcode},</if>
+            <if test="puid != null ">puid = #{puid},</if>
+            <if test="accsta != null ">accsta = #{accsta},</if>
+            <if test="lastlogintime != null ">lastlogintime = #{lastlogintime},</if>
+            <if test="lastloginip != null  and lastloginip != ''">lastloginip = #{lastloginip},</if>
+            <if test="passerr != null ">passerr = #{passerr},</if>
+            <if test="m1 != null  and m1 != ''">m1 = #{m1},</if>
+            <if test="m2 != null  and m2 != ''">m2 = #{m2},</if>
+            <if test="m3 != null  and m3 != ''">m3 = #{m3},</if>
+            <if test="mebmoney != null ">mebmoney = #{mebmoney},</if>
+            <if test="fremoney != null ">fremoney = #{fremoney},</if>
+            <if test="tpoints != null ">tpoints = #{tpoints},</if>
+            <if test="version != null ">version = #{version},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMebAccountById" parameterType="Long">
+        delete from meb_account where id = #{id}
+    </delete>
+
+    <delete id="deleteMebAccountByIds" parameterType="String">
+        delete from meb_account where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    
+</mapper>
