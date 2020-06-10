@@ -9,13 +9,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="mebid"    column="mebid"    />
         <result property="oldphone"    column="oldphone"    />
         <result property="newphone"    column="newphone"    />
-        <result property="createtime"    column="createtime"    />
-        <result property="updatetime"    column="updatetime"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateTime"    column="update_time"    />
         <result property="phonerdsta"    column="phonerdsta"    />
     </resultMap>
 
     <sql id="selectMebPhonerdVo">
-        select id, mebid, oldphone, newphone, createtime, updatetime, phonerdsta from meb_phonerd
+        select id, mebid, oldphone, newphone, create_time, update_time, phonerdsta from meb_phonerd
     </sql>
 
     <select id="selectMebPhonerdList" parameterType="MebPhonerd" resultMap="MebPhonerdResult">
@@ -24,8 +24,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="mebid != null "> and mebid = #{mebid}</if>
             <if test="oldphone != null  and oldphone != ''"> and oldphone = #{oldphone}</if>
             <if test="newphone != null  and newphone != ''"> and newphone = #{newphone}</if>
-            <if test="createtime != null "> and createtime = #{createtime}</if>
-            <if test="updatetime != null "> and updatetime = #{updatetime}</if>
             <if test="phonerdsta != null "> and phonerdsta = #{phonerdsta}</if>
         </where>
     </select>
@@ -41,16 +39,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="mebid != null ">mebid,</if>
             <if test="oldphone != null  and oldphone != ''">oldphone,</if>
             <if test="newphone != null  and newphone != ''">newphone,</if>
-            <if test="createtime != null ">createtime,</if>
-            <if test="updatetime != null ">updatetime,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="updateTime != null ">update_time,</if>
             <if test="phonerdsta != null ">phonerdsta,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="mebid != null ">#{mebid},</if>
             <if test="oldphone != null  and oldphone != ''">#{oldphone},</if>
             <if test="newphone != null  and newphone != ''">#{newphone},</if>
-            <if test="createtime != null ">#{createtime},</if>
-            <if test="updatetime != null ">#{updatetime},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
             <if test="phonerdsta != null ">#{phonerdsta},</if>
          </trim>
     </insert>
@@ -61,8 +59,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="mebid != null ">mebid = #{mebid},</if>
             <if test="oldphone != null  and oldphone != ''">oldphone = #{oldphone},</if>
             <if test="newphone != null  and newphone != ''">newphone = #{newphone},</if>
-            <if test="createtime != null ">createtime = #{createtime},</if>
-            <if test="updatetime != null ">updatetime = #{updatetime},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
             <if test="phonerdsta != null ">phonerdsta = #{phonerdsta},</if>
         </trim>
         where id = #{id}

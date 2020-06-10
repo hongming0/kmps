@@ -20,10 +20,10 @@ import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
- * 【请填写功能名称】Controller
+ * 会员打卡Controller
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Controller
 @RequestMapping("/kmps/in")
@@ -42,7 +42,7 @@ public class MebSiginInController extends BaseController
     }
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询会员打卡列表
      */
     @RequiresPermissions("kmps:in:list")
     @PostMapping("/list")
@@ -55,10 +55,10 @@ public class MebSiginInController extends BaseController
     }
 
     /**
-     * 导出【请填写功能名称】列表
+     * 导出会员打卡列表
      */
     @RequiresPermissions("kmps:in:export")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.EXPORT)
+    @Log(title = "会员打卡", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
     public AjaxResult export(MebSiginIn mebSiginIn)
@@ -69,7 +69,7 @@ public class MebSiginInController extends BaseController
     }
 
     /**
-     * 新增【请填写功能名称】
+     * 新增会员打卡
      */
     @GetMapping("/add")
     public String add()
@@ -78,10 +78,10 @@ public class MebSiginInController extends BaseController
     }
 
     /**
-     * 新增保存【请填写功能名称】
+     * 新增保存会员打卡
      */
     @RequiresPermissions("kmps:in:add")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.INSERT)
+    @Log(title = "会员打卡", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
     public AjaxResult addSave(MebSiginIn mebSiginIn)
@@ -90,7 +90,7 @@ public class MebSiginInController extends BaseController
     }
 
     /**
-     * 修改【请填写功能名称】
+     * 修改会员打卡
      */
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Long id, ModelMap mmap)
@@ -101,10 +101,10 @@ public class MebSiginInController extends BaseController
     }
 
     /**
-     * 修改保存【请填写功能名称】
+     * 修改保存会员打卡
      */
     @RequiresPermissions("kmps:in:edit")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.UPDATE)
+    @Log(title = "会员打卡", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
     public AjaxResult editSave(MebSiginIn mebSiginIn)
@@ -113,10 +113,10 @@ public class MebSiginInController extends BaseController
     }
 
     /**
-     * 删除【请填写功能名称】
+     * 删除会员打卡
      */
     @RequiresPermissions("kmps:in:remove")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.DELETE)
+    @Log(title = "会员打卡", businessType = BusinessType.DELETE)
     @PostMapping( "/remove")
     @ResponseBody
     public AjaxResult remove(String ids)

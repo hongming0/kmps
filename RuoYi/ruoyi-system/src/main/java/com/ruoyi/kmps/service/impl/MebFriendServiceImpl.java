@@ -1,6 +1,7 @@
 package com.ruoyi.kmps.service.impl;
 
 import java.util.List;
+import com.ruoyi.common.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.kmps.mapper.MebFriendMapper;
@@ -12,7 +13,7 @@ import com.ruoyi.common.core.text.Convert;
  * 会员推荐Service业务层处理
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Service
 public class MebFriendServiceImpl implements IMebFriendService 
@@ -53,6 +54,7 @@ public class MebFriendServiceImpl implements IMebFriendService
     @Override
     public int insertMebFriend(MebFriend mebFriend)
     {
+        mebFriend.setCreateTime(DateUtils.getNowDate());
         return mebFriendMapper.insertMebFriend(mebFriend);
     }
 

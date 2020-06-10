@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="id"    column="id"    />
         <result property="mebid"    column="mebid"    />
         <result property="loginip"    column="loginip"    />
-        <result property="logintime"    column="logintime"    />
+        <result property="loginTime"    column="login_time"    />
         <result property="district"    column="district"    />
         <result property="client"    column="client"    />
         <result property="browser"    column="browser"    />
@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectMebLoginlogVo">
-        select id, mebid, loginip, logintime, district, client, browser, errnum, logsta, logintype from meb_loginlog
+        select id, mebid, loginip, login_time, district, client, browser, errnum, logsta, logintype from meb_loginlog
     </sql>
 
     <select id="selectMebLoginlogList" parameterType="MebLoginlog" resultMap="MebLoginlogResult">
@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <where>  
             <if test="mebid != null "> and mebid = #{mebid}</if>
             <if test="loginip != null  and loginip != ''"> and loginip = #{loginip}</if>
-            <if test="logintime != null "> and logintime = #{logintime}</if>
+            <if test="loginTime != null "> and login_time = #{loginTime}</if>
             <if test="district != null  and district != ''"> and district = #{district}</if>
             <if test="client != null "> and client = #{client}</if>
             <if test="browser != null  and browser != ''"> and browser = #{browser}</if>
@@ -46,7 +46,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="mebid != null ">mebid,</if>
             <if test="loginip != null  and loginip != ''">loginip,</if>
-            <if test="logintime != null ">logintime,</if>
+            <if test="loginTime != null ">login_time,</if>
             <if test="district != null  and district != ''">district,</if>
             <if test="client != null ">client,</if>
             <if test="browser != null  and browser != ''">browser,</if>
@@ -57,7 +57,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="mebid != null ">#{mebid},</if>
             <if test="loginip != null  and loginip != ''">#{loginip},</if>
-            <if test="logintime != null ">#{logintime},</if>
+            <if test="loginTime != null ">#{loginTime},</if>
             <if test="district != null  and district != ''">#{district},</if>
             <if test="client != null ">#{client},</if>
             <if test="browser != null  and browser != ''">#{browser},</if>
@@ -72,7 +72,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="SET" suffixOverrides=",">
             <if test="mebid != null ">mebid = #{mebid},</if>
             <if test="loginip != null  and loginip != ''">loginip = #{loginip},</if>
-            <if test="logintime != null ">logintime = #{logintime},</if>
+            <if test="loginTime != null ">login_time = #{loginTime},</if>
             <if test="district != null  and district != ''">district = #{district},</if>
             <if test="client != null ">client = #{client},</if>
             <if test="browser != null  and browser != ''">browser = #{browser},</if>

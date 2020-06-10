@@ -11,11 +11,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="createBy"    column="create_by"    />
         <result property="createTime"    column="create_time"    />
         <result property="opinionPrice"    column="opinion_price"    />
-        <result property="desc"    column="desc"    />
+        <result property="remarks"    column="remarks"    />
     </resultMap>
 
     <sql id="selectMebOpinionSaleafteroprVo">
-        select id, opinion_id, create_id, create_by, create_time, opinion_price, desc from meb_opinion_saleafteropr
+        select id, opinion_id, create_id, create_by, create_time, opinion_price, remarks from meb_opinion_saleafteropr
     </sql>
 
     <select id="selectMebOpinionSaleafteroprList" parameterType="MebOpinionSaleafteropr" resultMap="MebOpinionSaleafteroprResult">
@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="opinionId != null "> and opinion_id = #{opinionId}</if>
             <if test="createId != null "> and create_id = #{createId}</if>
             <if test="opinionPrice != null "> and opinion_price = #{opinionPrice}</if>
-            <if test="desc != null  and desc != ''"> and desc = #{desc}</if>
+            <if test="remarks != null  and remarks != ''"> and remarks = #{remarks}</if>
         </where>
     </select>
     
@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="createBy != null  and createBy != ''">create_by,</if>
             <if test="createTime != null ">create_time,</if>
             <if test="opinionPrice != null ">opinion_price,</if>
-            <if test="desc != null  and desc != ''">desc,</if>
+            <if test="remarks != null  and remarks != ''">remarks,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="opinionId != null ">#{opinionId},</if>
@@ -49,7 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="createBy != null  and createBy != ''">#{createBy},</if>
             <if test="createTime != null ">#{createTime},</if>
             <if test="opinionPrice != null ">#{opinionPrice},</if>
-            <if test="desc != null  and desc != ''">#{desc},</if>
+            <if test="remarks != null  and remarks != ''">#{remarks},</if>
          </trim>
     </insert>
 
@@ -61,7 +61,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
             <if test="createTime != null ">create_time = #{createTime},</if>
             <if test="opinionPrice != null ">opinion_price = #{opinionPrice},</if>
-            <if test="desc != null  and desc != ''">desc = #{desc},</if>
+            <if test="remarks != null  and remarks != ''">remarks = #{remarks},</if>
         </trim>
         where id = #{id}
     </update>

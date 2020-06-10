@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: header('【请填写功能名称】列表')" />
+    <th:block th:include="include :: header('会员打卡列表')" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -22,9 +22,11 @@
                                 <label>IP：</label>
                                 <input type="text" name="loginip"/>
                             </li>
-                            <li>
+                            <li class="select-time">
                                 <label>时间：</label>
-                                <input type="text" name="logintime"/>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginLoginTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endLoginTime]"/>
                             </li>
                             <li>
                                 <label>地点：</label>
@@ -94,7 +96,7 @@
                 updateUrl: prefix + "/edit/{id}",
                 removeUrl: prefix + "/remove",
                 exportUrl: prefix + "/export",
-                modalName: "【请填写功能名称】",
+                modalName: "会员打卡",
                 columns: [{
                     checkbox: true
                 },
@@ -116,7 +118,7 @@
                     title: 'IP'
                 },
                 {
-                    field: 'logintime', 
+                    field: 'loginTime', 
                     title: '时间'
                 },
                 {

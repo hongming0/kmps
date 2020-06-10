@@ -1,6 +1,7 @@
 package com.ruoyi.kmps.service.impl;
 
 import java.util.List;
+import com.ruoyi.common.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.kmps.mapper.MebPhonerdMapper;
@@ -12,7 +13,7 @@ import com.ruoyi.common.core.text.Convert;
  * 手机号变更记录Service业务层处理
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Service
 public class MebPhonerdServiceImpl implements IMebPhonerdService 
@@ -53,6 +54,7 @@ public class MebPhonerdServiceImpl implements IMebPhonerdService
     @Override
     public int insertMebPhonerd(MebPhonerd mebPhonerd)
     {
+        mebPhonerd.setCreateTime(DateUtils.getNowDate());
         return mebPhonerdMapper.insertMebPhonerd(mebPhonerd);
     }
 
@@ -65,6 +67,7 @@ public class MebPhonerdServiceImpl implements IMebPhonerdService
     @Override
     public int updateMebPhonerd(MebPhonerd mebPhonerd)
     {
+        mebPhonerd.setUpdateTime(DateUtils.getNowDate());
         return mebPhonerdMapper.updateMebPhonerd(mebPhonerd);
     }
 

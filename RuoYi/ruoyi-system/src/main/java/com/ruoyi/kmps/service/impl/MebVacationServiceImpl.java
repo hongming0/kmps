@@ -9,10 +9,10 @@ import com.ruoyi.kmps.service.IMebVacationService;
 import com.ruoyi.common.core.text.Convert;
 
 /**
- * 【请填写功能名称】Service业务层处理
+ * 会员休假Service业务层处理
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Service
 public class MebVacationServiceImpl implements IMebVacationService 
@@ -21,10 +21,10 @@ public class MebVacationServiceImpl implements IMebVacationService
     private MebVacationMapper mebVacationMapper;
 
     /**
-     * 查询【请填写功能名称】
+     * 查询会员休假
      * 
-     * @param id 【请填写功能名称】ID
-     * @return 【请填写功能名称】
+     * @param id 会员休假ID
+     * @return 会员休假
      */
     @Override
     public MebVacation selectMebVacationById(Long id)
@@ -33,10 +33,10 @@ public class MebVacationServiceImpl implements IMebVacationService
     }
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询会员休假列表
      * 
-     * @param mebVacation 【请填写功能名称】
-     * @return 【请填写功能名称】
+     * @param mebVacation 会员休假
+     * @return 会员休假
      */
     @Override
     public List<MebVacation> selectMebVacationList(MebVacation mebVacation)
@@ -45,9 +45,9 @@ public class MebVacationServiceImpl implements IMebVacationService
     }
 
     /**
-     * 新增【请填写功能名称】
+     * 新增会员休假
      * 
-     * @param mebVacation 【请填写功能名称】
+     * @param mebVacation 会员休假
      * @return 结果
      */
     @Override
@@ -57,9 +57,9 @@ public class MebVacationServiceImpl implements IMebVacationService
     }
 
     /**
-     * 修改【请填写功能名称】
+     * 修改会员休假
      * 
-     * @param mebVacation 【请填写功能名称】
+     * @param mebVacation 会员休假
      * @return 结果
      */
     @Override
@@ -69,7 +69,7 @@ public class MebVacationServiceImpl implements IMebVacationService
     }
 
     /**
-     * 删除【请填写功能名称】对象
+     * 删除会员休假对象
      * 
      * @param ids 需要删除的数据ID
      * @return 结果
@@ -81,9 +81,9 @@ public class MebVacationServiceImpl implements IMebVacationService
     }
 
     /**
-     * 删除【请填写功能名称】信息
+     * 删除会员休假信息
      * 
-     * @param id 【请填写功能名称】ID
+     * @param id 会员休假ID
      * @return 结果
      */
     @Override

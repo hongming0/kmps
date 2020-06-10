@@ -1,6 +1,7 @@
 package com.ruoyi.kmps.service.impl;
 
 import java.util.List;
+import com.ruoyi.common.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.kmps.mapper.MebBankbindMapper;
@@ -12,7 +13,7 @@ import com.ruoyi.common.core.text.Convert;
  * 绑定银行卡记录Service业务层处理
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Service
 public class MebBankbindServiceImpl implements IMebBankbindService 
@@ -53,6 +54,7 @@ public class MebBankbindServiceImpl implements IMebBankbindService
     @Override
     public int insertMebBankbind(MebBankbind mebBankbind)
     {
+        mebBankbind.setCreateTime(DateUtils.getNowDate());
         return mebBankbindMapper.insertMebBankbind(mebBankbind);
     }
 
@@ -65,6 +67,7 @@ public class MebBankbindServiceImpl implements IMebBankbindService
     @Override
     public int updateMebBankbind(MebBankbind mebBankbind)
     {
+        mebBankbind.setUpdateTime(DateUtils.getNowDate());
         return mebBankbindMapper.updateMebBankbind(mebBankbind);
     }
 

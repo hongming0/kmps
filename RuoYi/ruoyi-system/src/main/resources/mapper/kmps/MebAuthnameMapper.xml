@@ -16,14 +16,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="fj4"    column="fj4"    />
         <result property="auditopn"    column="auditopn"    />
         <result property="authsta"    column="authsta"    />
-        <result property="createby"    column="createby"    />
-        <result property="createtime"    column="createtime"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
         <result property="auditor"    column="auditor"    />
-        <result property="audittime"    column="audittime"    />
+        <result property="auditTime"    column="audit_time"    />
     </resultMap>
 
     <sql id="selectMebAuthnameVo">
-        select id, mebid, mebidty, realname, idno, fj1, fj2, fj3, fj4, auditopn, authsta, createby, createtime, auditor, audittime from meb_authname
+        select id, mebid, mebidty, realname, idno, fj1, fj2, fj3, fj4, auditopn, authsta, create_by, create_time, auditor, audit_time from meb_authname
     </sql>
 
     <select id="selectMebAuthnameList" parameterType="MebAuthname" resultMap="MebAuthnameResult">
@@ -39,10 +39,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="fj4 != null  and fj4 != ''"> and fj4 = #{fj4}</if>
             <if test="auditopn != null  and auditopn != ''"> and auditopn = #{auditopn}</if>
             <if test="authsta != null "> and authsta = #{authsta}</if>
-            <if test="createby != null "> and createby = #{createby}</if>
-            <if test="createtime != null "> and createtime = #{createtime}</if>
             <if test="auditor != null "> and auditor = #{auditor}</if>
-            <if test="audittime != null "> and audittime = #{audittime}</if>
+            <if test="auditTime != null "> and audit_time = #{auditTime}</if>
         </where>
     </select>
     
@@ -64,10 +62,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="fj4 != null  and fj4 != ''">fj4,</if>
             <if test="auditopn != null  and auditopn != ''">auditopn,</if>
             <if test="authsta != null ">authsta,</if>
-            <if test="createby != null ">createby,</if>
-            <if test="createtime != null ">createtime,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="createTime != null ">create_time,</if>
             <if test="auditor != null ">auditor,</if>
-            <if test="audittime != null ">audittime,</if>
+            <if test="auditTime != null ">audit_time,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="mebid != null ">#{mebid},</if>
@@ -80,10 +78,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="fj4 != null  and fj4 != ''">#{fj4},</if>
             <if test="auditopn != null  and auditopn != ''">#{auditopn},</if>
             <if test="authsta != null ">#{authsta},</if>
-            <if test="createby != null ">#{createby},</if>
-            <if test="createtime != null ">#{createtime},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="createTime != null ">#{createTime},</if>
             <if test="auditor != null ">#{auditor},</if>
-            <if test="audittime != null ">#{audittime},</if>
+            <if test="auditTime != null ">#{auditTime},</if>
          </trim>
     </insert>
 
@@ -100,10 +98,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="fj4 != null  and fj4 != ''">fj4 = #{fj4},</if>
             <if test="auditopn != null  and auditopn != ''">auditopn = #{auditopn},</if>
             <if test="authsta != null ">authsta = #{authsta},</if>
-            <if test="createby != null ">createby = #{createby},</if>
-            <if test="createtime != null ">createtime = #{createtime},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
             <if test="auditor != null ">auditor = #{auditor},</if>
-            <if test="audittime != null ">audittime = #{audittime},</if>
+            <if test="auditTime != null ">audit_time = #{auditTime},</if>
         </trim>
         where id = #{id}
     </update>

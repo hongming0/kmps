@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="mebid"    column="mebid"    />
         <result property="name"    column="name"    />
         <result property="loginip"    column="loginip"    />
-        <result property="logintime"    column="logintime"    />
+        <result property="loginTime"    column="login_time"    />
         <result property="district"    column="district"    />
         <result property="latitude"    column="latitude"    />
         <result property="longitude"    column="longitude"    />
@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectMebSiginInVo">
-        select id, mebid, name, loginip, logintime, district, latitude, longitude, client, type, siginsta from meb_sigin_in
+        select id, mebid, name, loginip, login_time, district, latitude, longitude, client, type, siginsta from meb_sigin_in
     </sql>
 
     <select id="selectMebSiginInList" parameterType="MebSiginIn" resultMap="MebSiginInResult">
@@ -28,7 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="mebid != null "> and mebid = #{mebid}</if>
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
             <if test="loginip != null  and loginip != ''"> and loginip = #{loginip}</if>
-            <if test="logintime != null "> and logintime = #{logintime}</if>
+            <if test="loginTime != null "> and login_time = #{loginTime}</if>
             <if test="district != null  and district != ''"> and district = #{district}</if>
             <if test="latitude != null "> and latitude = #{latitude}</if>
             <if test="longitude != null "> and longitude = #{longitude}</if>
@@ -49,7 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="mebid != null ">mebid,</if>
             <if test="name != null  and name != ''">name,</if>
             <if test="loginip != null  and loginip != ''">loginip,</if>
-            <if test="logintime != null ">logintime,</if>
+            <if test="loginTime != null ">login_time,</if>
             <if test="district != null  and district != ''">district,</if>
             <if test="latitude != null ">latitude,</if>
             <if test="longitude != null ">longitude,</if>
@@ -61,7 +61,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="mebid != null ">#{mebid},</if>
             <if test="name != null  and name != ''">#{name},</if>
             <if test="loginip != null  and loginip != ''">#{loginip},</if>
-            <if test="logintime != null ">#{logintime},</if>
+            <if test="loginTime != null ">#{loginTime},</if>
             <if test="district != null  and district != ''">#{district},</if>
             <if test="latitude != null ">#{latitude},</if>
             <if test="longitude != null ">#{longitude},</if>
@@ -77,7 +77,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="mebid != null ">mebid = #{mebid},</if>
             <if test="name != null  and name != ''">name = #{name},</if>
             <if test="loginip != null  and loginip != ''">loginip = #{loginip},</if>
-            <if test="logintime != null ">logintime = #{logintime},</if>
+            <if test="loginTime != null ">login_time = #{loginTime},</if>
             <if test="district != null  and district != ''">district = #{district},</if>
             <if test="latitude != null ">latitude = #{latitude},</if>
             <if test="longitude != null ">longitude = #{longitude},</if>

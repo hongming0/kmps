@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 省市数据对象 set_datacity
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class SetDatacity extends BaseEntity
 {

@@ -8,15 +8,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="id"    column="id"    />
         <result property="mebid"    column="mebid"    />
         <result property="name"    column="name"    />
-        <result property="starttime"    column="starttime"    />
-        <result property="endtime"    column="endtime"    />
+        <result property="startTime"    column="start_time"    />
+        <result property="endTime"    column="end_time"    />
         <result property="type"    column="type"    />
         <result property="reversta"    column="reversta"    />
         <result property="reason"    column="reason"    />
     </resultMap>
 
     <sql id="selectMebVacationVo">
-        select id, mebid, name, starttime, endtime, type, reversta, reason from meb_vacation
+        select id, mebid, name, start_time, end_time, type, reversta, reason from meb_vacation
     </sql>
 
     <select id="selectMebVacationList" parameterType="MebVacation" resultMap="MebVacationResult">
@@ -24,8 +24,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <where>  
             <if test="mebid != null "> and mebid = #{mebid}</if>
             <if test="name != null  and name != ''"> and name like concat('%', #{name}, '%')</if>
-            <if test="starttime != null "> and starttime = #{starttime}</if>
-            <if test="endtime != null "> and endtime = #{endtime}</if>
+            <if test="startTime != null "> and start_time = #{startTime}</if>
+            <if test="endTime != null "> and end_time = #{endTime}</if>
             <if test="type != null "> and type = #{type}</if>
             <if test="reversta != null "> and reversta = #{reversta}</if>
             <if test="reason != null  and reason != ''"> and reason = #{reason}</if>
@@ -42,8 +42,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="mebid != null ">mebid,</if>
             <if test="name != null  and name != ''">name,</if>
-            <if test="starttime != null ">starttime,</if>
-            <if test="endtime != null ">endtime,</if>
+            <if test="startTime != null ">start_time,</if>
+            <if test="endTime != null ">end_time,</if>
             <if test="type != null ">type,</if>
             <if test="reversta != null ">reversta,</if>
             <if test="reason != null  and reason != ''">reason,</if>
@@ -51,8 +51,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="mebid != null ">#{mebid},</if>
             <if test="name != null  and name != ''">#{name},</if>
-            <if test="starttime != null ">#{starttime},</if>
-            <if test="endtime != null ">#{endtime},</if>
+            <if test="startTime != null ">#{startTime},</if>
+            <if test="endTime != null ">#{endTime},</if>
             <if test="type != null ">#{type},</if>
             <if test="reversta != null ">#{reversta},</if>
             <if test="reason != null  and reason != ''">#{reason},</if>
@@ -64,8 +64,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="SET" suffixOverrides=",">
             <if test="mebid != null ">mebid = #{mebid},</if>
             <if test="name != null  and name != ''">name = #{name},</if>
-            <if test="starttime != null ">starttime = #{starttime},</if>
-            <if test="endtime != null ">endtime = #{endtime},</if>
+            <if test="startTime != null ">start_time = #{startTime},</if>
+            <if test="endTime != null ">end_time = #{endTime},</if>
             <if test="type != null ">type = #{type},</if>
             <if test="reversta != null ">reversta = #{reversta},</if>
             <if test="reason != null  and reason != ''">reason = #{reason},</if>

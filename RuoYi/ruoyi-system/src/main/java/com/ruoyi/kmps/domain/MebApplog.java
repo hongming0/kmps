@@ -1,5 +1,6 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -9,7 +10,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * app机器关联记录对象 meb_applog
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class MebApplog extends BaseEntity
 {
@@ -31,8 +32,8 @@ public class MebApplog extends BaseEntity
     private String appversion;
 
     /** 登录时间 */
-    @Excel(name = "登录时间")
-    private Long logintime;
+    @Excel(name = "登录时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date loginTime;
 
     /** 登录成功时的token */
     @Excel(name = "登录成功时的token")
@@ -45,8 +46,6 @@ public class MebApplog extends BaseEntity
     /** 状态 */
     @Excel(name = "状态")
     private Integer logsta;
-
-    private Long createtime;
 
     public void setId(Long id) 
     {
@@ -84,14 +83,14 @@ public class MebApplog extends BaseEntity
     {
         return appversion;
     }
-    public void setLogintime(Long logintime) 
+    public void setLoginTime(Date loginTime) 
     {
-        this.logintime = logintime;
+        this.loginTime = loginTime;
     }
 
-    public Long getLogintime() 
+    public Date getLoginTime() 
     {
-        return logintime;
+        return loginTime;
     }
     public void setToken(String token) 
     {
@@ -121,14 +120,6 @@ public class MebApplog extends BaseEntity
         return logsta;
     }
 
-
-    public void setCreatetime(Long createtime) {
-        this.createtime = createtime;
-    }
-
-    public Long getCreatetime() {
-        return createtime;
-    }
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
@@ -136,8 +127,8 @@ public class MebApplog extends BaseEntity
             .append("channelid", getChannelid())
             .append("client", getClient())
             .append("appversion", getAppversion())
-            .append("createtime", getCreatetime())
-            .append("logintime", getLogintime())
+            .append("createTime", getCreateTime())
+            .append("loginTime", getLoginTime())
             .append("token", getToken())
             .append("mebid", getMebid())
             .append("logsta", getLogsta())

@@ -1,15 +1,16 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
- * 【请填写功能名称】对象 ord_pay
+ * 订单支付记录对象 ord_pay
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class OrdPay extends BaseEntity
 {
@@ -63,12 +64,12 @@ public class OrdPay extends BaseEntity
     private Integer paySta;
 
     /** 完成支付时间 */
-    @Excel(name = "完成支付时间")
-    private Long finishTime;
+    @Excel(name = "完成支付时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date finishTime;
 
     /** 支付关闭时间 */
-    @Excel(name = "支付关闭时间")
-    private Long closeTime;
+    @Excel(name = "支付关闭时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date closeTime;
 
     /** 关闭操作人 */
     @Excel(name = "关闭操作人")
@@ -182,21 +183,21 @@ public class OrdPay extends BaseEntity
     {
         return paySta;
     }
-    public void setFinishTime(Long finishTime) 
+    public void setFinishTime(Date finishTime) 
     {
         this.finishTime = finishTime;
     }
 
-    public Long getFinishTime() 
+    public Date getFinishTime() 
     {
         return finishTime;
     }
-    public void setCloseTime(Long closeTime) 
+    public void setCloseTime(Date closeTime) 
     {
         this.closeTime = closeTime;
     }
 
-    public Long getCloseTime() 
+    public Date getCloseTime() 
     {
         return closeTime;
     }

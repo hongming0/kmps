@@ -11,7 +11,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="actamt"    column="actamt"    />
         <result property="nowamt"    column="nowamt"    />
         <result property="type"    column="type"    />
-        <result property="createtime"    column="createtime"    />
+        <result property="createTime"    column="create_time"    />
         <result property="userid"    column="userid"    />
         <result property="memo"    column="memo"    />
         <result property="m1"    column="m1"    />
@@ -20,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectMebFinancelrdVo">
-        select id, mebid, sl, actamt, nowamt, type, createtime, userid, memo, m1, m2, m3 from meb_financelrd
+        select id, mebid, sl, actamt, nowamt, type, create_time, userid, memo, m1, m2, m3 from meb_financelrd
     </sql>
 
     <select id="selectMebFinancelrdList" parameterType="MebFinancelrd" resultMap="MebFinancelrdResult">
@@ -31,7 +31,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="actamt != null "> and actamt = #{actamt}</if>
             <if test="nowamt != null "> and nowamt = #{nowamt}</if>
             <if test="type != null "> and type = #{type}</if>
-            <if test="createtime != null "> and createtime = #{createtime}</if>
             <if test="userid != null "> and userid = #{userid}</if>
             <if test="memo != null  and memo != ''"> and memo = #{memo}</if>
             <if test="m1 != null  and m1 != ''"> and m1 = #{m1}</if>
@@ -53,7 +52,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="actamt != null ">actamt,</if>
             <if test="nowamt != null ">nowamt,</if>
             <if test="type != null ">type,</if>
-            <if test="createtime != null ">createtime,</if>
+            <if test="createTime != null ">create_time,</if>
             <if test="userid != null ">userid,</if>
             <if test="memo != null  and memo != ''">memo,</if>
             <if test="m1 != null  and m1 != ''">m1,</if>
@@ -66,7 +65,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="actamt != null ">#{actamt},</if>
             <if test="nowamt != null ">#{nowamt},</if>
             <if test="type != null ">#{type},</if>
-            <if test="createtime != null ">#{createtime},</if>
+            <if test="createTime != null ">#{createTime},</if>
             <if test="userid != null ">#{userid},</if>
             <if test="memo != null  and memo != ''">#{memo},</if>
             <if test="m1 != null  and m1 != ''">#{m1},</if>
@@ -83,7 +82,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="actamt != null ">actamt = #{actamt},</if>
             <if test="nowamt != null ">nowamt = #{nowamt},</if>
             <if test="type != null ">type = #{type},</if>
-            <if test="createtime != null ">createtime = #{createtime},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
             <if test="userid != null ">userid = #{userid},</if>
             <if test="memo != null  and memo != ''">memo = #{memo},</if>
             <if test="m1 != null  and m1 != ''">m1 = #{m1},</if>

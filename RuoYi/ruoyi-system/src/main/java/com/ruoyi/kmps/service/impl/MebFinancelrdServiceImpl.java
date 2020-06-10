@@ -1,6 +1,7 @@
 package com.ruoyi.kmps.service.impl;
 
 import java.util.List;
+import com.ruoyi.common.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.kmps.mapper.MebFinancelrdMapper;
@@ -12,7 +13,7 @@ import com.ruoyi.common.core.text.Convert;
  * 资金明细Service业务层处理
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Service
 public class MebFinancelrdServiceImpl implements IMebFinancelrdService 
@@ -53,6 +54,7 @@ public class MebFinancelrdServiceImpl implements IMebFinancelrdService
     @Override
     public int insertMebFinancelrd(MebFinancelrd mebFinancelrd)
     {
+        mebFinancelrd.setCreateTime(DateUtils.getNowDate());
         return mebFinancelrdMapper.insertMebFinancelrd(mebFinancelrd);
     }
 

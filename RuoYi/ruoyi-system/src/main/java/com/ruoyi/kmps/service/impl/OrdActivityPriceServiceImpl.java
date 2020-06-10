@@ -9,10 +9,10 @@ import com.ruoyi.kmps.service.IOrdActivityPriceService;
 import com.ruoyi.common.core.text.Convert;
 
 /**
- * 【请填写功能名称】Service业务层处理
+ * 楼宇价格Service业务层处理
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Service
 public class OrdActivityPriceServiceImpl implements IOrdActivityPriceService 
@@ -21,10 +21,10 @@ public class OrdActivityPriceServiceImpl implements IOrdActivityPriceService
     private OrdActivityPriceMapper ordActivityPriceMapper;
 
     /**
-     * 查询【请填写功能名称】
+     * 查询楼宇价格
      * 
-     * @param id 【请填写功能名称】ID
-     * @return 【请填写功能名称】
+     * @param id 楼宇价格ID
+     * @return 楼宇价格
      */
     @Override
     public OrdActivityPrice selectOrdActivityPriceById(Long id)
@@ -33,10 +33,10 @@ public class OrdActivityPriceServiceImpl implements IOrdActivityPriceService
     }
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询楼宇价格列表
      * 
-     * @param ordActivityPrice 【请填写功能名称】
-     * @return 【请填写功能名称】
+     * @param ordActivityPrice 楼宇价格
+     * @return 楼宇价格
      */
     @Override
     public List<OrdActivityPrice> selectOrdActivityPriceList(OrdActivityPrice ordActivityPrice)
@@ -45,9 +45,9 @@ public class OrdActivityPriceServiceImpl implements IOrdActivityPriceService
     }
 
     /**
-     * 新增【请填写功能名称】
+     * 新增楼宇价格
      * 
-     * @param ordActivityPrice 【请填写功能名称】
+     * @param ordActivityPrice 楼宇价格
      * @return 结果
      */
     @Override
@@ -57,9 +57,9 @@ public class OrdActivityPriceServiceImpl implements IOrdActivityPriceService
     }
 
     /**
-     * 修改【请填写功能名称】
+     * 修改楼宇价格
      * 
-     * @param ordActivityPrice 【请填写功能名称】
+     * @param ordActivityPrice 楼宇价格
      * @return 结果
      */
     @Override
@@ -69,7 +69,7 @@ public class OrdActivityPriceServiceImpl implements IOrdActivityPriceService
     }
 
     /**
-     * 删除【请填写功能名称】对象
+     * 删除楼宇价格对象
      * 
      * @param ids 需要删除的数据ID
      * @return 结果
@@ -81,9 +81,9 @@ public class OrdActivityPriceServiceImpl implements IOrdActivityPriceService
     }
 
     /**
-     * 删除【请填写功能名称】信息
+     * 删除楼宇价格信息
      * 
-     * @param id 【请填写功能名称】ID
+     * @param id 楼宇价格ID
      * @return 结果
      */
     @Override

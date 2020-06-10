@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 第三方账号对象 meb_accthird
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class MebAccthird extends BaseEntity
 {
@@ -57,16 +57,6 @@ public class MebAccthird extends BaseEntity
     /** 绑定状态 */
     @Excel(name = "绑定状态")
     private Integer acctsta;
-
-    public Long getCreatetime() {
-        return createtime;
-    }
-
-    public void setCreatetime(Long createtime) {
-        this.createtime = createtime;
-    }
-
-    private Long createtime;
 
     public void setId(Long id) 
     {
@@ -180,7 +170,7 @@ public class MebAccthird extends BaseEntity
             .append("expiredTime", getExpiredTime())
             .append("nickname", getNickname())
             .append("avatar", getAvatar())
-            .append("createtime", getCreatetime())
+            .append("createTime", getCreateTime())
             .append("uniqueid", getUniqueid())
             .append("acctsta", getAcctsta())
             .toString();

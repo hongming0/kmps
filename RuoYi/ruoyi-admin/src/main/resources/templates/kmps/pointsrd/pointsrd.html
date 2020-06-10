@@ -15,6 +15,37 @@
                                 <input type="text" name="mebid"/>
                             </li>
                             <li>
+                                <label>发生积分：</label>
+                                <input type="text" name="points"/>
+                            </li>
+                            <li>
+                                <label>当前积分：</label>
+                                <input type="text" name="nowpoints"/>
+                            </li>
+                            <li>
+                                <label>业务类型：</label>
+                                <input type="text" name="modid"/>
+                            </li>
+                            <li>
+                                <label>关联业务记录ID：</label>
+                                <input type="text" name="cid"/>
+                            </li>
+                            <li>
+                                <label>积分类型：</label>
+                                <select name="type">
+                                    <option value="">所有</option>
+                                    <option value="-1">代码生成请选择字典属性</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>操作人：</label>
+                                <input type="text" name="userid"/>
+                            </li>
+                            <li>
+                                <label>备注：</label>
+                                <input type="text" name="memo"/>
+                            </li>
+                            <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
                                 <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
                             </li>
@@ -79,6 +110,14 @@
                 {
                     field: 'modid', 
                     title: '业务类型'
+                },
+                {
+                    field: 'cid', 
+                    title: '关联业务记录ID'
+                },
+                {
+                    field: 'type', 
+                    title: '积分类型'
                 },
                 {
                     field: 'userid', 

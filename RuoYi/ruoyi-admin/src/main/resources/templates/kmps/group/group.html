@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: header('【请填写功能名称】列表')" />
+    <th:block th:include="include :: header('分组列表')" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -38,9 +38,11 @@
                                 <label>结束楼层：</label>
                                 <input type="text" name="layerEnd"/>
                             </li>
-                            <li>
+                            <li class="select-time">
                                 <label>解除时间：</label>
-                                <input type="text" name="endTime"/>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginEndTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endEndTime]"/>
                             </li>
                             <li>
                                 <label>状态：</label>
@@ -87,7 +89,7 @@
                 updateUrl: prefix + "/edit/{id}",
                 removeUrl: prefix + "/remove",
                 exportUrl: prefix + "/export",
-                modalName: "【请填写功能名称】",
+                modalName: "分组",
                 columns: [{
                     checkbox: true
                 },

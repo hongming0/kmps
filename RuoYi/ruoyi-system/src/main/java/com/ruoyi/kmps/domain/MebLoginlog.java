@@ -1,5 +1,6 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -9,7 +10,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 会员登录日志对象 meb_loginlog
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class MebLoginlog extends BaseEntity
 {
@@ -27,8 +28,8 @@ public class MebLoginlog extends BaseEntity
     private String loginip;
 
     /** 登录时间 */
-    @Excel(name = "登录时间")
-    private Long logintime;
+    @Excel(name = "登录时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date loginTime;
 
     /** 地点 */
     @Excel(name = "地点")
@@ -81,14 +82,14 @@ public class MebLoginlog extends BaseEntity
     {
         return loginip;
     }
-    public void setLogintime(Long logintime) 
+    public void setLoginTime(Date loginTime) 
     {
-        this.logintime = logintime;
+        this.loginTime = loginTime;
     }
 
-    public Long getLogintime() 
+    public Date getLoginTime() 
     {
-        return logintime;
+        return loginTime;
     }
     public void setDistrict(String district) 
     {
@@ -151,7 +152,7 @@ public class MebLoginlog extends BaseEntity
             .append("id", getId())
             .append("mebid", getMebid())
             .append("loginip", getLoginip())
-            .append("logintime", getLogintime())
+            .append("loginTime", getLoginTime())
             .append("district", getDistrict())
             .append("client", getClient())
             .append("browser", getBrowser())

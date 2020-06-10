@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <th:block th:include="include :: header('修改【请填写功能名称】')" />
+    <th:block th:include="include :: header('修改订单')" />
+    <th:block th:include="include :: datetimepicker-css" />
 </head>
 <body class="white-bg">
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
@@ -64,25 +65,37 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">分拣时间：</label>
                 <div class="col-sm-8">
-                    <input name="sorTime" th:field="*{sorTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="sorTime" th:value="${#dates.format(ordOrder.sorTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">取货时间：</label>
                 <div class="col-sm-8">
-                    <input name="pickupTime" th:field="*{pickupTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="pickupTime" th:value="${#dates.format(ordOrder.pickupTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">送达时间：</label>
                 <div class="col-sm-8">
-                    <input name="finshTime" th:field="*{finshTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="finshTime" th:value="${#dates.format(ordOrder.finshTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">取消时间：</label>
                 <div class="col-sm-8">
-                    <input name="closeTime" th:field="*{closeTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="closeTime" th:value="${#dates.format(ordOrder.closeTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
@@ -94,19 +107,28 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">下单时间：</label>
                 <div class="col-sm-8">
-                    <input name="orderTime" th:field="*{orderTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="orderTime" th:value="${#dates.format(ordOrder.orderTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">支付时间：</label>
                 <div class="col-sm-8">
-                    <input name="payTime" th:field="*{payTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="payTime" th:value="${#dates.format(ordOrder.payTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">预计自动关闭时间：</label>
                 <div class="col-sm-8">
-                    <input name="autocloseTime" th:field="*{autocloseTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="autocloseTime" th:value="${#dates.format(ordOrder.autocloseTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
@@ -154,7 +176,10 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">顾客期望送达时间：</label>
                 <div class="col-sm-8">
-                    <input name="expectTime" th:field="*{expectTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="expectTime" th:value="${#dates.format(ordOrder.expectTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
@@ -178,6 +203,7 @@
         </form>
     </div>
     <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
     <script type="text/javascript">
         var prefix = ctx + "kmps/order";
         $("#form-order-edit").validate({
@@ -189,6 +215,54 @@
                 $.operate.save(prefix + "/edit", $('#form-order-edit').serialize());
             }
         }
+
+        $("input[name='sorTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='pickupTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='finshTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='closeTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='orderTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='payTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='autocloseTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='expectTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
     </script>
 </body>
 </html>

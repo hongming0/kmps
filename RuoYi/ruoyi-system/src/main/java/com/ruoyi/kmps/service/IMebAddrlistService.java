@@ -7,7 +7,7 @@ import com.ruoyi.kmps.domain.MebAddrlist;
  * 会员地址列Service接口
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public interface IMebAddrlistService 
 {

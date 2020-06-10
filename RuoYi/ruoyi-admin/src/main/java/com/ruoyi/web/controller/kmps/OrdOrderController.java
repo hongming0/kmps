@@ -20,10 +20,10 @@ import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
- * 【请填写功能名称】Controller
+ * 订单Controller
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Controller
 @RequestMapping("/kmps/order")
@@ -42,7 +42,7 @@ public class OrdOrderController extends BaseController
     }
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询订单列表
      */
     @RequiresPermissions("kmps:order:list")
     @PostMapping("/list")
@@ -55,10 +55,10 @@ public class OrdOrderController extends BaseController
     }
 
     /**
-     * 导出【请填写功能名称】列表
+     * 导出订单列表
      */
     @RequiresPermissions("kmps:order:export")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.EXPORT)
+    @Log(title = "订单", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
     public AjaxResult export(OrdOrder ordOrder)
@@ -69,7 +69,7 @@ public class OrdOrderController extends BaseController
     }
 
     /**
-     * 新增【请填写功能名称】
+     * 新增订单
      */
     @GetMapping("/add")
     public String add()
@@ -78,10 +78,10 @@ public class OrdOrderController extends BaseController
     }
 
     /**
-     * 新增保存【请填写功能名称】
+     * 新增保存订单
      */
     @RequiresPermissions("kmps:order:add")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.INSERT)
+    @Log(title = "订单", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
     public AjaxResult addSave(OrdOrder ordOrder)
@@ -90,7 +90,7 @@ public class OrdOrderController extends BaseController
     }
 
     /**
-     * 修改【请填写功能名称】
+     * 修改订单
      */
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Long id, ModelMap mmap)
@@ -101,10 +101,10 @@ public class OrdOrderController extends BaseController
     }
 
     /**
-     * 修改保存【请填写功能名称】
+     * 修改保存订单
      */
     @RequiresPermissions("kmps:order:edit")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.UPDATE)
+    @Log(title = "订单", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
     public AjaxResult editSave(OrdOrder ordOrder)
@@ -113,10 +113,10 @@ public class OrdOrderController extends BaseController
     }
 
     /**
-     * 删除【请填写功能名称】
+     * 删除订单
      */
     @RequiresPermissions("kmps:order:remove")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.DELETE)
+    @Log(title = "订单", businessType = BusinessType.DELETE)
     @PostMapping( "/remove")
     @ResponseBody
     public AjaxResult remove(String ids)

@@ -1,5 +1,6 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -9,7 +10,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 会员详细信息对象 meb_info
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class MebInfo extends BaseEntity
 {
@@ -47,8 +48,8 @@ public class MebInfo extends BaseEntity
     private Integer isauthper;
 
     /** 实名认证时间 */
-    @Excel(name = "实名认证时间")
-    private Long authpertime;
+    @Excel(name = "实名认证时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date authperTime;
 
     /** 真实姓名 */
     @Excel(name = "真实姓名")
@@ -138,14 +139,14 @@ public class MebInfo extends BaseEntity
     {
         return isauthper;
     }
-    public void setAuthpertime(Long authpertime) 
+    public void setAuthperTime(Date authperTime) 
     {
-        this.authpertime = authpertime;
+        this.authperTime = authperTime;
     }
 
-    public Long getAuthpertime() 
+    public Date getAuthperTime() 
     {
-        return authpertime;
+        return authperTime;
     }
     public void setPername(String pername) 
     {
@@ -195,7 +196,7 @@ public class MebInfo extends BaseEntity
             .append("sex", getSex())
             .append("birthday", getBirthday())
             .append("isauthper", getIsauthper())
-            .append("authpertime", getAuthpertime())
+            .append("authperTime", getAuthperTime())
             .append("pername", getPername())
             .append("level", getLevel())
             .append("remark", getRemark())

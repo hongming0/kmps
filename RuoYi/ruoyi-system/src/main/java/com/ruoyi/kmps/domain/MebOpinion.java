@@ -1,5 +1,6 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -9,7 +10,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 投诉对象 meb_opinion
  * 
  * @author ruoyi
- * @date 2020-06-08
+ * @date 2020-06-10
  */
 public class MebOpinion extends BaseEntity
 {
@@ -24,7 +25,7 @@ public class MebOpinion extends BaseEntity
 
     /** 描述 */
     @Excel(name = "描述")
-    private String desc;
+    private String remarks;
 
     /** 投诉人id */
     @Excel(name = "投诉人id")
@@ -43,12 +44,12 @@ public class MebOpinion extends BaseEntity
     private Long addrId;
 
     /** 提交时间 */
-    @Excel(name = "提交时间")
-    private Long submitTime;
+    @Excel(name = "提交时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date submitTime;
 
     /** 处理时间 */
-    @Excel(name = "处理时间")
-    private Long handleTime;
+    @Excel(name = "处理时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date handleTime;
 
     /** 附件一 */
     @Excel(name = "附件一")
@@ -65,10 +66,6 @@ public class MebOpinion extends BaseEntity
     /** 附件四 */
     @Excel(name = "附件四")
     private String fj4;
-
-    /** 处理人 */
-    @Excel(name = "处理人")
-    private Long userId;
 
     /** 状态 */
     @Excel(name = "状态")
@@ -92,14 +89,14 @@ public class MebOpinion extends BaseEntity
     {
         return type;
     }
-    public void setDesc(String desc) 
+    public void setRemarks(String remarks) 
     {
-        this.desc = desc;
+        this.remarks = remarks;
     }
 
-    public String getDesc() 
+    public String getRemarks() 
     {
-        return desc;
+        return remarks;
     }
     public void setMebId(Long mebId) 
     {
@@ -137,21 +134,21 @@ public class MebOpinion extends BaseEntity
     {
         return addrId;
     }
-    public void setSubmitTime(Long submitTime) 
+    public void setSubmitTime(Date submitTime) 
     {
         this.submitTime = submitTime;
     }
 
-    public Long getSubmitTime() 
+    public Date getSubmitTime() 
     {
         return submitTime;
     }
-    public void setHandleTime(Long handleTime) 
+    public void setHandleTime(Date handleTime) 
     {
         this.handleTime = handleTime;
     }
 
-    public Long getHandleTime() 
+    public Date getHandleTime() 
     {
         return handleTime;
     }
@@ -191,15 +188,6 @@ public class MebOpinion extends BaseEntity
     {
         return fj4;
     }
-    public void setUserId(Long userId) 
-    {
-        this.userId = userId;
-    }
-
-    public Long getUserId() 
-    {
-        return userId;
-    }
     public void setOpinionsta(Integer opinionsta) 
     {
         this.opinionsta = opinionsta;
@@ -215,7 +203,7 @@ public class MebOpinion extends BaseEntity
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
             .append("id", getId())
             .append("type", getType())
-            .append("desc", getDesc())
+            .append("remarks", getRemarks())
             .append("mebId", getMebId())
             .append("orderSl", getOrderSl())
             .append("orderNum", getOrderNum())
@@ -226,7 +214,7 @@ public class MebOpinion extends BaseEntity
             .append("fj2", getFj2())
             .append("fj3", getFj3())
             .append("fj4", getFj4())
-            .append("userId", getUserId())
+            .append("createBy", getCreateBy())
             .append("opinionsta", getOpinionsta())
             .toString();
     }

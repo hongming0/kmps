@@ -11,10 +11,48 @@
                     <div class="select-list">
                         <ul>
                             <li>
-                                <label>会员id：</label>
+                                <label>平台用户id：</label>
                                 <input type="text" name="mebid"/>
                             </li>
-
+                            <li>
+                                <label>序列号：</label>
+                                <input type="text" name="sl"/>
+                            </li>
+                            <li>
+                                <label>发生金额：</label>
+                                <input type="text" name="actamt"/>
+                            </li>
+                            <li>
+                                <label>当前余额：</label>
+                                <input type="text" name="nowamt"/>
+                            </li>
+                            <li>
+                                <label>金额类型：</label>
+                                <select name="type">
+                                    <option value="">所有</option>
+                                    <option value="-1">代码生成请选择字典属性</option>
+                                </select>
+                            </li>
+                            <li>
+                                <label>操作人：</label>
+                                <input type="text" name="userid"/>
+                            </li>
+                            <li>
+                                <label>备注：</label>
+                                <input type="text" name="memo"/>
+                            </li>
+                            <li>
+                                <label>预留字段一：</label>
+                                <input type="text" name="m1"/>
+                            </li>
+                            <li>
+                                <label>预留字段二：</label>
+                                <input type="text" name="m2"/>
+                            </li>
+                            <li>
+                                <label>预留字段三：</label>
+                                <input type="text" name="m3"/>
+                            </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
                                 <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
@@ -71,9 +109,7 @@
                 },
                 {
                     field: 'sl', 
-                    title: '序列号',
-                    visible: false
-
+                    title: '序列号'
                 },
                 {
                     field: 'actamt', 
@@ -88,11 +124,6 @@
                     title: '金额类型'
                 },
                 {
-                    field: 'createtime', 
-                    title: '发生时间',
-                    visible: false
-                },
-                {
                     field: 'userid', 
                     title: '操作人'
                 },
@@ -102,18 +133,15 @@
                 },
                 {
                     field: 'm1', 
-                    title: '预留字段一',
-                    visible: false
+                    title: '预留字段一'
                 },
                 {
                     field: 'm2', 
-                    title: '预留字段二',
-                    visible: false
+                    title: '预留字段二'
                 },
                 {
                     field: 'm3', 
-                    title: '预留字段三',
-                    visible: false
+                    title: '预留字段三'
                 },
                 {
                     title: '操作',

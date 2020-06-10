@@ -7,7 +7,7 @@ import com.ruoyi.kmps.domain.MebInfo;
  * 会员详细信息Mapper接口
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public interface MebInfoMapper 
 {

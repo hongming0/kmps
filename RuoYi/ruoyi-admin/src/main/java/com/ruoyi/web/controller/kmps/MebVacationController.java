@@ -20,10 +20,10 @@ import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
- * 【请填写功能名称】Controller
+ * 会员休假Controller
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Controller
 @RequestMapping("/kmps/vacation")
@@ -42,7 +42,7 @@ public class MebVacationController extends BaseController
     }
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询会员休假列表
      */
     @RequiresPermissions("kmps:vacation:list")
     @PostMapping("/list")
@@ -55,10 +55,10 @@ public class MebVacationController extends BaseController
     }
 
     /**
-     * 导出【请填写功能名称】列表
+     * 导出会员休假列表
      */
     @RequiresPermissions("kmps:vacation:export")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.EXPORT)
+    @Log(title = "会员休假", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
     public AjaxResult export(MebVacation mebVacation)
@@ -69,7 +69,7 @@ public class MebVacationController extends BaseController
     }
 
     /**
-     * 新增【请填写功能名称】
+     * 新增会员休假
      */
     @GetMapping("/add")
     public String add()
@@ -78,10 +78,10 @@ public class MebVacationController extends BaseController
     }
 
     /**
-     * 新增保存【请填写功能名称】
+     * 新增保存会员休假
      */
     @RequiresPermissions("kmps:vacation:add")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.INSERT)
+    @Log(title = "会员休假", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
     public AjaxResult addSave(MebVacation mebVacation)
@@ -90,7 +90,7 @@ public class MebVacationController extends BaseController
     }
 
     /**
-     * 修改【请填写功能名称】
+     * 修改会员休假
      */
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Long id, ModelMap mmap)
@@ -101,10 +101,10 @@ public class MebVacationController extends BaseController
     }
 
     /**
-     * 修改保存【请填写功能名称】
+     * 修改保存会员休假
      */
     @RequiresPermissions("kmps:vacation:edit")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.UPDATE)
+    @Log(title = "会员休假", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
     public AjaxResult editSave(MebVacation mebVacation)
@@ -113,10 +113,10 @@ public class MebVacationController extends BaseController
     }
 
     /**
-     * 删除【请填写功能名称】
+     * 删除会员休假
      */
     @RequiresPermissions("kmps:vacation:remove")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.DELETE)
+    @Log(title = "会员休假", businessType = BusinessType.DELETE)
     @PostMapping( "/remove")
     @ResponseBody
     public AjaxResult remove(String ids)

@@ -7,7 +7,7 @@ import com.ruoyi.kmps.domain.MebOpinionSaleafteropr;
  * 售后单操作记录Service接口
  * 
  * @author ruoyi
- * @date 2020-06-08
+ * @date 2020-06-10
  */
 public interface IMebOpinionSaleafteroprService 
 {

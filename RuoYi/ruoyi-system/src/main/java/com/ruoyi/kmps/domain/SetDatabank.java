@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 银行信息对象 set_databank
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class SetDatabank extends BaseEntity
 {

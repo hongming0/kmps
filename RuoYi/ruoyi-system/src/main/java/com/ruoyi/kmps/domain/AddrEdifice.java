@@ -1,15 +1,16 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
- * 【请填写功能名称】对象 addr_edifice
+ * 楼宇对象 addr_edifice
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class AddrEdifice extends BaseEntity
 {
@@ -55,20 +56,20 @@ public class AddrEdifice extends BaseEntity
     private Long userId;
 
     /** 入驻时间 */
-    @Excel(name = "入驻时间")
-    private Long joinTime;
+    @Excel(name = "入驻时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date joinTime;
 
     /** 解除时间 */
-    @Excel(name = "解除时间")
-    private Long leaveTime;
+    @Excel(name = "解除时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date leaveTime;
 
     /** 营业开始时间 */
-    @Excel(name = "营业开始时间")
-    private Long startTime;
+    @Excel(name = "营业开始时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date startTime;
 
     /** 营业结束时间 */
-    @Excel(name = "营业结束时间")
-    private Long endTime;
+    @Excel(name = "营业结束时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date endTime;
 
     /** 状态 */
     @Excel(name = "状态")
@@ -164,39 +165,39 @@ public class AddrEdifice extends BaseEntity
     {
         return userId;
     }
-    public void setJoinTime(Long joinTime) 
+    public void setJoinTime(Date joinTime) 
     {
         this.joinTime = joinTime;
     }
 
-    public Long getJoinTime() 
+    public Date getJoinTime() 
     {
         return joinTime;
     }
-    public void setLeaveTime(Long leaveTime) 
+    public void setLeaveTime(Date leaveTime) 
     {
         this.leaveTime = leaveTime;
     }
 
-    public Long getLeaveTime() 
+    public Date getLeaveTime() 
     {
         return leaveTime;
     }
-    public void setStartTime(Long startTime) 
+    public void setStartTime(Date startTime) 
     {
         this.startTime = startTime;
     }
 
-    public Long getStartTime() 
+    public Date getStartTime() 
     {
         return startTime;
     }
-    public void setEndTime(Long endTime) 
+    public void setEndTime(Date endTime) 
     {
         this.endTime = endTime;
     }
 
-    public Long getEndTime() 
+    public Date getEndTime() 
     {
         return endTime;
     }

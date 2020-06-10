@@ -1,15 +1,16 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
- * 【请填写功能名称】对象 meb_vacation
+ * 会员休假对象 meb_vacation
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class MebVacation extends BaseEntity
 {
@@ -27,12 +28,12 @@ public class MebVacation extends BaseEntity
     private String name;
 
     /** 开始时间 */
-    @Excel(name = "开始时间")
-    private Long starttime;
+    @Excel(name = "开始时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date startTime;
 
     /** 结束时间 */
-    @Excel(name = "结束时间")
-    private Long endtime;
+    @Excel(name = "结束时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date endTime;
 
     /** 类型 */
     @Excel(name = "类型")
@@ -73,23 +74,23 @@ public class MebVacation extends BaseEntity
     {
         return name;
     }
-    public void setStarttime(Long starttime) 
+    public void setStartTime(Date startTime) 
     {
-        this.starttime = starttime;
+        this.startTime = startTime;
     }
 
-    public Long getStarttime() 
+    public Date getStartTime() 
     {
-        return starttime;
+        return startTime;
     }
-    public void setEndtime(Long endtime) 
+    public void setEndTime(Date endTime) 
     {
-        this.endtime = endtime;
+        this.endTime = endTime;
     }
 
-    public Long getEndtime() 
+    public Date getEndTime() 
     {
-        return endtime;
+        return endTime;
     }
     public void setType(Integer type) 
     {
@@ -125,8 +126,8 @@ public class MebVacation extends BaseEntity
             .append("id", getId())
             .append("mebid", getMebid())
             .append("name", getName())
-            .append("starttime", getStarttime())
-            .append("endtime", getEndtime())
+            .append("startTime", getStartTime())
+            .append("endTime", getEndTime())
             .append("type", getType())
             .append("reversta", getReversta())
             .append("reason", getReason())

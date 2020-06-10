@@ -9,10 +9,10 @@ import com.ruoyi.kmps.service.IAddrEdificeService;
 import com.ruoyi.common.core.text.Convert;
 
 /**
- * 【请填写功能名称】Service业务层处理
+ * 楼宇Service业务层处理
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Service
 public class AddrEdificeServiceImpl implements IAddrEdificeService 
@@ -21,10 +21,10 @@ public class AddrEdificeServiceImpl implements IAddrEdificeService
     private AddrEdificeMapper addrEdificeMapper;
 
     /**
-     * 查询【请填写功能名称】
+     * 查询楼宇
      * 
-     * @param id 【请填写功能名称】ID
-     * @return 【请填写功能名称】
+     * @param id 楼宇ID
+     * @return 楼宇
      */
     @Override
     public AddrEdifice selectAddrEdificeById(Long id)
@@ -33,10 +33,10 @@ public class AddrEdificeServiceImpl implements IAddrEdificeService
     }
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询楼宇列表
      * 
-     * @param addrEdifice 【请填写功能名称】
-     * @return 【请填写功能名称】
+     * @param addrEdifice 楼宇
+     * @return 楼宇
      */
     @Override
     public List<AddrEdifice> selectAddrEdificeList(AddrEdifice addrEdifice)
@@ -45,9 +45,9 @@ public class AddrEdificeServiceImpl implements IAddrEdificeService
     }
 
     /**
-     * 新增【请填写功能名称】
+     * 新增楼宇
      * 
-     * @param addrEdifice 【请填写功能名称】
+     * @param addrEdifice 楼宇
      * @return 结果
      */
     @Override
@@ -57,9 +57,9 @@ public class AddrEdificeServiceImpl implements IAddrEdificeService
     }
 
     /**
-     * 修改【请填写功能名称】
+     * 修改楼宇
      * 
-     * @param addrEdifice 【请填写功能名称】
+     * @param addrEdifice 楼宇
      * @return 结果
      */
     @Override
@@ -69,7 +69,7 @@ public class AddrEdificeServiceImpl implements IAddrEdificeService
     }
 
     /**
-     * 删除【请填写功能名称】对象
+     * 删除楼宇对象
      * 
      * @param ids 需要删除的数据ID
      * @return 结果
@@ -81,9 +81,9 @@ public class AddrEdificeServiceImpl implements IAddrEdificeService
     }
 
     /**
-     * 删除【请填写功能名称】信息
+     * 删除楼宇信息
      * 
-     * @param id 【请填写功能名称】ID
+     * @param id 楼宇ID
      * @return 结果
      */
     @Override

@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 提现对象 meb_financelcash
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class MebFinancelcash extends BaseEntity
 {
@@ -77,14 +77,6 @@ public class MebFinancelcash extends BaseEntity
     /** 预留字段三 */
     @Excel(name = "预留字段三")
     private String m3;
-
-    private Long createtime;
-
-    private Long createby;
-
-    private Long updatetime;
-
-    private Long updateby;
 
     public void setId(Long id) 
     {
@@ -230,37 +222,6 @@ public class MebFinancelcash extends BaseEntity
     {
         return m3;
     }
-    public void setCreatetime(Long createtime) {
-        this.createtime = createtime;
-    }
-
-    public Long getCreatetime() {
-        return createtime;
-    }
-
-    public void setCreateby(Long createby) {
-        this.createby = createby;
-    }
-
-    public Long getCreateby() {
-        return createby;
-    }
-
-    public void setUpdatetime(Long updatetime) {
-        this.updatetime = updatetime;
-    }
-
-    public Long getUpdatetime() {
-        return updatetime;
-    }
-
-    public void setUpdateby(Long updateby) {
-        this.updateby = updateby;
-    }
-
-    public Long getUpdateby() {
-        return updateby;
-    }
 
     @Override
     public String toString() {
@@ -277,10 +238,10 @@ public class MebFinancelcash extends BaseEntity
             .append("cardno", getCardno())
             .append("cashSta", getCashSta())
             .append("cashDesc", getCashDesc())
-            .append("createtime", getCreatetime())
-            .append("createby", getCreateby())
-            .append("updatetime", getUpdatetime())
-            .append("updateby", getUpdateby())
+            .append("createTime", getCreateTime())
+            .append("createBy", getCreateBy())
+            .append("updateTime", getUpdateTime())
+            .append("updateBy", getUpdateBy())
             .append("memo", getMemo())
             .append("m1", getM1())
             .append("m2", getM2())

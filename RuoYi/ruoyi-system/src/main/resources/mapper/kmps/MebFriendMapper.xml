@@ -8,12 +8,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="id"    column="id"    />
         <result property="pid"    column="pid"    />
         <result property="bid"    column="bid"    />
-        <result property="createtime"    column="createtime"    />
+        <result property="createTime"    column="create_time"    />
         <result property="status"    column="status"    />
     </resultMap>
 
     <sql id="selectMebFriendVo">
-        select id, pid, bid, createtime, status from meb_friend
+        select id, pid, bid, create_time, status from meb_friend
     </sql>
 
     <select id="selectMebFriendList" parameterType="MebFriend" resultMap="MebFriendResult">
@@ -21,7 +21,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <where>  
             <if test="pid != null "> and pid = #{pid}</if>
             <if test="bid != null "> and bid = #{bid}</if>
-            <if test="createtime != null "> and createtime = #{createtime}</if>
             <if test="status != null "> and status = #{status}</if>
         </where>
     </select>
@@ -36,13 +35,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="pid != null ">pid,</if>
             <if test="bid != null ">bid,</if>
-            <if test="createtime != null ">createtime,</if>
+            <if test="createTime != null ">create_time,</if>
             <if test="status != null ">status,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="pid != null ">#{pid},</if>
             <if test="bid != null ">#{bid},</if>
-            <if test="createtime != null ">#{createtime},</if>
+            <if test="createTime != null ">#{createTime},</if>
             <if test="status != null ">#{status},</if>
          </trim>
     </insert>
@@ -52,7 +51,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <trim prefix="SET" suffixOverrides=",">
             <if test="pid != null ">pid = #{pid},</if>
             <if test="bid != null ">bid = #{bid},</if>
-            <if test="createtime != null ">createtime = #{createtime},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
             <if test="status != null ">status = #{status},</if>
         </trim>
         where id = #{id}

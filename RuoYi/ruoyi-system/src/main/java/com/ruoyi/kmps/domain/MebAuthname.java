@@ -1,5 +1,6 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -9,7 +10,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 会员实名认证记录对象 meb_authname
  * 
  * @author ruoyi
- * @date 2020-06-07
+ * @date 2020-06-10
  */
 public class MebAuthname extends BaseEntity
 {
@@ -26,25 +27,6 @@ public class MebAuthname extends BaseEntity
     @Excel(name = "实名类型")
     private Integer mebidty;
 
-    public void setCreateby(Long createby) {
-        this.createby = createby;
-    }
-
-    public void setCreatetime(Long createtime) {
-        this.createtime = createtime;
-    }
-
-    private Long createby;
-
-    public Long getCreateby() {
-        return createby;
-    }
-
-    public Long getCreatetime() {
-        return createtime;
-    }
-
-    private Long createtime;
     /** 名称 */
     @Excel(name = "名称")
     private String realname;
@@ -82,8 +64,8 @@ public class MebAuthname extends BaseEntity
     private Long auditor;
 
     /** 审核时间 */
-    @Excel(name = "审核时间")
-    private Long audittime;
+    @Excel(name = "审核时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date auditTime;
 
     public void setId(Long id) 
     {
@@ -193,14 +175,14 @@ public class MebAuthname extends BaseEntity
     {
         return auditor;
     }
-    public void setAudittime(Long audittime) 
+    public void setAuditTime(Date auditTime) 
     {
-        this.audittime = audittime;
+        this.auditTime = auditTime;
     }
 
-    public Long getAudittime() 
+    public Date getAuditTime() 
     {
-        return audittime;
+        return auditTime;
     }
 
     @Override
@@ -217,10 +199,10 @@ public class MebAuthname extends BaseEntity
             .append("fj4", getFj4())
             .append("auditopn", getAuditopn())
             .append("authsta", getAuthsta())
-            .append("createby", getCreateby())
-            .append("createtime", getCreatetime())
+            .append("createBy", getCreateBy())
+            .append("createTime", getCreateTime())
             .append("auditor", getAuditor())
-            .append("audittime", getAudittime())
+            .append("auditTime", getAuditTime())
             .toString();
     }
 }

@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="sex"    column="sex"    />
         <result property="birthday"    column="birthday"    />
         <result property="isauthper"    column="isauthper"    />
-        <result property="authpertime"    column="authpertime"    />
+        <result property="authperTime"    column="authper_time"    />
         <result property="pername"    column="pername"    />
         <result property="level"    column="level"    />
         <result property="remark"    column="remark"    />
@@ -22,7 +22,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectMebInfoVo">
-        select id, mebid, mebidty, nickname, avatar, sex, birthday, isauthper, authpertime, pername, level, remark, extjson, wx_account from meb_info
+        select id, mebid, mebidty, nickname, avatar, sex, birthday, isauthper, authper_time, pername, level, remark, extjson, wx_account from meb_info
     </sql>
 
     <select id="selectMebInfoList" parameterType="MebInfo" resultMap="MebInfoResult">
@@ -35,7 +35,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sex != null  and sex != ''"> and sex = #{sex}</if>
             <if test="birthday != null  and birthday != ''"> and birthday = #{birthday}</if>
             <if test="isauthper != null "> and isauthper = #{isauthper}</if>
-            <if test="authpertime != null "> and authpertime = #{authpertime}</if>
+            <if test="authperTime != null "> and authper_time = #{authperTime}</if>
             <if test="pername != null  and pername != ''"> and pername like concat('%', #{pername}, '%')</if>
             <if test="level != null "> and level = #{level}</if>
             <if test="extjson != null  and extjson != ''"> and extjson = #{extjson}</if>
@@ -58,7 +58,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sex != null  and sex != ''">sex,</if>
             <if test="birthday != null  and birthday != ''">birthday,</if>
             <if test="isauthper != null ">isauthper,</if>
-            <if test="authpertime != null ">authpertime,</if>
+            <if test="authperTime != null ">authper_time,</if>
             <if test="pername != null  and pername != ''">pername,</if>
             <if test="level != null ">level,</if>
             <if test="remark != null  and remark != ''">remark,</if>
@@ -73,7 +73,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sex != null  and sex != ''">#{sex},</if>
             <if test="birthday != null  and birthday != ''">#{birthday},</if>
             <if test="isauthper != null ">#{isauthper},</if>
-            <if test="authpertime != null ">#{authpertime},</if>
+            <if test="authperTime != null ">#{authperTime},</if>
             <if test="pername != null  and pername != ''">#{pername},</if>
             <if test="level != null ">#{level},</if>
             <if test="remark != null  and remark != ''">#{remark},</if>
@@ -92,7 +92,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="sex != null  and sex != ''">sex = #{sex},</if>
             <if test="birthday != null  and birthday != ''">birthday = #{birthday},</if>
             <if test="isauthper != null ">isauthper = #{isauthper},</if>
-            <if test="authpertime != null ">authpertime = #{authpertime},</if>
+            <if test="authperTime != null ">authper_time = #{authperTime},</if>
             <if test="pername != null  and pername != ''">pername = #{pername},</if>
             <if test="level != null ">level = #{level},</if>
             <if test="remark != null  and remark != ''">remark = #{remark},</if>

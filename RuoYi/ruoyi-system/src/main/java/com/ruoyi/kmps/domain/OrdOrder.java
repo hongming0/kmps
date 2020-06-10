@@ -1,15 +1,16 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
- * 【请填写功能名称】对象 ord_order
+ * 订单对象 ord_order
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class OrdOrder extends BaseEntity
 {
@@ -55,36 +56,36 @@ public class OrdOrder extends BaseEntity
     private String deliveryPhone;
 
     /** 分拣时间 */
-    @Excel(name = "分拣时间")
-    private Long sorTime;
+    @Excel(name = "分拣时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date sorTime;
 
     /** 取货时间 */
-    @Excel(name = "取货时间")
-    private Long pickupTime;
+    @Excel(name = "取货时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date pickupTime;
 
     /** 送达时间 */
-    @Excel(name = "送达时间")
-    private Long finshTime;
+    @Excel(name = "送达时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date finshTime;
 
     /** 取消时间 */
-    @Excel(name = "取消时间")
-    private Long closeTime;
+    @Excel(name = "取消时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date closeTime;
 
     /** 取消原因 */
     @Excel(name = "取消原因")
     private String closeDesc;
 
     /** 下单时间 */
-    @Excel(name = "下单时间")
-    private Long orderTime;
+    @Excel(name = "下单时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date orderTime;
 
     /** 支付时间 */
-    @Excel(name = "支付时间")
-    private Long payTime;
+    @Excel(name = "支付时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date payTime;
 
     /** 预计自动关闭时间 */
-    @Excel(name = "预计自动关闭时间")
-    private Long autocloseTime;
+    @Excel(name = "预计自动关闭时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date autocloseTime;
 
     /** 支付方式 */
     @Excel(name = "支付方式")
@@ -115,8 +116,8 @@ public class OrdOrder extends BaseEntity
     private String thirdGiveAddr;
 
     /** 顾客期望送达时间 */
-    @Excel(name = "顾客期望送达时间")
-    private Long expectTime;
+    @Excel(name = "顾客期望送达时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date expectTime;
 
     /** 第三方订单截图 */
     @Excel(name = "第三方订单截图")
@@ -220,39 +221,39 @@ public class OrdOrder extends BaseEntity
     {
         return deliveryPhone;
     }
-    public void setSorTime(Long sorTime) 
+    public void setSorTime(Date sorTime) 
     {
         this.sorTime = sorTime;
     }
 
-    public Long getSorTime() 
+    public Date getSorTime() 
     {
         return sorTime;
     }
-    public void setPickupTime(Long pickupTime) 
+    public void setPickupTime(Date pickupTime) 
     {
         this.pickupTime = pickupTime;
     }
 
-    public Long getPickupTime() 
+    public Date getPickupTime() 
     {
         return pickupTime;
     }
-    public void setFinshTime(Long finshTime) 
+    public void setFinshTime(Date finshTime) 
     {
         this.finshTime = finshTime;
     }
 
-    public Long getFinshTime() 
+    public Date getFinshTime() 
     {
         return finshTime;
     }
-    public void setCloseTime(Long closeTime) 
+    public void setCloseTime(Date closeTime) 
     {
         this.closeTime = closeTime;
     }
 
-    public Long getCloseTime() 
+    public Date getCloseTime() 
     {
         return closeTime;
     }
@@ -265,30 +266,30 @@ public class OrdOrder extends BaseEntity
     {
         return closeDesc;
     }
-    public void setOrderTime(Long orderTime) 
+    public void setOrderTime(Date orderTime) 
     {
         this.orderTime = orderTime;
     }
 
-    public Long getOrderTime() 
+    public Date getOrderTime() 
     {
         return orderTime;
     }
-    public void setPayTime(Long payTime) 
+    public void setPayTime(Date payTime) 
     {
         this.payTime = payTime;
     }
 
-    public Long getPayTime() 
+    public Date getPayTime() 
     {
         return payTime;
     }
-    public void setAutocloseTime(Long autocloseTime) 
+    public void setAutocloseTime(Date autocloseTime) 
     {
         this.autocloseTime = autocloseTime;
     }
 
-    public Long getAutocloseTime() 
+    public Date getAutocloseTime() 
     {
         return autocloseTime;
     }
@@ -355,12 +356,12 @@ public class OrdOrder extends BaseEntity
     {
         return thirdGiveAddr;
     }
-    public void setExpectTime(Long expectTime) 
+    public void setExpectTime(Date expectTime) 
     {
         this.expectTime = expectTime;
     }
 
-    public Long getExpectTime() 
+    public Date getExpectTime() 
     {
         return expectTime;
     }

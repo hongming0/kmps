@@ -9,10 +9,10 @@ import com.ruoyi.kmps.service.IOrdOrderService;
 import com.ruoyi.common.core.text.Convert;
 
 /**
- * 【请填写功能名称】Service业务层处理
+ * 订单Service业务层处理
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Service
 public class OrdOrderServiceImpl implements IOrdOrderService 
@@ -21,10 +21,10 @@ public class OrdOrderServiceImpl implements IOrdOrderService
     private OrdOrderMapper ordOrderMapper;
 
     /**
-     * 查询【请填写功能名称】
+     * 查询订单
      * 
-     * @param id 【请填写功能名称】ID
-     * @return 【请填写功能名称】
+     * @param id 订单ID
+     * @return 订单
      */
     @Override
     public OrdOrder selectOrdOrderById(Long id)
@@ -33,10 +33,10 @@ public class OrdOrderServiceImpl implements IOrdOrderService
     }
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询订单列表
      * 
-     * @param ordOrder 【请填写功能名称】
-     * @return 【请填写功能名称】
+     * @param ordOrder 订单
+     * @return 订单
      */
     @Override
     public List<OrdOrder> selectOrdOrderList(OrdOrder ordOrder)
@@ -45,9 +45,9 @@ public class OrdOrderServiceImpl implements IOrdOrderService
     }
 
     /**
-     * 新增【请填写功能名称】
+     * 新增订单
      * 
-     * @param ordOrder 【请填写功能名称】
+     * @param ordOrder 订单
      * @return 结果
      */
     @Override
@@ -57,9 +57,9 @@ public class OrdOrderServiceImpl implements IOrdOrderService
     }
 
     /**
-     * 修改【请填写功能名称】
+     * 修改订单
      * 
-     * @param ordOrder 【请填写功能名称】
+     * @param ordOrder 订单
      * @return 结果
      */
     @Override
@@ -69,7 +69,7 @@ public class OrdOrderServiceImpl implements IOrdOrderService
     }
 
     /**
-     * 删除【请填写功能名称】对象
+     * 删除订单对象
      * 
      * @param ids 需要删除的数据ID
      * @return 结果
@@ -81,9 +81,9 @@ public class OrdOrderServiceImpl implements IOrdOrderService
     }
 
     /**
-     * 删除【请填写功能名称】信息
+     * 删除订单信息
      * 
-     * @param id 【请填写功能名称】ID
+     * @param id 订单ID
      * @return 结果
      */
     @Override

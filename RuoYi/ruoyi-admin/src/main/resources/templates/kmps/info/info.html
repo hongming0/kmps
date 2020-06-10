@@ -41,9 +41,11 @@
                                 <label>是否通过实名认证：</label>
                                 <input type="text" name="isauthper"/>
                             </li>
-                            <li>
+                            <li class="select-time">
                                 <label>实名认证时间：</label>
-                                <input type="text" name="authpertime"/>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginAuthperTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endAuthperTime]"/>
                             </li>
                             <li>
                                 <label>真实姓名：</label>
@@ -136,7 +138,7 @@
                     title: '是否通过实名认证'
                 },
                 {
-                    field: 'authpertime', 
+                    field: 'authperTime', 
                     title: '实名认证时间'
                 },
                 {

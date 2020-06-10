@@ -4,47 +4,47 @@ import java.util.List;
 import com.ruoyi.kmps.domain.OrdOrder;
 
 /**
- * 【请填写功能名称】Service接口
+ * 订单Service接口
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public interface IOrdOrderService 
 {
     /**
-     * 查询【请填写功能名称】
+     * 查询订单
      * 
-     * @param id 【请填写功能名称】ID
-     * @return 【请填写功能名称】
+     * @param id 订单ID
+     * @return 订单
      */
     public OrdOrder selectOrdOrderById(Long id);
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询订单列表
      * 
-     * @param ordOrder 【请填写功能名称】
-     * @return 【请填写功能名称】集合
+     * @param ordOrder 订单
+     * @return 订单集合
      */
     public List<OrdOrder> selectOrdOrderList(OrdOrder ordOrder);
 
     /**
-     * 新增【请填写功能名称】
+     * 新增订单
      * 
-     * @param ordOrder 【请填写功能名称】
+     * @param ordOrder 订单
      * @return 结果
      */
     public int insertOrdOrder(OrdOrder ordOrder);
 
     /**
-     * 修改【请填写功能名称】
+     * 修改订单
      * 
-     * @param ordOrder 【请填写功能名称】
+     * @param ordOrder 订单
      * @return 结果
      */
     public int updateOrdOrder(OrdOrder ordOrder);
 
     /**
-     * 批量删除【请填写功能名称】
+     * 批量删除订单
      * 
      * @param ids 需要删除的数据ID
      * @return 结果
@@ -52,9 +52,9 @@ public interface IOrdOrderService
     public int deleteOrdOrderByIds(String ids);
 
     /**
-     * 删除【请填写功能名称】信息
+     * 删除订单信息
      * 
-     * @param id 【请填写功能名称】ID
+     * @param id 订单ID
      * @return 结果
      */
     public int deleteOrdOrderById(Long id);

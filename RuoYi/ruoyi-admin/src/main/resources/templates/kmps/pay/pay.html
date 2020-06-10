@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: header('【请填写功能名称】列表')" />
+    <th:block th:include="include :: header('订单支付记录列表')" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -22,12 +22,54 @@
                                 <label>用户id：</label>
                                 <input type="text" name="mebId"/>
                             </li>
-
+                            <li>
+                                <label>应付总金额：</label>
+                                <input type="text" name="totleAmount"/>
+                            </li>
+                            <li>
+                                <label>使用红包金额(预留)：</label>
+                                <input type="text" name="totleCouponAmount"/>
+                            </li>
+                            <li>
+                                <label>实际付款金额：</label>
+                                <input type="text" name="totleActAmount"/>
+                            </li>
+                            <li>
+                                <label>支付方式 ：</label>
+                                <input type="text" name="payMode"/>
+                            </li>
+                            <li>
+                                <label>支付渠道：</label>
+                                <input type="text" name="payChannel"/>
+                            </li>
+                            <li>
+                                <label>支付参数：</label>
+                                <input type="text" name="payPara"/>
+                            </li>
+                            <li>
+                                <label>返回值 第三方支付流水号，含银行转账流水号：</label>
+                                <input type="text" name="returnVal"/>
+                            </li>
                             <li>
                                 <label>支付状态：</label>
                                 <input type="text" name="paySta"/>
                             </li>
-
+                            <li class="select-time">
+                                <label>完成支付时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginFinishTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endFinishTime]"/>
+                            </li>
+                            <li class="select-time">
+                                <label>支付关闭时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginCloseTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endCloseTime]"/>
+                            </li>
+                            <li>
+                                <label>关闭操作人：</label>
+                                <input type="text" name="closeBy"/>
+                            </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
                                 <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
@@ -69,7 +111,7 @@
                 updateUrl: prefix + "/edit/{id}",
                 removeUrl: prefix + "/remove",
                 exportUrl: prefix + "/export",
-                modalName: "【请填写功能名称】",
+                modalName: "订单支付记录",
                 columns: [{
                     checkbox: true
                 },
@@ -80,8 +122,7 @@
                 },
                 {
                     field: 'paySl', 
-                    title: '支付流水号',
-                    visible: false
+                    title: '支付流水号'
                 },
                 {
                     field: 'orderId', 
@@ -93,18 +134,15 @@
                 },
                 {
                     field: 'totleAmount', 
-                    title: '应付总金额',
-                    visible: false
+                    title: '应付总金额'
                 },
                 {
                     field: 'totleCouponAmount', 
-                    title: '使用红包金额(预留)',
-                    visible: false
+                    title: '使用红包金额(预留)'
                 },
                 {
                     field: 'totleActAmount', 
-                    title: '实际付款金额',
-                    visible: false
+                    title: '实际付款金额'
                 },
                 {
                     field: 'payMode', 
@@ -112,18 +150,15 @@
                 },
                 {
                     field: 'payChannel', 
-                    title: '支付渠道',
-                    visible: false
+                    title: '支付渠道'
                 },
                 {
                     field: 'payPara', 
-                    title: '支付参数',
-                    visible: false
+                    title: '支付参数'
                 },
                 {
                     field: 'returnVal', 
-                    title: '返回值 第三方支付流水号，含银行转账流水号',
-                    visible: false
+                    title: '返回值 第三方支付流水号，含银行转账流水号'
                 },
                 {
                     field: 'paySta', 
@@ -131,18 +166,15 @@
                 },
                 {
                     field: 'finishTime', 
-                    title: '完成支付时间',
-                    visible: false
+                    title: '完成支付时间'
                 },
                 {
                     field: 'closeTime', 
-                    title: '支付关闭时间',
-                    visible: false
+                    title: '支付关闭时间'
                 },
                 {
                     field: 'closeBy', 
-                    title: '关闭操作人',
-                    visible: false
+                    title: '关闭操作人'
                 },
                 {
                     title: '操作',

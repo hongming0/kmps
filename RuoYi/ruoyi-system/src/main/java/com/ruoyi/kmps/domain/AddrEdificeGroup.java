@@ -1,15 +1,16 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
- * 【请填写功能名称】对象 addr_edifice_group
+ * 分组对象 addr_edifice_group
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class AddrEdificeGroup extends BaseEntity
 {
@@ -47,8 +48,8 @@ public class AddrEdificeGroup extends BaseEntity
     private Integer layerEnd;
 
     /** 解除时间 */
-    @Excel(name = "解除时间")
-    private Long endTime;
+    @Excel(name = "解除时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date endTime;
 
     /** 状态 */
     @Excel(name = "状态")
@@ -126,12 +127,12 @@ public class AddrEdificeGroup extends BaseEntity
     {
         return layerEnd;
     }
-    public void setEndTime(Long endTime) 
+    public void setEndTime(Date endTime) 
     {
         this.endTime = endTime;
     }
 
-    public Long getEndTime() 
+    public Date getEndTime() 
     {
         return endTime;
     }

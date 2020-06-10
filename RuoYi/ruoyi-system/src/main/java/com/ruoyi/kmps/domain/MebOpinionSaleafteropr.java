@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 售后单操作记录对象 meb_opinion_saleafteropr
  * 
  * @author ruoyi
- * @date 2020-06-08
+ * @date 2020-06-10
  */
 public class MebOpinionSaleafteropr extends BaseEntity
 {
@@ -32,7 +32,7 @@ public class MebOpinionSaleafteropr extends BaseEntity
 
     /** 描述 */
     @Excel(name = "描述")
-    private String desc;
+    private String remarks;
 
     public void setId(Long id) 
     {
@@ -70,14 +70,14 @@ public class MebOpinionSaleafteropr extends BaseEntity
     {
         return opinionPrice;
     }
-    public void setDesc(String desc) 
+    public void setRemarks(String remarks) 
     {
-        this.desc = desc;
+        this.remarks = remarks;
     }
 
-    public String getDesc() 
+    public String getRemarks() 
     {
-        return desc;
+        return remarks;
     }
 
     @Override
@@ -89,7 +89,7 @@ public class MebOpinionSaleafteropr extends BaseEntity
             .append("createBy", getCreateBy())
             .append("createTime", getCreateTime())
             .append("opinionPrice", getOpinionPrice())
-            .append("desc", getDesc())
+            .append("remarks", getRemarks())
             .toString();
     }
 }

@@ -11,7 +11,7 @@
  Target Server Version : 80017
  File Encoding         : 65001
 
- Date: 09/06/2020 17:19:57
+ Date: 10/06/2020 14:19:28
 */
 
 SET NAMES utf8mb4;
@@ -32,10 +32,10 @@ CREATE TABLE `addr_edifice` (
   `latitude` double DEFAULT NULL COMMENT '纬度',
   `layer_num` int(4) DEFAULT NULL COMMENT '楼层',
   `user_id` int(11) DEFAULT NULL COMMENT '业务员',
-  `join_time` int(11) DEFAULT NULL COMMENT '入驻时间',
-  `leave_time` int(11) DEFAULT NULL COMMENT '解除时间',
-  `start_time` int(11) DEFAULT NULL COMMENT '营业开始时间',
-  `end_time` int(11) DEFAULT NULL COMMENT '营业结束时间',
+  `join_time` datetime DEFAULT NULL COMMENT '入驻时间',
+  `leave_time` datetime DEFAULT NULL COMMENT '解除时间',
+  `start_time` datetime DEFAULT NULL COMMENT '营业开始时间',
+  `end_time` datetime DEFAULT NULL COMMENT '营业结束时间',
   `addrsta` int(2) DEFAULT NULL COMMENT '状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='楼宇';
@@ -53,8 +53,8 @@ CREATE TABLE `addr_edifice_group` (
   `layer_num` int(4) DEFAULT NULL COMMENT '楼层',
   `layer_start` int(4) DEFAULT NULL COMMENT '起始楼层',
   `layer_end` int(4) DEFAULT NULL COMMENT '结束楼层',
-  `create_time` int(11) DEFAULT NULL COMMENT '创建时间',
-  `end_time` int(11) DEFAULT NULL COMMENT '解除时间',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `end_time` datetime DEFAULT NULL COMMENT '解除时间',
   `addr_sta` int(2) DEFAULT NULL COMMENT '状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='分组';
@@ -81,14 +81,36 @@ CREATE TABLE `gen_table` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`table_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='代码生成业务表';
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='代码生成业务表';
 
 -- ----------------------------
 -- Records of gen_table
 -- ----------------------------
 BEGIN;
-INSERT INTO `gen_table` VALUES (16, 'meb_opinion', '投诉', 'MebOpinion', 'crud', 'com.ruoyi.kmps', 'kmps', 'opinion', '投诉', 'ruoyi', NULL, 'admin', '2020-06-08 14:39:29', '', NULL, NULL);
-INSERT INTO `gen_table` VALUES (17, 'meb_opinion_saleafteropr', '售后单操作记录', 'MebOpinionSaleafteropr', 'crud', 'com.ruoyi.kmps', 'kmps', 'saleafteropr', '售后单操作记录', 'ruoyi', NULL, 'admin', '2020-06-08 14:39:29', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (18, 'addr_edifice', '楼宇', 'AddrEdifice', 'crud', 'com.ruoyi.kmps', 'kmps', 'edifice', '楼宇', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (19, 'addr_edifice_group', '分组', 'AddrEdificeGroup', 'crud', 'com.ruoyi.kmps', 'kmps', 'group', '分组', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (20, 'meb_account', '会员账号', 'MebAccount', 'crud', 'com.ruoyi.kmps', 'kmps', 'account', '会员账号', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (21, 'meb_accthird', '第三方账号', 'MebAccthird', 'crud', 'com.ruoyi.kmps', 'kmps', 'accthird', '第三方账号', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (22, 'meb_addrlist', '会员地址列表', 'MebAddrlist', 'crud', 'com.ruoyi.kmps', 'kmps', 'addrlist', '会员地址列', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (23, 'meb_applog', 'app机器关联记录', 'MebApplog', 'crud', 'com.ruoyi.kmps', 'kmps', 'applog', 'app机器关联记录', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (24, 'meb_authname', '会员实名认证记录', 'MebAuthname', 'crud', 'com.ruoyi.kmps', 'kmps', 'authname', '会员实名认证记录', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (25, 'meb_bankbind', '绑定银行卡记录表', 'MebBankbind', 'crud', 'com.ruoyi.kmps', 'kmps', 'bankbind', '绑定银行卡记录', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (26, 'meb_financelcash', '提现', 'MebFinancelcash', 'crud', 'com.ruoyi.kmps', 'kmps', 'financelcash', '提现', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (27, 'meb_financelrd', '资金明细', 'MebFinancelrd', 'crud', 'com.ruoyi.kmps', 'kmps', 'financelrd', '资金明细', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (28, 'meb_friend', '会员推荐表', 'MebFriend', 'crud', 'com.ruoyi.kmps', 'kmps', 'friend', '会员推荐', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (29, 'meb_info', '会员详细信息', 'MebInfo', 'crud', 'com.ruoyi.kmps', 'kmps', 'info', '会员详细信息', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (30, 'meb_loginlog', '会员登录日志', 'MebLoginlog', 'crud', 'com.ruoyi.kmps', 'kmps', 'loginlog', '会员登录日志', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (31, 'meb_opinion', '投诉', 'MebOpinion', 'crud', 'com.ruoyi.kmps', 'kmps', 'opinion', '投诉', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (32, 'meb_opinion_saleafteropr', '售后单操作记录', 'MebOpinionSaleafteropr', 'crud', 'com.ruoyi.kmps', 'kmps', 'saleafteropr', '售后单操作记录', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (33, 'meb_phonerd', '手机号变更记录', 'MebPhonerd', 'crud', 'com.ruoyi.kmps', 'kmps', 'phonerd', '手机号变更记录', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (34, 'meb_pointsrd', '积分明细', 'MebPointsrd', 'crud', 'com.ruoyi.kmps', 'kmps', 'pointsrd', '积分明细', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (35, 'meb_sigin_in', '会员打卡', 'MebSiginIn', 'crud', 'com.ruoyi.kmps', 'kmps', 'in', '会员打卡', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (36, 'meb_vacation', '会员休假', 'MebVacation', 'crud', 'com.ruoyi.kmps', 'kmps', 'vacation', '会员休假', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (37, 'ord_activity_price', '楼宇价格', 'OrdActivityPrice', 'crud', 'com.ruoyi.kmps', 'kmps', 'price', '楼宇价格', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (38, 'ord_order', '订单', 'OrdOrder', 'crud', 'com.ruoyi.kmps', 'kmps', 'order', '订单', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (39, 'ord_pay', '订单支付记录', 'OrdPay', 'crud', 'com.ruoyi.kmps', 'kmps', 'pay', '订单支付记录', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (40, 'set_databank', '银行信息表', 'SetDatabank', 'crud', 'com.ruoyi.kmps', 'kmps', 'databank', '银行信息', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (41, 'set_datacity', '省市数据表', 'SetDatacity', 'crud', 'com.ruoyi.kmps', 'kmps', 'datacity', '省市数据', 'ruoyi', NULL, 'admin', '2020-06-10 11:29:27', '', NULL, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -119,34 +141,310 @@ CREATE TABLE `gen_table_column` (
   `update_by` varchar(64) COLLATE utf8_bin DEFAULT '' COMMENT '更新者',
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`column_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=230 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='代码生成业务表字段';
+) ENGINE=InnoDB AUTO_INCREMENT=528 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='代码生成业务表字段';
 
 -- ----------------------------
 -- Records of gen_table_column
 -- ----------------------------
 BEGIN;
-INSERT INTO `gen_table_column` VALUES (208, '16', 'id', '编号', 'int(11)', 'Long', 'id', '1', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (209, '16', 'type', '投诉类型', 'int(2)', 'Integer', 'type', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', '', 2, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (210, '16', 'desc', '描述', 'varchar(255)', 'String', 'desc', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (211, '16', 'meb_id', '投诉人id', 'int(11)', 'Long', 'mebId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (212, '16', 'order_sl', '订单编号', 'varchar(30)', 'String', 'orderSl', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (213, '16', 'order_num', '订单序列号', 'int(11)', 'Long', 'orderNum', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (214, '16', 'addr_id', '投诉大厦', 'int(11)', 'Long', 'addrId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (215, '16', 'submit_time', '提交时间', 'int(11)', 'Long', 'submitTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (216, '16', 'handle_time', '处理时间', 'int(11)', 'Long', 'handleTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (217, '16', 'fj1', '附件一', 'varchar(255)', 'String', 'fj1', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (218, '16', 'fj2', '附件二', 'varchar(255)', 'String', 'fj2', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (219, '16', 'fj3', '附件三', 'varchar(255)', 'String', 'fj3', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (220, '16', 'fj4', '附件四', 'varchar(255)', 'String', 'fj4', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (221, '16', 'user_id', '处理人', 'int(11)', 'Long', 'userId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (222, '16', 'opinionsta', '状态', 'int(2)', 'Integer', 'opinionsta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (223, '17', 'id', '自动编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (224, '17', 'opinion_id', '投诉单ID', 'int(11)', 'Long', 'opinionId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (225, '17', 'create_id', '操作者ID', 'int(11)', 'Long', 'createId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (226, '17', 'create_by', '操作者', 'varchar(64)', 'String', 'createBy', '0', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 4, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (227, '17', 'create_time', '操作时间', 'int(11)', 'Long', 'createTime', '0', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 5, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (228, '17', 'opinion_price', '赔付金额', 'decimal(13,2)', 'Double', 'opinionPrice', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-08 14:39:29', '', NULL);
-INSERT INTO `gen_table_column` VALUES (229, '17', 'desc', '描述', 'varchar(200)', 'String', 'desc', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-08 14:39:29', '', NULL);
+INSERT INTO `gen_table_column` VALUES (230, '18', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (231, '18', 'addr_name', '名称', 'varchar(50)', 'String', 'addrName', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (232, '18', 'addr_path', '图片地址', 'varchar(50)', 'String', 'addrPath', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (233, '18', 'province', '省', 'varchar(20)', 'String', 'province', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (234, '18', 'city', '市', 'varchar(20)', 'String', 'city', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (235, '18', 'area', '区', 'varchar(20)', 'String', 'area', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (236, '18', 'longitude', '经度', 'double', 'Long', 'longitude', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (237, '18', 'latitude', '纬度', 'double', 'Long', 'latitude', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (238, '18', 'layer_num', '楼层', 'int(4)', 'Integer', 'layerNum', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (239, '18', 'user_id', '业务员', 'int(11)', 'Long', 'userId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (240, '18', 'join_time', '入驻时间', 'datetime', 'Date', 'joinTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (241, '18', 'leave_time', '解除时间', 'datetime', 'Date', 'leaveTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 12, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (242, '18', 'start_time', '营业开始时间', 'datetime', 'Date', 'startTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 13, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (243, '18', 'end_time', '营业结束时间', 'datetime', 'Date', 'endTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 14, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (244, '18', 'addrsta', '状态', 'int(2)', 'Integer', 'addrsta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (245, '19', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (246, '19', 'edifice_id', '大厦id', 'int(11)', 'Long', 'edificeId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (247, '19', 'edifice_name', '大厦名称', 'varchar(50)', 'String', 'edificeName', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (248, '19', 'meb_id', '会员id', 'int(11)', 'Long', 'mebId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (249, '19', 'meb_job', '会员职务', 'int(2)', 'Integer', 'mebJob', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (250, '19', 'layer_num', '楼层', 'int(4)', 'Integer', 'layerNum', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (251, '19', 'layer_start', '起始楼层', 'int(4)', 'Integer', 'layerStart', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (252, '19', 'layer_end', '结束楼层', 'int(4)', 'Integer', 'layerEnd', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (253, '19', 'create_time', '创建时间', 'datetime', 'Date', 'createTime', '0', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (254, '19', 'end_time', '解除时间', 'datetime', 'Date', 'endTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (255, '19', 'addr_sta', '状态', 'int(2)', 'Integer', 'addrSta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (256, '20', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (257, '20', 'type', '会员类型', 'int(2)', 'Integer', 'type', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (258, '20', 'phone', '手机号', 'varchar(11)', 'String', 'phone', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (259, '20', 'account', '账号', 'varchar(45)', 'String', 'account', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (260, '20', 'password', '密码', 'varchar(45)', 'String', 'password', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (261, '20', 'salt', '加盐', 'varchar(45)', 'String', 'salt', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (262, '20', 'email', '邮件地址', 'varchar(100)', 'String', 'email', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (263, '20', 'regtime', '注册时间', 'datetime', 'Date', 'regtime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (264, '20', 'regip', '注册ip', 'varchar(20)', 'String', 'regip', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (265, '20', 'regclt', '注册客户端', 'int(2)', 'Integer', 'regclt', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (266, '20', 'regcha', '获客渠道', 'varchar(50)', 'String', 'regcha', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (267, '20', 'refcode', '推荐码', 'varchar(20)', 'String', 'refcode', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (268, '20', 'puid', '已注册用户推荐', 'int(11)', 'Long', 'puid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (269, '20', 'accsta', '状态', 'int(2)', 'Integer', 'accsta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (270, '20', 'lastlogintime', '最后登录时间', 'datetime', 'Date', 'lastlogintime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 15, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (271, '20', 'lastloginip', '最后登录IP', 'varchar(20)', 'String', 'lastloginip', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 16, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (272, '20', 'passerr', '当前密码连续错误次数', 'int(11)', 'Long', 'passerr', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 17, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (273, '20', 'm1', '预留字段一', 'varchar(20)', 'String', 'm1', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 18, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (274, '20', 'm2', '预留字段二', 'varchar(20)', 'String', 'm2', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 19, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (275, '20', 'm3', '预留字段三', 'varchar(20)', 'String', 'm3', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 20, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (276, '20', 'mebmoney', '可用余额', 'decimal(13,2)', 'Double', 'mebmoney', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 21, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (277, '20', 'fremoney', '锁定金额', 'decimal(13,2)', 'Double', 'fremoney', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 22, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (278, '20', 'tpoints', '积分总额', 'decimal(13,2)', 'Double', 'tpoints', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 23, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (279, '20', 'version', '版本号（乐观锁）', 'int(11)', 'Long', 'version', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 24, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (280, '21', 'id', '主键', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (281, '21', 'session_key', '小程序返回的会话密钥', 'varchar(200)', 'String', 'sessionKey', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (282, '21', 'mebid', '平台用户id', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (283, '21', 'open_type', '第三方平台', 'varchar(64)', 'String', 'openType', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (284, '21', 'openid', '用户在第三方平台的ID', 'varchar(64)', 'String', 'openid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (285, '21', 'access_token', '第三方平台返回的token', 'varchar(45)', 'String', 'accessToken', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (286, '21', 'expired_time', '授权时间', 'varchar(45)', 'String', 'expiredTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (287, '21', 'nickname', '昵称', 'varchar(45)', 'String', 'nickname', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (288, '21', 'avatar', '头像', 'varchar(200)', 'String', 'avatar', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (289, '21', 'createtime', '创建时间', 'datetime', 'Date', 'createtime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (290, '21', 'uniqueid', '用户在第三方平台的唯一ID', 'varchar(70)', 'String', 'uniqueid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (291, '21', 'acctsta', '绑定状态', 'int(2)', 'Integer', 'acctsta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (292, '22', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (293, '22', 'mebid', '平台用户id', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (294, '22', 'name', '姓名', 'varchar(50)', 'String', 'name', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (295, '22', 'phone', '手机', 'varchar(50)', 'String', 'phone', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (296, '22', 'cityno', '省市区 编号', 'varchar(50)', 'String', 'cityno', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (297, '22', 'addr', '详细地址', 'varchar(200)', 'String', 'addr', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (298, '22', 'zipcode', '邮编', 'varchar(20)', 'String', 'zipcode', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (299, '22', 'addrsta', '状态', 'int(2)', 'Integer', 'addrsta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (300, '22', 'createtime', '创建时间', 'datetime', 'Date', 'createtime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (301, '22', 'createby', '创建人', 'varchar(64)', 'String', 'createby', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (302, '22', 'updatetime', '最后编辑时间', 'datetime', 'Date', 'updatetime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (303, '22', 'updateby', '最后编辑用户', 'int(11)', 'Long', 'updateby', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (304, '23', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (305, '23', 'channelid', '机器码', 'varchar(50)', 'String', 'channelid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (306, '23', 'client', '客户端', 'int(2)', 'Integer', 'client', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (307, '23', 'appversion', 'app版本号', 'varchar(20)', 'String', 'appversion', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (308, '23', 'createtime', '创建时间', 'datetime', 'Date', 'createtime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (309, '23', 'logintime', '登录时间', 'datetime', 'Date', 'logintime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (310, '23', 'token', '登录成功时的token', 'varchar(64)', 'String', 'token', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (311, '23', 'mebid', '会员ID', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (312, '23', 'logsta', '状态', 'int(2)', 'Integer', 'logsta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (313, '24', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (314, '24', 'mebid', '平台用户id', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (315, '24', 'mebidty', '实名类型', 'int(2)', 'Integer', 'mebidty', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (316, '24', 'realname', '名称', 'varchar(255)', 'String', 'realname', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (317, '24', 'idno', '证件号码', 'varchar(255)', 'String', 'idno', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (318, '24', 'fj1', '附件一', 'varchar(255)', 'String', 'fj1', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (319, '24', 'fj2', '附件二', 'varchar(255)', 'String', 'fj2', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (320, '24', 'fj3', '附件三', 'varchar(255)', 'String', 'fj3', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (321, '24', 'fj4', '附件四', 'varchar(255)', 'String', 'fj4', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (322, '24', 'auditopn', '审核意见', 'varchar(255)', 'String', 'auditopn', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (323, '24', 'authsta', '状态', 'int(2)', 'Integer', 'authsta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (324, '24', 'createby', '实名认证提交人', 'varchar(64)', 'String', 'createby', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (325, '24', 'createtime', '提交时间', 'datetime', 'Date', 'createtime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 13, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (326, '24', 'auditor', '审核员', 'int(11)', 'Long', 'auditor', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (327, '24', 'audittime', '审核时间', 'datetime', 'Date', 'audittime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 15, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (328, '25', 'id', '自动编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (329, '25', 'mebid', '平台用户id', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (330, '25', 'bankid', '银行ID', 'varchar(10)', 'String', 'bankid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (331, '25', 'ctype', '银行卡类型', 'int(2)', 'Integer', 'ctype', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (332, '25', 'accname', '账户名', 'varchar(30)', 'String', 'accname', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (333, '25', 'accidno', '开卡证件号', 'varchar(30)', 'String', 'accidno', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (334, '25', 'cardno', '银行卡账号', 'varchar(30)', 'String', 'cardno', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (335, '25', 'dscardno', '脱敏后的银行账户', 'varchar(30)', 'String', 'dscardno', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (336, '25', 'bankneme', '识别后的银行名称', 'varchar(100)', 'String', 'bankneme', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (337, '25', 'cityno', '省市区 编号', 'varchar(50)', 'String', 'cityno', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (338, '25', 'subbankaddr', '开户支行详细地址', 'varchar(200)', 'String', 'subbankaddr', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (339, '25', 'status', '状态', 'int(2)', 'Integer', 'status', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'radio', '', 12, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (340, '25', 'createtime', '创建时间', 'datetime', 'Date', 'createtime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 13, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (341, '25', 'createby', '创建人', 'varchar(64)', 'String', 'createby', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (342, '25', 'updatetime', '最后编辑时间', 'datetime', 'Date', 'updatetime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 15, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (343, '25', 'updateby', '最后编辑用户', 'int(11)', 'Long', 'updateby', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 16, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (344, '26', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (345, '26', 'mebid', '平台用户id', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (346, '26', 'sl', '序列号', 'varchar(64)', 'String', 'sl', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (347, '26', 'actamt', '发生金额', 'decimal(13,6)', 'Double', 'actamt', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (348, '26', 'nowamt', '当前余额', 'decimal(13,6)', 'Double', 'nowamt', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (349, '26', 'ctype', '银行卡类型', 'int(2)', 'Integer', 'ctype', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (350, '26', 'bankneme', '银行名称', 'varchar(100)', 'String', 'bankneme', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (351, '26', 'subbankaddr', '开户支行详细地址', 'varchar(200)', 'String', 'subbankaddr', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (352, '26', 'accname', '账户名', 'varchar(30)', 'String', 'accname', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (353, '26', 'cardno', '银行卡账号', 'varchar(30)', 'String', 'cardno', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (354, '26', 'cash_sta', '提现状态', 'int(2)', 'Integer', 'cashSta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (355, '26', 'cash_desc', '提现处理备注', 'varchar(500)', 'String', 'cashDesc', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'textarea', '', 12, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (356, '26', 'createtime', '申请时间', 'datetime', 'Date', 'createtime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 13, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (357, '26', 'createby', '申请人', 'varchar(64)', 'String', 'createby', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (358, '26', 'updatetime', '提现处理时间', 'datetime', 'Date', 'updatetime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 15, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (359, '26', 'updateby', '处理人', 'varchar(64)', 'String', 'updateby', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 16, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (360, '26', 'memo', '备注', 'varchar(200)', 'String', 'memo', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 17, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (361, '26', 'm1', '预留字段一', 'varchar(20)', 'String', 'm1', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 18, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (362, '26', 'm2', '预留字段二', 'varchar(20)', 'String', 'm2', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 19, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (363, '26', 'm3', '预留字段三', 'varchar(20)', 'String', 'm3', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 20, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (364, '27', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (365, '27', 'mebid', '平台用户id', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (366, '27', 'sl', '序列号', 'varchar(64)', 'String', 'sl', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (367, '27', 'actamt', '发生金额', 'decimal(13,2)', 'Double', 'actamt', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (368, '27', 'nowamt', '当前余额', 'decimal(13,2)', 'Double', 'nowamt', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (369, '27', 'type', '金额类型', 'int(2)', 'Integer', 'type', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (370, '27', 'createtime', '发生时间', 'datetime', 'Date', 'createtime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (371, '27', 'userid', '操作人', 'int(11)', 'Long', 'userid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (372, '27', 'memo', '备注', 'varchar(200)', 'String', 'memo', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (373, '27', 'm1', '预留字段一', 'varchar(20)', 'String', 'm1', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (374, '27', 'm2', '预留字段二', 'varchar(20)', 'String', 'm2', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (375, '27', 'm3', '预留字段三', 'varchar(20)', 'String', 'm3', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (376, '28', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (377, '28', 'pid', '推荐人', 'int(11)', 'Long', 'pid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (378, '28', 'bid', '被推荐会员', 'int(11)', 'Long', 'bid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (379, '28', 'createtime', '创建时间', 'datetime', 'Date', 'createtime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (380, '28', 'status', '使用状态', 'int(2)', 'Integer', 'status', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'radio', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (381, '29', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (382, '29', 'mebid', '平台用户id', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (383, '29', 'mebidty', '会员身份', 'int(4)', 'Integer', 'mebidty', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (384, '29', 'nickname', '昵称', 'varchar(45)', 'String', 'nickname', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (385, '29', 'avatar', '头像', 'varchar(200)', 'String', 'avatar', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (386, '29', 'sex', '性别', 'varchar(2)', 'String', 'sex', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (387, '29', 'birthday', '出生日期', 'varchar(20)', 'String', 'birthday', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (388, '29', 'isauthper', '是否通过实名认证', 'int(2)', 'Integer', 'isauthper', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (389, '29', 'authpertime', '实名认证时间', 'datetime', 'Date', 'authpertime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (390, '29', 'pername', '真实姓名', 'varchar(20)', 'String', 'pername', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (391, '29', 'level', '会员等级', 'int(2)', 'Integer', 'level', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (392, '29', 'remark', '备注', 'varchar(2000)', 'String', 'remark', '0', '0', NULL, '1', '1', '1', NULL, 'EQ', 'textarea', '', 12, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (393, '29', 'extjson', '扩展信息', 'varchar(2000)', 'String', 'extjson', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'textarea', '', 13, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (394, '29', 'wx_account', '微信账号', 'varchar(100)', 'String', 'wxAccount', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 14, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (395, '30', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (396, '30', 'mebid', '平台用户id', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (397, '30', 'loginip', '登录IP', 'varchar(50)', 'String', 'loginip', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (398, '30', 'logintime', '登录时间', 'datetime', 'Date', 'logintime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (399, '30', 'district', '地点', 'varchar(255)', 'String', 'district', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (400, '30', 'client', '终端设备', 'int(2)', 'Integer', 'client', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (401, '30', 'browser', '客户端浏览器', 'varchar(255)', 'String', 'browser', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (402, '30', 'errnum', '密码连续错误次数', 'int(4)', 'Integer', 'errnum', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (403, '30', 'logsta', '登录状态', 'int(2)', 'Integer', 'logsta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (404, '30', 'logintype', '登录方式', 'int(2)', 'Integer', 'logintype', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (405, '31', 'id', '编号', 'int(11)', 'Long', 'id', '1', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (406, '31', 'type', '投诉类型', 'int(2)', 'Integer', 'type', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (407, '31', 'desc', '描述', 'varchar(255)', 'String', 'desc', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (408, '31', 'meb_id', '投诉人id', 'int(11)', 'Long', 'mebId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (409, '31', 'order_sl', '订单编号', 'varchar(30)', 'String', 'orderSl', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (410, '31', 'order_num', '订单序列号', 'int(11)', 'Long', 'orderNum', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (411, '31', 'addr_id', '投诉大厦', 'int(11)', 'Long', 'addrId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (412, '31', 'submit_time', '提交时间', 'datetime', 'Date', 'submitTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (413, '31', 'handle_time', '处理时间', 'datetime', 'Date', 'handleTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (414, '31', 'fj1', '附件一', 'varchar(255)', 'String', 'fj1', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (415, '31', 'fj2', '附件二', 'varchar(255)', 'String', 'fj2', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (416, '31', 'fj3', '附件三', 'varchar(255)', 'String', 'fj3', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (417, '31', 'fj4', '附件四', 'varchar(255)', 'String', 'fj4', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 13, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (418, '31', 'create_by', '处理人', 'varchar(64)', 'String', 'createBy', '0', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 14, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (419, '31', 'opinionsta', '状态', 'int(2)', 'Integer', 'opinionsta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (420, '32', 'id', '自动编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (421, '32', 'opinion_id', '投诉单ID', 'int(11)', 'Long', 'opinionId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (422, '32', 'create_id', '操作者ID', 'int(11)', 'Long', 'createId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (423, '32', 'create_by', '操作者', 'varchar(64)', 'String', 'createBy', '0', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (424, '32', 'create_time', '操作时间', 'datetime', 'Date', 'createTime', '0', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (425, '32', 'opinion_price', '赔付金额', 'decimal(13,2)', 'Double', 'opinionPrice', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (426, '32', 'desc', '描述', 'varchar(200)', 'String', 'desc', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (427, '33', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (428, '33', 'mebid', '平台用户id', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (429, '33', 'oldphone', '原手机号', 'varchar(20)', 'String', 'oldphone', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (430, '33', 'newphone', '新手机号', 'varchar(20)', 'String', 'newphone', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (431, '33', 'createtime', '发生时间', 'datetime', 'Date', 'createtime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (432, '33', 'updatetime', '完成时间', 'datetime', 'Date', 'updatetime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (433, '33', 'phonerdsta', '状态', 'int(2)', 'Integer', 'phonerdsta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (434, '34', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (435, '34', 'mebid', '平台用户id', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (436, '34', 'points', '发生积分', 'decimal(13,2)', 'Double', 'points', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (437, '34', 'nowpoints', '当前积分', 'decimal(13,2)', 'Double', 'nowpoints', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (438, '34', 'modid', '业务类型', 'int(11)', 'Long', 'modid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (439, '34', 'cid', '关联业务记录ID', 'int(11)', 'Long', 'cid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (440, '34', 'type', '积分类型', 'int(2)', 'Integer', 'type', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (441, '34', 'createtime', '发生时间', 'datetime', 'Date', 'createtime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (442, '34', 'userid', '操作人', 'int(11)', 'Long', 'userid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (443, '34', 'memo', '备注', 'varchar(200)', 'String', 'memo', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (444, '35', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (445, '35', 'mebid', '平台用户id', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (446, '35', 'name', '姓名', 'varchar(50)', 'String', 'name', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (447, '35', 'loginip', 'IP', 'varchar(50)', 'String', 'loginip', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (448, '35', 'logintime', '时间', 'datetime', 'Date', 'logintime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (449, '35', 'district', '地点', 'varchar(255)', 'String', 'district', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (450, '35', 'latitude', '纬度', 'double', 'Long', 'latitude', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (451, '35', 'longitude', '经度', 'double', 'Long', 'longitude', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (452, '35', 'client', '终端设备', 'int(2)', 'Integer', 'client', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (453, '35', 'type', '类型', 'int(2)', 'Integer', 'type', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (454, '35', 'siginsta', '状态', 'int(2)', 'Integer', 'siginsta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (455, '36', 'id', '编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (456, '36', 'mebid', '平台用户id', 'int(11)', 'Long', 'mebid', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (457, '36', 'name', '姓名', 'varchar(50)', 'String', 'name', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (458, '36', 'starttime', '开始时间', 'datetime', 'Date', 'starttime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (459, '36', 'endtime', '结束时间', 'datetime', 'Date', 'endtime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (460, '36', 'type', '类型', 'int(2)', 'Integer', 'type', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'select', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (461, '36', 'reversta', '审核状态', 'int(2)', 'Integer', 'reversta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (462, '36', 'reason', '请假事由', 'varchar(255)', 'String', 'reason', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (463, '37', 'id', '活动编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (464, '37', 'edifice_id', '大厦id', 'int(11)', 'Long', 'edificeId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (465, '37', 'price', '原价', 'decimal(13,2)', 'Double', 'price', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (466, '37', 'rate', '折扣', 'float', 'Long', 'rate', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (467, '37', 'discount_price', '优惠金额', 'decimal(13,2)', 'Double', 'discountPrice', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (468, '37', 'start_time', '开始时间', 'datetime', 'Date', 'startTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (469, '37', 'end_time', '结束时间', 'datetime', 'Date', 'endTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (470, '38', 'id', '自动编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (471, '38', 'order_sl', '订单编号', 'varchar(30)', 'String', 'orderSl', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (472, '38', 'order_num', '订单序列号', 'int(11)', 'Long', 'orderNum', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (473, '38', 'price', '价格', 'decimal(13,2)', 'Double', 'price', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (474, '38', 'edifice_id', '大厦id', 'int(11)', 'Long', 'edificeId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (475, '38', 'putin_id', '骑手id', 'int(11)', 'Long', 'putinId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (476, '38', 'putin_phone', '骑手电话', 'varchar(11)', 'String', 'putinPhone', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (477, '38', 'sort_id', '分拣员id', 'int(11)', 'Long', 'sortId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (478, '38', 'delivery_id', '送货员id', 'int(11)', 'Long', 'deliveryId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (479, '38', 'delivery_phone', '送货员电话', 'varchar(11)', 'String', 'deliveryPhone', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (480, '38', 'sor_time', '分拣时间', 'datetime', 'Date', 'sorTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (481, '38', 'pickup_time', '取货时间', 'datetime', 'Date', 'pickupTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 12, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (482, '38', 'finsh_time', '送达时间', 'datetime', 'Date', 'finshTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 13, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (483, '38', 'close_time', '取消时间', 'datetime', 'Date', 'closeTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 14, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (484, '38', 'close_desc', '取消原因', 'varchar(200)', 'String', 'closeDesc', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 15, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (485, '38', 'order_time', '下单时间', 'datetime', 'Date', 'orderTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 16, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (486, '38', 'pay_time', '支付时间', 'datetime', 'Date', 'payTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 17, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (487, '38', 'autoclose_time', '预计自动关闭时间', 'datetime', 'Date', 'autocloseTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 18, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (488, '38', 'pay_mode', '支付方式', 'int(2)', 'Integer', 'payMode', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 19, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (489, '38', 'goods_num', '商品件数', 'int(4)', 'Integer', 'goodsNum', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 20, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (490, '38', 'order_clt', '下单客户端', 'int(2)', 'Integer', 'orderClt', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 21, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (491, '38', 'third_name', '第三方品牌名称', 'varchar(20)', 'String', 'thirdName', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 22, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (492, '38', 'third_num', '第三方订单号', 'varchar(20)', 'String', 'thirdNum', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 23, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (493, '38', 'third_take_addr', '第三方平台取货地址', 'varchar(50)', 'String', 'thirdTakeAddr', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 24, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (494, '38', 'third_give_addr', '第三方平台送货地址', 'varchar(50)', 'String', 'thirdGiveAddr', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 25, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (495, '38', 'expect_time', '顾客期望送达时间', 'datetime', 'Date', 'expectTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 26, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (496, '38', 'order_img_path', '第三方订单截图', 'varchar(20)', 'String', 'orderImgPath', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 27, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (497, '38', 'floor', '楼层', 'int(4)', 'Integer', 'floor', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 28, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (498, '38', 'order_sta', '状态', 'int(2)', 'Integer', 'orderSta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 29, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (499, '39', 'id', '自动编号', 'int(11)', 'Long', 'id', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (500, '39', 'pay_sl', '支付流水号', 'varchar(30)', 'String', 'paySl', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (501, '39', 'order_id', '订单ID', 'int(11)', 'Long', 'orderId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (502, '39', 'meb_id', '用户id', 'int(11)', 'Long', 'mebId', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (503, '39', 'totle_amount', '应付总金额', 'decimal(13,2)', 'Double', 'totleAmount', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (504, '39', 'totle_coupon_amount', '使用红包金额(预留)', 'decimal(13,2)', 'Double', 'totleCouponAmount', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (505, '39', 'totle_act_amount', '实际付款金额', 'decimal(13,2)', 'Double', 'totleActAmount', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (506, '39', 'pay_mode', '支付方式 ', 'int(2)', 'Integer', 'payMode', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (507, '39', 'pay_channel', '支付渠道', 'int(2)', 'Integer', 'payChannel', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 9, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (508, '39', 'pay_para', '支付参数', 'text', 'String', 'payPara', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 10, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (509, '39', 'return_val', '返回值 第三方支付流水号，含银行转账流水号', 'text', 'String', 'returnVal', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 11, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (510, '39', 'pay_sta', '支付状态', 'int(2)', 'Integer', 'paySta', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 12, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (511, '39', 'create_time', '发起支付时间', 'datetime', 'Date', 'createTime', '0', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'datetime', '', 13, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (512, '39', 'finish_time', '完成支付时间', 'datetime', 'Date', 'finishTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 14, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (513, '39', 'close_time', '支付关闭时间', 'datetime', 'Date', 'closeTime', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 15, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (514, '39', 'close_by', '关闭操作人', 'int(11)', 'Long', 'closeBy', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 16, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (515, '40', 'id', '银行编号', 'int(11)', 'Long', 'id', '1', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (516, '40', 'bank_name', '银行名称', 'varchar(100)', 'String', 'bankName', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (517, '40', 'bank_code', '银行简写', 'varchar(50)', 'String', 'bankCode', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (518, '40', 'ico', '图标路径', 'varchar(100)', 'String', 'ico', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (519, '40', 'status', '状态', 'tinyint(1)', 'Integer', 'status', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'radio', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (520, '41', 'idno', '编号', 'varchar(20)', 'String', 'idno', '1', '0', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (521, '41', 'name', '省名称', 'varchar(50)', 'String', 'name', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 2, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (522, '41', 'map', '地图坐标范围值', 'varchar(2000)', 'String', 'map', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'textarea', '', 3, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (523, '41', 'shorname', '缩写城市名称', 'varchar(20)', 'String', 'shorname', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 4, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (524, '41', 'pinyin', '全拼字符', 'varchar(50)', 'String', 'pinyin', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (525, '41', 'shorter', '城市拼音缩写', 'varchar(10)', 'String', 'shorter', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (526, '41', 'initial', '首字母索引', 'varchar(1)', 'String', 'initial', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2020-06-10 11:29:27', '', NULL);
+INSERT INTO `gen_table_column` VALUES (527, '41', 'hotflag', '活动热门城市标志', 'int(4)', 'Integer', 'hotflag', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2020-06-10 11:29:27', '', NULL);
 COMMIT;
 
 -- ----------------------------
@@ -161,15 +459,15 @@ CREATE TABLE `meb_account` (
   `password` varchar(45) DEFAULT NULL COMMENT '密码',
   `salt` varchar(45) DEFAULT NULL COMMENT '加盐',
   `email` varchar(100) DEFAULT NULL COMMENT '邮件地址',
-  `regtime` int(11) DEFAULT NULL COMMENT '注册时间',
+  `reg_time` datetime DEFAULT NULL COMMENT '注册时间',
   `regip` varchar(20) DEFAULT NULL COMMENT '注册ip',
   `regclt` int(2) DEFAULT NULL COMMENT '注册客户端',
   `regcha` varchar(50) DEFAULT NULL COMMENT '获客渠道',
   `refcode` varchar(20) DEFAULT NULL COMMENT '推荐码',
   `puid` int(11) DEFAULT NULL COMMENT '已注册用户推荐',
   `accsta` int(2) DEFAULT NULL COMMENT '状态',
-  `lastlogintime` int(11) DEFAULT NULL COMMENT '最后登录时间',
-  `lastloginip` varchar(20) DEFAULT NULL COMMENT '最后登录IP',
+  `lastlogin_time` datetime DEFAULT NULL COMMENT '最后登录时间',
+  `lastlogin_ip` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '最后登录IP',
   `passerr` int(11) DEFAULT NULL COMMENT '当前密码连续错误次数',
   `m1` varchar(20) DEFAULT NULL COMMENT '预留字段一',
   `m2` varchar(20) DEFAULT NULL COMMENT '预留字段二',
@@ -179,7 +477,14 @@ CREATE TABLE `meb_account` (
   `tpoints` decimal(13,2) DEFAULT NULL COMMENT '积分总额',
   `version` int(11) DEFAULT NULL COMMENT '版本号（乐观锁）',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员账号';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='会员账号';
+
+-- ----------------------------
+-- Records of meb_account
+-- ----------------------------
+BEGIN;
+INSERT INTO `meb_account` VALUES (1, 1, '18676768765', NULL, '123456', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for meb_accthird
@@ -195,7 +500,7 @@ CREATE TABLE `meb_accthird` (
   `expired_time` varchar(45) DEFAULT NULL COMMENT '授权时间',
   `nickname` varchar(45) DEFAULT NULL COMMENT '昵称',
   `avatar` varchar(200) DEFAULT NULL COMMENT '头像',
-  `createtime` int(11) DEFAULT NULL COMMENT '创建时间',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `uniqueid` varchar(70) DEFAULT NULL COMMENT '用户在第三方平台的唯一ID',
   `acctsta` int(2) DEFAULT NULL COMMENT '绑定状态',
   PRIMARY KEY (`id`)
@@ -214,10 +519,10 @@ CREATE TABLE `meb_addrlist` (
   `addr` varchar(200) DEFAULT NULL COMMENT '详细地址',
   `zipcode` varchar(20) DEFAULT NULL COMMENT '邮编',
   `addrsta` int(2) DEFAULT NULL COMMENT '状态',
-  `createtime` int(11) DEFAULT NULL COMMENT '创建时间',
-  `createby` int(11) DEFAULT NULL COMMENT '创建人',
-  `updatetime` int(11) DEFAULT NULL COMMENT '最后编辑时间',
-  `updateby` int(11) DEFAULT NULL COMMENT '最后编辑用户',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '创建人',
+  `update_time` datetime DEFAULT NULL COMMENT '最后编辑时间',
+  `update_by` int(11) DEFAULT NULL COMMENT '最后编辑用户',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员地址列表';
 
@@ -230,8 +535,8 @@ CREATE TABLE `meb_applog` (
   `channelid` varchar(50) DEFAULT NULL COMMENT '机器码',
   `client` int(2) DEFAULT NULL COMMENT '客户端',
   `appversion` varchar(20) DEFAULT NULL COMMENT 'app版本号',
-  `createtime` int(11) DEFAULT NULL COMMENT '创建时间',
-  `logintime` int(11) DEFAULT NULL COMMENT '登录时间',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `login_time` datetime DEFAULT NULL COMMENT '登录时间',
   `token` varchar(64) DEFAULT NULL COMMENT '登录成功时的token',
   `mebid` int(11) DEFAULT NULL COMMENT '会员ID',
   `logsta` int(2) DEFAULT NULL COMMENT '状态',
@@ -254,10 +559,10 @@ CREATE TABLE `meb_authname` (
   `fj4` varchar(255) DEFAULT NULL COMMENT '附件四',
   `auditopn` varchar(255) DEFAULT NULL COMMENT '审核意见',
   `authsta` int(2) DEFAULT NULL COMMENT '状态',
-  `createby` int(11) DEFAULT NULL COMMENT '实名认证提交人',
-  `createtime` int(11) DEFAULT NULL COMMENT '提交时间',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '实名认证提交人',
+  `create_time` datetime DEFAULT NULL COMMENT '提交时间',
   `auditor` int(11) DEFAULT NULL COMMENT '审核员',
-  `audittime` int(11) DEFAULT NULL COMMENT '审核时间',
+  `audit_time` datetime DEFAULT NULL COMMENT '审核时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员实名认证记录';
 
@@ -278,10 +583,10 @@ CREATE TABLE `meb_bankbind` (
   `cityno` varchar(50) DEFAULT NULL COMMENT '省市区 编号',
   `subbankaddr` varchar(200) DEFAULT NULL COMMENT '开户支行详细地址',
   `status` int(2) DEFAULT NULL COMMENT '状态',
-  `createtime` int(11) DEFAULT NULL COMMENT '创建时间',
-  `createby` int(11) DEFAULT NULL COMMENT '创建人',
-  `updatetime` int(11) DEFAULT NULL COMMENT '最后编辑时间',
-  `updateby` int(11) DEFAULT NULL COMMENT '最后编辑用户',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '创建人',
+  `update_time` datetime DEFAULT NULL COMMENT '最后编辑时间',
+  `update_by` int(11) DEFAULT NULL COMMENT '最后编辑用户',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='绑定银行卡记录表';
 
@@ -302,10 +607,10 @@ CREATE TABLE `meb_financelcash` (
   `cardno` varchar(30) DEFAULT NULL COMMENT '银行卡账号',
   `cash_sta` int(2) DEFAULT NULL COMMENT '提现状态',
   `cash_desc` varchar(500) DEFAULT NULL COMMENT '提现处理备注',
-  `createtime` int(11) DEFAULT NULL COMMENT '申请时间',
-  `createby` int(11) DEFAULT NULL COMMENT '申请人',
-  `updatetime` datetime DEFAULT NULL COMMENT '提现处理时间',
-  `updateby` int(11) DEFAULT NULL COMMENT '处理人',
+  `create_time` datetime DEFAULT NULL COMMENT '申请时间',
+  `create_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '申请人',
+  `update_time` datetime DEFAULT NULL COMMENT '提现处理时间',
+  `update_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '处理人',
   `memo` varchar(200) DEFAULT NULL COMMENT '备注',
   `m1` varchar(20) DEFAULT NULL COMMENT '预留字段一',
   `m2` varchar(20) DEFAULT NULL COMMENT '预留字段二',
@@ -324,7 +629,7 @@ CREATE TABLE `meb_financelrd` (
   `actamt` decimal(13,2) DEFAULT NULL COMMENT '发生金额',
   `nowamt` decimal(13,2) DEFAULT NULL COMMENT '当前余额',
   `type` int(2) DEFAULT NULL COMMENT '金额类型',
-  `createtime` int(11) DEFAULT NULL COMMENT '发生时间',
+  `create_time` datetime DEFAULT NULL COMMENT '发生时间',
   `userid` int(11) DEFAULT NULL COMMENT '操作人',
   `memo` varchar(200) DEFAULT NULL COMMENT '备注',
   `m1` varchar(20) DEFAULT NULL COMMENT '预留字段一',
@@ -341,7 +646,7 @@ CREATE TABLE `meb_friend` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `pid` int(11) DEFAULT NULL COMMENT '推荐人',
   `bid` int(11) DEFAULT NULL COMMENT '被推荐会员',
-  `createtime` int(11) DEFAULT NULL COMMENT '创建时间',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
   `status` int(2) DEFAULT NULL COMMENT '使用状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员推荐表';
@@ -359,7 +664,7 @@ CREATE TABLE `meb_info` (
   `sex` varchar(2) DEFAULT NULL COMMENT '性别',
   `birthday` varchar(20) DEFAULT NULL COMMENT '出生日期',
   `isauthper` int(2) DEFAULT NULL COMMENT '是否通过实名认证',
-  `authpertime` int(11) DEFAULT NULL COMMENT '实名认证时间',
+  `authper_time` datetime DEFAULT NULL COMMENT '实名认证时间',
   `pername` varchar(20) DEFAULT NULL COMMENT '真实姓名',
   `level` int(2) DEFAULT NULL COMMENT '会员等级',
   `remark` varchar(2000) DEFAULT NULL COMMENT '备注',
@@ -376,7 +681,7 @@ CREATE TABLE `meb_loginlog` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `mebid` int(11) DEFAULT NULL COMMENT '平台用户id',
   `loginip` varchar(50) DEFAULT NULL COMMENT '登录IP',
-  `logintime` int(11) DEFAULT NULL COMMENT '登录时间',
+  `login_time` datetime DEFAULT NULL COMMENT '登录时间',
   `district` varchar(255) DEFAULT NULL COMMENT '地点',
   `client` int(2) DEFAULT NULL COMMENT '终端设备',
   `browser` varchar(255) DEFAULT NULL COMMENT '客户端浏览器',
@@ -391,20 +696,20 @@ CREATE TABLE `meb_loginlog` (
 -- ----------------------------
 DROP TABLE IF EXISTS `meb_opinion`;
 CREATE TABLE `meb_opinion` (
-  `id` int(11) NOT NULL COMMENT '编号',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `type` int(2) DEFAULT NULL COMMENT '投诉类型',
   `desc` varchar(255) DEFAULT NULL COMMENT '描述',
   `meb_id` int(11) DEFAULT NULL COMMENT '投诉人id',
   `order_sl` varchar(30) DEFAULT NULL COMMENT '订单编号',
   `order_num` int(11) DEFAULT NULL COMMENT '订单序列号',
   `addr_id` int(11) DEFAULT NULL COMMENT '投诉大厦',
-  `submit_time` int(11) DEFAULT NULL COMMENT '提交时间',
-  `handle_time` int(11) DEFAULT NULL COMMENT '处理时间',
+  `submit_time` datetime DEFAULT NULL COMMENT '提交时间',
+  `handle_time` datetime DEFAULT NULL COMMENT '处理时间',
   `fj1` varchar(255) DEFAULT NULL COMMENT '附件一',
   `fj2` varchar(255) DEFAULT NULL COMMENT '附件二',
   `fj3` varchar(255) DEFAULT NULL COMMENT '附件三',
   `fj4` varchar(255) DEFAULT NULL COMMENT '附件四',
-  `user_id` int(11) DEFAULT NULL COMMENT '处理人',
+  `create_by` varchar(64) DEFAULT NULL COMMENT '处理人',
   `opinionsta` int(2) DEFAULT NULL COMMENT '状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='投诉';
@@ -418,7 +723,7 @@ CREATE TABLE `meb_opinion_saleafteropr` (
   `opinion_id` int(11) DEFAULT NULL COMMENT '投诉单ID',
   `create_id` int(11) DEFAULT NULL COMMENT '操作者ID',
   `create_by` varchar(64) DEFAULT NULL COMMENT '操作者',
-  `create_time` int(11) DEFAULT NULL COMMENT '操作时间',
+  `create_time` datetime DEFAULT NULL COMMENT '操作时间',
   `opinion_price` decimal(13,2) DEFAULT NULL COMMENT '赔付金额',
   `desc` varchar(200) DEFAULT NULL COMMENT '描述',
   PRIMARY KEY (`id`)
@@ -433,8 +738,8 @@ CREATE TABLE `meb_phonerd` (
   `mebid` int(11) DEFAULT NULL COMMENT '平台用户id',
   `oldphone` varchar(20) DEFAULT NULL COMMENT '原手机号',
   `newphone` varchar(20) DEFAULT NULL COMMENT '新手机号',
-  `createtime` int(11) DEFAULT NULL COMMENT '发生时间',
-  `updatetime` int(11) DEFAULT NULL COMMENT '完成时间',
+  `create_time` datetime DEFAULT NULL COMMENT '发生时间',
+  `update_time` datetime DEFAULT NULL COMMENT '完成时间',
   `phonerdsta` int(2) DEFAULT NULL COMMENT '状态',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='手机号变更记录';
@@ -451,7 +756,7 @@ CREATE TABLE `meb_pointsrd` (
   `modid` int(11) DEFAULT NULL COMMENT '业务类型',
   `cid` int(11) DEFAULT NULL COMMENT '关联业务记录ID',
   `type` int(2) DEFAULT NULL COMMENT '积分类型',
-  `createtime` int(11) DEFAULT NULL COMMENT '发生时间',
+  `create_time` datetime DEFAULT NULL COMMENT '发生时间',
   `userid` int(11) DEFAULT NULL COMMENT '操作人',
   `memo` varchar(200) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
@@ -466,7 +771,7 @@ CREATE TABLE `meb_sigin_in` (
   `mebid` int(11) DEFAULT NULL COMMENT '平台用户id',
   `name` varchar(50) DEFAULT NULL COMMENT '姓名',
   `loginip` varchar(50) DEFAULT NULL COMMENT 'IP',
-  `logintime` int(11) DEFAULT NULL COMMENT '时间',
+  `login_time` datetime DEFAULT NULL COMMENT '时间',
   `district` varchar(255) DEFAULT NULL COMMENT '地点',
   `latitude` double DEFAULT NULL COMMENT '纬度',
   `longitude` double DEFAULT NULL COMMENT '经度',
@@ -484,8 +789,8 @@ CREATE TABLE `meb_vacation` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '编号',
   `mebid` int(11) DEFAULT NULL COMMENT '平台用户id',
   `name` varchar(50) DEFAULT NULL COMMENT '姓名',
-  `starttime` int(11) DEFAULT NULL COMMENT '开始时间',
-  `endtime` int(11) DEFAULT NULL COMMENT '结束时间',
+  `start_time` datetime DEFAULT NULL COMMENT '开始时间',
+  `end_time` datetime DEFAULT NULL COMMENT '结束时间',
   `type` int(2) DEFAULT NULL COMMENT '类型',
   `reversta` int(2) DEFAULT NULL COMMENT '审核状态',
   `reason` varchar(255) DEFAULT NULL COMMENT '请假事由',
@@ -502,8 +807,8 @@ CREATE TABLE `ord_activity_price` (
   `price` decimal(13,2) DEFAULT NULL COMMENT '原价',
   `rate` float DEFAULT NULL COMMENT '折扣',
   `discount_price` decimal(13,2) DEFAULT NULL COMMENT '优惠金额',
-  `start_time` int(11) DEFAULT NULL COMMENT '开始时间',
-  `end_time` int(11) DEFAULT NULL COMMENT '结束时间',
+  `start_time` datetime DEFAULT NULL COMMENT '开始时间',
+  `end_time` datetime DEFAULT NULL COMMENT '结束时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='楼宇价格';
 
@@ -522,14 +827,14 @@ CREATE TABLE `ord_order` (
   `sort_id` int(11) DEFAULT NULL COMMENT '分拣员id',
   `delivery_id` int(11) DEFAULT NULL COMMENT '送货员id',
   `delivery_phone` varchar(11) DEFAULT NULL COMMENT '送货员电话',
-  `sor_time` int(11) DEFAULT NULL COMMENT '分拣时间',
-  `pickup_time` int(11) DEFAULT NULL COMMENT '取货时间',
-  `finsh_time` int(11) DEFAULT NULL COMMENT '送达时间',
-  `close_time` int(11) DEFAULT NULL COMMENT '取消时间',
+  `sor_time` datetime DEFAULT NULL COMMENT '分拣时间',
+  `pickup_time` datetime DEFAULT NULL COMMENT '取货时间',
+  `finsh_time` datetime DEFAULT NULL COMMENT '送达时间',
+  `close_time` datetime DEFAULT NULL COMMENT '取消时间',
   `close_desc` varchar(200) DEFAULT NULL COMMENT '取消原因',
-  `order_time` int(11) DEFAULT NULL COMMENT '下单时间',
-  `pay_time` int(11) DEFAULT NULL COMMENT '支付时间',
-  `autoclose_time` int(11) DEFAULT NULL COMMENT '预计自动关闭时间',
+  `order_time` datetime DEFAULT NULL COMMENT '下单时间',
+  `pay_time` datetime DEFAULT NULL COMMENT '支付时间',
+  `autoclose_time` datetime DEFAULT NULL COMMENT '预计自动关闭时间',
   `pay_mode` int(2) DEFAULT NULL COMMENT '支付方式',
   `goods_num` int(4) DEFAULT NULL COMMENT '商品件数',
   `order_clt` int(2) DEFAULT NULL COMMENT '下单客户端',
@@ -537,7 +842,7 @@ CREATE TABLE `ord_order` (
   `third_num` varchar(20) DEFAULT NULL COMMENT '第三方订单号',
   `third_take_addr` varchar(50) DEFAULT NULL COMMENT '第三方平台取货地址',
   `third_give_addr` varchar(50) DEFAULT NULL COMMENT '第三方平台送货地址',
-  `expect_time` int(11) DEFAULT NULL COMMENT '顾客期望送达时间',
+  `expect_time` datetime DEFAULT NULL COMMENT '顾客期望送达时间',
   `order_img_path` varchar(20) DEFAULT NULL COMMENT '第三方订单截图',
   `floor` int(4) DEFAULT NULL COMMENT '楼层',
   `order_sta` int(2) DEFAULT NULL COMMENT '状态',
@@ -561,9 +866,9 @@ CREATE TABLE `ord_pay` (
   `pay_para` text COMMENT '支付参数',
   `return_val` text COMMENT '返回值 第三方支付流水号，含银行转账流水号',
   `pay_sta` int(2) DEFAULT NULL COMMENT '支付状态',
-  `create_time` int(11) DEFAULT NULL COMMENT '发起支付时间',
-  `finish_time` int(11) DEFAULT NULL COMMENT '完成支付时间',
-  `close_time` int(11) DEFAULT NULL COMMENT '支付关闭时间',
+  `create_time` datetime DEFAULT NULL COMMENT '发起支付时间',
+  `finish_time` datetime DEFAULT NULL COMMENT '完成支付时间',
+  `close_time` datetime DEFAULT NULL COMMENT '支付关闭时间',
   `close_by` int(11) DEFAULT NULL COMMENT '关闭操作人',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订单支付记录';
@@ -4370,7 +4675,7 @@ CREATE TABLE `sys_dict_data` (
   `update_time` datetime DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='字典数据表';
+) ENGINE=InnoDB AUTO_INCREMENT=170 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='字典数据表';
 
 -- ----------------------------
 -- Records of sys_dict_data
@@ -4474,6 +4779,7 @@ INSERT INTO `sys_dict_data` VALUES (165, 1, '丢单', '1', 'opiniontype', NULL, 
 INSERT INTO `sys_dict_data` VALUES (166, 2, '损坏', '2', 'opiniontype', NULL, NULL, 'Y', '0', 'admin', '2020-06-07 10:50:50', '', NULL, NULL);
 INSERT INTO `sys_dict_data` VALUES (167, 1, '微信', '1', 'ord_pay_mode', NULL, NULL, 'Y', '0', 'admin', '2020-06-07 10:51:17', '', NULL, NULL);
 INSERT INTO `sys_dict_data` VALUES (168, 2, '支付宝', '2', 'ord_pay_mode', NULL, NULL, 'Y', '0', 'admin', '2020-06-07 10:51:27', '', NULL, NULL);
+INSERT INTO `sys_dict_data` VALUES (169, 4, '后台', '4', 'meb_reg_clt', NULL, NULL, 'Y', '0', 'admin', '2020-06-10 10:03:34', '', NULL, NULL);
 COMMIT;
 
 -- ----------------------------
@@ -4596,7 +4902,7 @@ CREATE TABLE `sys_logininfor` (
   `msg` varchar(255) COLLATE utf8_bin DEFAULT '' COMMENT '提示消息',
   `login_time` datetime DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='系统访问记录';
+) ENGINE=InnoDB AUTO_INCREMENT=108 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='系统访问记录';
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -4607,6 +4913,9 @@ INSERT INTO `sys_logininfor` VALUES (101, 'admin', '127.0.0.1', '内网IP', 'Saf
 INSERT INTO `sys_logininfor` VALUES (102, 'admin', '127.0.0.1', '内网IP', 'Safari', 'Mac OS X', '0', '登录成功', '2020-06-07 12:16:05');
 INSERT INTO `sys_logininfor` VALUES (103, 'admin', '127.0.0.1', '内网IP', 'Safari', 'Mac OS X', '0', '登录成功', '2020-06-08 14:29:07');
 INSERT INTO `sys_logininfor` VALUES (104, 'admin', '127.0.0.1', '内网IP', 'Safari', 'Mac OS X', '0', '登录成功', '2020-06-08 15:29:19');
+INSERT INTO `sys_logininfor` VALUES (105, 'admin', '127.0.0.1', '内网IP', 'Safari', 'Mac OS X', '0', '登录成功', '2020-06-09 22:44:11');
+INSERT INTO `sys_logininfor` VALUES (106, 'admin', '127.0.0.1', '内网IP', 'Safari', 'Mac OS X', '0', '登录成功', '2020-06-10 09:58:23');
+INSERT INTO `sys_logininfor` VALUES (107, 'admin', '127.0.0.1', '内网IP', 'Safari', 'Mac OS X', '0', '登录成功', '2020-06-10 11:28:53');
 COMMIT;
 
 -- ----------------------------
@@ -4860,7 +5169,7 @@ CREATE TABLE `sys_oper_log` (
   `error_msg` varchar(2000) COLLATE utf8_bin DEFAULT '' COMMENT '错误消息',
   `oper_time` datetime DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`oper_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=220 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='操作日志记录';
+) ENGINE=InnoDB AUTO_INCREMENT=225 DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='操作日志记录';
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -4986,6 +5295,11 @@ INSERT INTO `sys_oper_log` VALUES (216, '代码生成', 3, 'com.ruoyi.generator.
 INSERT INTO `sys_oper_log` VALUES (217, '代码生成', 3, 'com.ruoyi.generator.controller.GenController.remove()', 'POST', 1, 'admin', '研发部门', '/tool/gen/remove', '127.0.0.1', '内网IP', '{\n  \"ids\" : [ \"11,12,13,14,15\" ]\n}', '{\n  \"msg\" : \"操作成功\",\n  \"code\" : 0\n}', 0, NULL, '2020-06-08 14:39:08');
 INSERT INTO `sys_oper_log` VALUES (218, '代码生成', 6, 'com.ruoyi.generator.controller.GenController.importTableSave()', 'POST', 1, 'admin', '研发部门', '/tool/gen/importTable', '127.0.0.1', '内网IP', '{\n  \"tables\" : [ \"meb_opinion_saleafteropr,meb_opinion\" ]\n}', '{\n  \"msg\" : \"操作成功\",\n  \"code\" : 0\n}', 0, NULL, '2020-06-08 14:39:29');
 INSERT INTO `sys_oper_log` VALUES (219, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', '研发部门', '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\n  \"tables\" : [ \"meb_opinion,meb_opinion_saleafteropr\" ]\n}', 'null', 0, NULL, '2020-06-08 14:39:34');
+INSERT INTO `sys_oper_log` VALUES (220, '会员账号', 1, 'com.ruoyi.web.controller.kmps.MebAccountController.addSave()', 'POST', 1, 'admin', '研发部门', '/kmps/account/add', '127.0.0.1', '内网IP', '{\n  \"type\" : [ \"1\" ],\n  \"phone\" : [ \"18676768765\" ],\n  \"password\" : [ \"123456\" ],\n  \"email\" : [ \"\" ],\n  \"accsta\" : [ \"1\" ]\n}', '{\n  \"msg\" : \"操作成功\",\n  \"code\" : 0\n}', 0, NULL, '2020-06-09 22:49:27');
+INSERT INTO `sys_oper_log` VALUES (221, '字典数据', 1, 'com.ruoyi.web.controller.system.SysDictDataController.addSave()', 'POST', 1, 'admin', '研发部门', '/system/dict/data/add', '127.0.0.1', '内网IP', '{\n  \"dictLabel\" : [ \"后台\" ],\n  \"dictValue\" : [ \"4\" ],\n  \"dictType\" : [ \"meb_reg_clt\" ],\n  \"cssClass\" : [ \"\" ],\n  \"dictSort\" : [ \"4\" ],\n  \"listClass\" : [ \"\" ],\n  \"isDefault\" : [ \"Y\" ],\n  \"status\" : [ \"0\" ],\n  \"remark\" : [ \"\" ]\n}', '{\n  \"msg\" : \"操作成功\",\n  \"code\" : 0\n}', 0, NULL, '2020-06-10 10:03:34');
+INSERT INTO `sys_oper_log` VALUES (222, '代码生成', 3, 'com.ruoyi.generator.controller.GenController.remove()', 'POST', 1, 'admin', '研发部门', '/tool/gen/remove', '127.0.0.1', '内网IP', '{\n  \"ids\" : [ \"16,17\" ]\n}', '{\n  \"msg\" : \"操作成功\",\n  \"code\" : 0\n}', 0, NULL, '2020-06-10 11:29:02');
+INSERT INTO `sys_oper_log` VALUES (223, '代码生成', 6, 'com.ruoyi.generator.controller.GenController.importTableSave()', 'POST', 1, 'admin', '研发部门', '/tool/gen/importTable', '127.0.0.1', '内网IP', '{\n  \"tables\" : [ \"meb_financelcash,meb_bankbind,meb_authname,meb_addrlist,meb_opinion,meb_accthird,ord_pay,ord_order,ord_activity_price,meb_vacation,meb_sigin_in,meb_pointsrd,meb_phonerd,meb_opinion_saleafteropr,meb_loginlog,meb_info,meb_friend,meb_financelrd,meb_applog,meb_account,addr_edifice_group,addr_edifice,set_databank,set_datacity\" ]\n}', '{\n  \"msg\" : \"操作成功\",\n  \"code\" : 0\n}', 0, NULL, '2020-06-10 11:29:27');
+INSERT INTO `sys_oper_log` VALUES (224, '代码生成', 8, 'com.ruoyi.generator.controller.GenController.batchGenCode()', 'GET', 1, 'admin', '研发部门', '/tool/gen/batchGenCode', '127.0.0.1', '内网IP', '{\n  \"tables\" : [ \"addr_edifice,addr_edifice_group,meb_account,meb_accthird,meb_addrlist,meb_applog,meb_authname,meb_bankbind,meb_financelcash,meb_financelrd,meb_friend,meb_info,meb_loginlog,meb_opinion,meb_opinion_saleafteropr,meb_phonerd,meb_pointsrd,meb_sigin_in,meb_vacation,ord_activity_price,ord_order,ord_pay,set_databank,set_datacity\" ]\n}', 'null', 0, NULL, '2020-06-10 11:29:48');
 COMMIT;
 
 -- ----------------------------
@@ -5194,7 +5508,7 @@ CREATE TABLE `sys_user` (
 -- Records of sys_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '29c67a30398638269fe600f73a054934', '111111', '0', '0', '127.0.0.1', '2020-06-08 15:29:19', 'admin', '2018-03-16 11:33:00', 'ry', '2020-06-08 15:29:19', '管理员');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '29c67a30398638269fe600f73a054934', '111111', '0', '0', '127.0.0.1', '2020-06-10 11:28:54', 'admin', '2018-03-16 11:33:00', 'ry', '2020-06-10 11:28:53', '管理员');
 INSERT INTO `sys_user` VALUES (2, 105, 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '8e6d98b90472783cc73c17047ddccf36', '222222', '0', '0', '127.0.0.1', '2018-03-16 11:33:00', 'admin', '2018-03-16 11:33:00', 'ry', '2018-03-16 11:33:00', '测试员');
 COMMIT;
 

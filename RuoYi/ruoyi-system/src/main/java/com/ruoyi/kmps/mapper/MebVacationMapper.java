@@ -4,55 +4,55 @@ import java.util.List;
 import com.ruoyi.kmps.domain.MebVacation;
 
 /**
- * 【请填写功能名称】Mapper接口
+ * 会员休假Mapper接口
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public interface MebVacationMapper 
 {
     /**
-     * 查询【请填写功能名称】
+     * 查询会员休假
      * 
-     * @param id 【请填写功能名称】ID
-     * @return 【请填写功能名称】
+     * @param id 会员休假ID
+     * @return 会员休假
      */
     public MebVacation selectMebVacationById(Long id);
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询会员休假列表
      * 
-     * @param mebVacation 【请填写功能名称】
-     * @return 【请填写功能名称】集合
+     * @param mebVacation 会员休假
+     * @return 会员休假集合
      */
     public List<MebVacation> selectMebVacationList(MebVacation mebVacation);
 
     /**
-     * 新增【请填写功能名称】
+     * 新增会员休假
      * 
-     * @param mebVacation 【请填写功能名称】
+     * @param mebVacation 会员休假
      * @return 结果
      */
     public int insertMebVacation(MebVacation mebVacation);
 
     /**
-     * 修改【请填写功能名称】
+     * 修改会员休假
      * 
-     * @param mebVacation 【请填写功能名称】
+     * @param mebVacation 会员休假
      * @return 结果
      */
     public int updateMebVacation(MebVacation mebVacation);
 
     /**
-     * 删除【请填写功能名称】
+     * 删除会员休假
      * 
-     * @param id 【请填写功能名称】ID
+     * @param id 会员休假ID
      * @return 结果
      */
     public int deleteMebVacationById(Long id);
 
     /**
-     * 批量删除【请填写功能名称】
+     * 批量删除会员休假
      * 
      * @param ids 需要删除的数据ID
      * @return 结果

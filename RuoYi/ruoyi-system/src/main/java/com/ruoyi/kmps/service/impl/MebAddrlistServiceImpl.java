@@ -1,6 +1,7 @@
 package com.ruoyi.kmps.service.impl;
 
 import java.util.List;
+import com.ruoyi.common.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ruoyi.kmps.mapper.MebAddrlistMapper;
@@ -12,7 +13,7 @@ import com.ruoyi.common.core.text.Convert;
  * 会员地址列Service业务层处理
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Service
 public class MebAddrlistServiceImpl implements IMebAddrlistService 
@@ -53,6 +54,7 @@ public class MebAddrlistServiceImpl implements IMebAddrlistService
     @Override
     public int insertMebAddrlist(MebAddrlist mebAddrlist)
     {
+        mebAddrlist.setCreateTime(DateUtils.getNowDate());
         return mebAddrlistMapper.insertMebAddrlist(mebAddrlist);
     }
 
@@ -65,6 +67,7 @@ public class MebAddrlistServiceImpl implements IMebAddrlistService
     @Override
     public int updateMebAddrlist(MebAddrlist mebAddrlist)
     {
+        mebAddrlist.setUpdateTime(DateUtils.getNowDate());
         return mebAddrlistMapper.updateMebAddrlist(mebAddrlist);
     }
 

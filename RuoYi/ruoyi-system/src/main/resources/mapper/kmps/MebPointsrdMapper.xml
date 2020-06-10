@@ -12,13 +12,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="modid"    column="modid"    />
         <result property="cid"    column="cid"    />
         <result property="type"    column="type"    />
-        <result property="createtime"    column="createtime"    />
+        <result property="createTime"    column="create_time"    />
         <result property="userid"    column="userid"    />
         <result property="memo"    column="memo"    />
     </resultMap>
 
     <sql id="selectMebPointsrdVo">
-        select id, mebid, points, nowpoints, modid, cid, type, createtime, userid, memo from meb_pointsrd
+        select id, mebid, points, nowpoints, modid, cid, type, create_time, userid, memo from meb_pointsrd
     </sql>
 
     <select id="selectMebPointsrdList" parameterType="MebPointsrd" resultMap="MebPointsrdResult">
@@ -30,7 +30,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="modid != null "> and modid = #{modid}</if>
             <if test="cid != null "> and cid = #{cid}</if>
             <if test="type != null "> and type = #{type}</if>
-            <if test="createtime != null "> and createtime = #{createtime}</if>
             <if test="userid != null "> and userid = #{userid}</if>
             <if test="memo != null  and memo != ''"> and memo = #{memo}</if>
         </where>
@@ -50,7 +49,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="modid != null ">modid,</if>
             <if test="cid != null ">cid,</if>
             <if test="type != null ">type,</if>
-            <if test="createtime != null ">createtime,</if>
+            <if test="createTime != null ">create_time,</if>
             <if test="userid != null ">userid,</if>
             <if test="memo != null  and memo != ''">memo,</if>
          </trim>
@@ -61,7 +60,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="modid != null ">#{modid},</if>
             <if test="cid != null ">#{cid},</if>
             <if test="type != null ">#{type},</if>
-            <if test="createtime != null ">#{createtime},</if>
+            <if test="createTime != null ">#{createTime},</if>
             <if test="userid != null ">#{userid},</if>
             <if test="memo != null  and memo != ''">#{memo},</if>
          </trim>
@@ -76,7 +75,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="modid != null ">modid = #{modid},</if>
             <if test="cid != null ">cid = #{cid},</if>
             <if test="type != null ">type = #{type},</if>
-            <if test="createtime != null ">createtime = #{createtime},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
             <if test="userid != null ">userid = #{userid},</if>
             <if test="memo != null  and memo != ''">memo = #{memo},</if>
         </trim>

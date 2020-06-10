@@ -4,55 +4,55 @@ import java.util.List;
 import com.ruoyi.kmps.domain.AddrEdifice;
 
 /**
- * 【请填写功能名称】Mapper接口
+ * 楼宇Mapper接口
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public interface AddrEdificeMapper 
 {
     /**
-     * 查询【请填写功能名称】
+     * 查询楼宇
      * 
-     * @param id 【请填写功能名称】ID
-     * @return 【请填写功能名称】
+     * @param id 楼宇ID
+     * @return 楼宇
      */
     public AddrEdifice selectAddrEdificeById(Long id);
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询楼宇列表
      * 
-     * @param addrEdifice 【请填写功能名称】
-     * @return 【请填写功能名称】集合
+     * @param addrEdifice 楼宇
+     * @return 楼宇集合
      */
     public List<AddrEdifice> selectAddrEdificeList(AddrEdifice addrEdifice);
 
     /**
-     * 新增【请填写功能名称】
+     * 新增楼宇
      * 
-     * @param addrEdifice 【请填写功能名称】
+     * @param addrEdifice 楼宇
      * @return 结果
      */
     public int insertAddrEdifice(AddrEdifice addrEdifice);
 
     /**
-     * 修改【请填写功能名称】
+     * 修改楼宇
      * 
-     * @param addrEdifice 【请填写功能名称】
+     * @param addrEdifice 楼宇
      * @return 结果
      */
     public int updateAddrEdifice(AddrEdifice addrEdifice);
 
     /**
-     * 删除【请填写功能名称】
+     * 删除楼宇
      * 
-     * @param id 【请填写功能名称】ID
+     * @param id 楼宇ID
      * @return 结果
      */
     public int deleteAddrEdificeById(Long id);
 
     /**
-     * 批量删除【请填写功能名称】
+     * 批量删除楼宇
      * 
      * @param ids 需要删除的数据ID
      * @return 结果

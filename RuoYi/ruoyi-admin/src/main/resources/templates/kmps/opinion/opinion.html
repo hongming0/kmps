@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: header('【请填写功能名称】列表')" />
+    <th:block th:include="include :: header('投诉列表')" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -17,7 +17,10 @@
                                     <option value="-1">代码生成请选择字典属性</option>
                                 </select>
                             </li>
-
+                            <li>
+                                <label>描述：</label>
+                                <input type="text" name="desc"/>
+                            </li>
                             <li>
                                 <label>投诉人id：</label>
                                 <input type="text" name="mebId"/>
@@ -27,10 +30,41 @@
                                 <input type="text" name="orderSl"/>
                             </li>
                             <li>
+                                <label>订单序列号：</label>
+                                <input type="text" name="orderNum"/>
+                            </li>
+                            <li>
                                 <label>投诉大厦：</label>
                                 <input type="text" name="addrId"/>
                             </li>
-
+                            <li class="select-time">
+                                <label>提交时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginSubmitTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endSubmitTime]"/>
+                            </li>
+                            <li class="select-time">
+                                <label>处理时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginHandleTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endHandleTime]"/>
+                            </li>
+                            <li>
+                                <label>附件一：</label>
+                                <input type="text" name="fj1"/>
+                            </li>
+                            <li>
+                                <label>附件二：</label>
+                                <input type="text" name="fj2"/>
+                            </li>
+                            <li>
+                                <label>附件三：</label>
+                                <input type="text" name="fj3"/>
+                            </li>
+                            <li>
+                                <label>附件四：</label>
+                                <input type="text" name="fj4"/>
+                            </li>
                             <li>
                                 <label>状态：</label>
                                 <input type="text" name="opinionsta"/>
@@ -76,7 +110,7 @@
                 updateUrl: prefix + "/edit/{id}",
                 removeUrl: prefix + "/remove",
                 exportUrl: prefix + "/export",
-                modalName: "【请填写功能名称】",
+                modalName: "投诉",
                 columns: [{
                     checkbox: true
                 },
@@ -112,6 +146,26 @@
                 {
                     field: 'submitTime', 
                     title: '提交时间'
+                },
+                {
+                    field: 'handleTime', 
+                    title: '处理时间'
+                },
+                {
+                    field: 'fj1', 
+                    title: '附件一'
+                },
+                {
+                    field: 'fj2', 
+                    title: '附件二'
+                },
+                {
+                    field: 'fj3', 
+                    title: '附件三'
+                },
+                {
+                    field: 'fj4', 
+                    title: '附件四'
                 },
                 {
                     field: 'opinionsta', 

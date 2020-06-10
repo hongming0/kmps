@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 手机号变更记录对象 meb_phonerd
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class MebPhonerd extends BaseEntity
 {
@@ -33,10 +33,6 @@ public class MebPhonerd extends BaseEntity
     /** 状态 */
     @Excel(name = "状态")
     private Integer phonerdsta;
-
-    private Long createtime;
-
-    private Long updatetime;
 
     public void setId(Long id) 
     {
@@ -84,22 +80,6 @@ public class MebPhonerd extends BaseEntity
         return phonerdsta;
     }
 
-    public void setCreatetime(Long createtime) {
-        this.createtime = createtime;
-    }
-
-    public Long getCreatetime() {
-        return createtime;
-    }
-
-    public void setUpdatetime(Long updatetime) {
-        this.updatetime = updatetime;
-    }
-
-    public Long getUpdatetime() {
-        return updatetime;
-    }
-
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
@@ -107,8 +87,8 @@ public class MebPhonerd extends BaseEntity
             .append("mebid", getMebid())
             .append("oldphone", getOldphone())
             .append("newphone", getNewphone())
-            .append("createtime", getCreatetime())
-            .append("updatetime", getUpdatetime())
+            .append("createTime", getCreateTime())
+            .append("updateTime", getUpdateTime())
             .append("phonerdsta", getPhonerdsta())
             .toString();
     }

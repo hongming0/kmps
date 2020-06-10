@@ -4,47 +4,47 @@ import java.util.List;
 import com.ruoyi.kmps.domain.OrdActivityPrice;
 
 /**
- * 【请填写功能名称】Service接口
+ * 楼宇价格Service接口
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public interface IOrdActivityPriceService 
 {
     /**
-     * 查询【请填写功能名称】
+     * 查询楼宇价格
      * 
-     * @param id 【请填写功能名称】ID
-     * @return 【请填写功能名称】
+     * @param id 楼宇价格ID
+     * @return 楼宇价格
      */
     public OrdActivityPrice selectOrdActivityPriceById(Long id);
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询楼宇价格列表
      * 
-     * @param ordActivityPrice 【请填写功能名称】
-     * @return 【请填写功能名称】集合
+     * @param ordActivityPrice 楼宇价格
+     * @return 楼宇价格集合
      */
     public List<OrdActivityPrice> selectOrdActivityPriceList(OrdActivityPrice ordActivityPrice);
 
     /**
-     * 新增【请填写功能名称】
+     * 新增楼宇价格
      * 
-     * @param ordActivityPrice 【请填写功能名称】
+     * @param ordActivityPrice 楼宇价格
      * @return 结果
      */
     public int insertOrdActivityPrice(OrdActivityPrice ordActivityPrice);
 
     /**
-     * 修改【请填写功能名称】
+     * 修改楼宇价格
      * 
-     * @param ordActivityPrice 【请填写功能名称】
+     * @param ordActivityPrice 楼宇价格
      * @return 结果
      */
     public int updateOrdActivityPrice(OrdActivityPrice ordActivityPrice);
 
     /**
-     * 批量删除【请填写功能名称】
+     * 批量删除楼宇价格
      * 
      * @param ids 需要删除的数据ID
      * @return 结果
@@ -52,9 +52,9 @@ public interface IOrdActivityPriceService
     public int deleteOrdActivityPriceByIds(String ids);
 
     /**
-     * 删除【请填写功能名称】信息
+     * 删除楼宇价格信息
      * 
-     * @param id 【请填写功能名称】ID
+     * @param id 楼宇价格ID
      * @return 结果
      */
     public int deleteOrdActivityPriceById(Long id);

@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 会员推荐对象 meb_friend
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class MebFriend extends BaseEntity
 {
@@ -29,8 +29,6 @@ public class MebFriend extends BaseEntity
     /** 使用状态 */
     @Excel(name = "使用状态")
     private Integer status;
-
-    private Long createtime;
 
     public void setId(Long id) 
     {
@@ -69,21 +67,13 @@ public class MebFriend extends BaseEntity
         return status;
     }
 
-    public void setCreatetime(Long createtime) {
-        this.createtime = createtime;
-    }
-
-    public Long getCreatetime() {
-        return createtime;
-    }
-
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
             .append("id", getId())
             .append("pid", getPid())
             .append("bid", getBid())
-            //.append("createtime", getCreatetime())
+            .append("createTime", getCreateTime())
             .append("status", getStatus())
             .toString();
     }

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <th:block th:include="include :: header('修改【请填写功能名称】')" />
+    <th:block th:include="include :: header('修改投诉')" />
+    <th:block th:include="include :: datetimepicker-css" />
 </head>
 <body class="white-bg">
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
@@ -49,13 +50,19 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">提交时间：</label>
                 <div class="col-sm-8">
-                    <input name="submitTime" th:field="*{submitTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="submitTime" th:value="${#dates.format(mebOpinion.submitTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">处理时间：</label>
                 <div class="col-sm-8">
-                    <input name="handleTime" th:field="*{handleTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="handleTime" th:value="${#dates.format(mebOpinion.handleTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
@@ -83,12 +90,6 @@
                 </div>
             </div>
             <div class="form-group">    
-                <label class="col-sm-3 control-label">处理人：</label>
-                <div class="col-sm-8">
-                    <input name="userId" th:field="*{userId}" class="form-control" type="text">
-                </div>
-            </div>
-            <div class="form-group">    
                 <label class="col-sm-3 control-label">状态：</label>
                 <div class="col-sm-8">
                     <input name="opinionsta" th:field="*{opinionsta}" class="form-control" type="text">
@@ -97,6 +98,7 @@
         </form>
     </div>
     <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
     <script type="text/javascript">
         var prefix = ctx + "kmps/opinion";
         $("#form-opinion-edit").validate({
@@ -108,6 +110,18 @@
                 $.operate.save(prefix + "/edit", $('#form-opinion-edit').serialize());
             }
         }
+
+        $("input[name='submitTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='handleTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
     </script>
 </body>
 </html>

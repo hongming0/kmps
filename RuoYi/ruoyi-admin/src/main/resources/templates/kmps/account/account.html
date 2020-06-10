@@ -33,7 +33,7 @@
                         </select>
                         </li>
                         <li>
-                            注册客户端：<select name="accsta" th:with="type=${@dict.getType('meb_acc_sta')}">
+                            状态：<select name="accsta" th:with="type=${@dict.getType('meb_acc_sta')}">
                             <option value="">所有</option>
                             <option th:each="dict : ${type}" th:text="${dict.dictLabel}"
                                     th:value="${dict.dictValue}"></option>
@@ -75,6 +75,8 @@
 <script th:inline="javascript">
     var editFlag = [[${@permission.hasPermi('kmps:account:edit')}]];
     var removeFlag = [[${@permission.hasPermi('kmps:account:remove')}]];
+    var types = [[${@dict.getType('meb_type')}]];
+    var accstas = [[${@dict.getType('meb_acc_sta')}]];
     var prefix = ctx + "kmps/account";
 
     $(function () {
@@ -95,7 +97,11 @@
                 },
                 {
                     field: 'type',
-                    title: '会员类型'
+                    title: '会员类型',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(types, value);
+                    }
                 },
                 {
                     field: 'phone',
@@ -111,7 +117,11 @@
                 },
                 {
                     field: 'accsta',
-                    title: '状态'
+                    title: '状态',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        return $.table.selectDictLabel(accstas, value);
+                    }
                 },
                 {
                     title: '操作',

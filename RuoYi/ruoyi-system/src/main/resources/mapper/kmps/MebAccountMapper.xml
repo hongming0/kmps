@@ -12,15 +12,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="password"    column="password"    />
         <result property="salt"    column="salt"    />
         <result property="email"    column="email"    />
-        <result property="regtime"    column="regtime"    />
+        <result property="regTime"    column="reg_time"    />
         <result property="regip"    column="regip"    />
         <result property="regclt"    column="regclt"    />
         <result property="regcha"    column="regcha"    />
         <result property="refcode"    column="refcode"    />
         <result property="puid"    column="puid"    />
         <result property="accsta"    column="accsta"    />
-        <result property="lastlogintime"    column="lastlogintime"    />
-        <result property="lastloginip"    column="lastloginip"    />
+        <result property="lastloginTime"    column="lastlogin_time"    />
+        <result property="lastloginIp"    column="lastlogin_ip"    />
         <result property="passerr"    column="passerr"    />
         <result property="m1"    column="m1"    />
         <result property="m2"    column="m2"    />
@@ -32,7 +32,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </resultMap>
 
     <sql id="selectMebAccountVo">
-        select id, type, phone, account, password, salt, email, regtime, regip, regclt, regcha, refcode, puid, accsta, lastlogintime, lastloginip, passerr, m1, m2, m3, mebmoney, fremoney, tpoints, version from meb_account
+        select id, type, phone, account, password, salt, email, reg_time, regip, regclt, regcha, refcode, puid, accsta, lastlogin_time, lastlogin_ip, passerr, m1, m2, m3, mebmoney, fremoney, tpoints, version from meb_account
     </sql>
 
     <select id="selectMebAccountList" parameterType="MebAccount" resultMap="MebAccountResult">
@@ -44,15 +44,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="password != null  and password != ''"> and password = #{password}</if>
             <if test="salt != null  and salt != ''"> and salt = #{salt}</if>
             <if test="email != null  and email != ''"> and email = #{email}</if>
-            <if test="regtime != null "> and regtime = #{regtime}</if>
+            <if test="regTime != null "> and reg_time = #{regTime}</if>
             <if test="regip != null  and regip != ''"> and regip = #{regip}</if>
             <if test="regclt != null "> and regclt = #{regclt}</if>
             <if test="regcha != null  and regcha != ''"> and regcha = #{regcha}</if>
             <if test="refcode != null  and refcode != ''"> and refcode = #{refcode}</if>
             <if test="puid != null "> and puid = #{puid}</if>
             <if test="accsta != null "> and accsta = #{accsta}</if>
-            <if test="lastlogintime != null "> and lastlogintime = #{lastlogintime}</if>
-            <if test="lastloginip != null  and lastloginip != ''"> and lastloginip = #{lastloginip}</if>
+            <if test="lastloginTime != null "> and lastlogin_time = #{lastloginTime}</if>
+            <if test="lastloginIp != null  and lastloginIp != ''"> and lastlogin_ip = #{lastloginIp}</if>
             <if test="passerr != null "> and passerr = #{passerr}</if>
             <if test="m1 != null  and m1 != ''"> and m1 = #{m1}</if>
             <if test="m2 != null  and m2 != ''"> and m2 = #{m2}</if>
@@ -78,15 +78,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="password != null  and password != ''">password,</if>
             <if test="salt != null  and salt != ''">salt,</if>
             <if test="email != null  and email != ''">email,</if>
-            <if test="regtime != null ">regtime,</if>
+            <if test="regTime != null ">reg_time,</if>
             <if test="regip != null  and regip != ''">regip,</if>
             <if test="regclt != null ">regclt,</if>
             <if test="regcha != null  and regcha != ''">regcha,</if>
             <if test="refcode != null  and refcode != ''">refcode,</if>
             <if test="puid != null ">puid,</if>
             <if test="accsta != null ">accsta,</if>
-            <if test="lastlogintime != null ">lastlogintime,</if>
-            <if test="lastloginip != null  and lastloginip != ''">lastloginip,</if>
+            <if test="lastloginTime != null ">lastlogin_time,</if>
+            <if test="lastloginIp != null  and lastloginIp != ''">lastlogin_ip,</if>
             <if test="passerr != null ">passerr,</if>
             <if test="m1 != null  and m1 != ''">m1,</if>
             <if test="m2 != null  and m2 != ''">m2,</if>
@@ -103,15 +103,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="password != null  and password != ''">#{password},</if>
             <if test="salt != null  and salt != ''">#{salt},</if>
             <if test="email != null  and email != ''">#{email},</if>
-            <if test="regtime != null ">#{regtime},</if>
+            <if test="regTime != null ">#{regTime},</if>
             <if test="regip != null  and regip != ''">#{regip},</if>
             <if test="regclt != null ">#{regclt},</if>
             <if test="regcha != null  and regcha != ''">#{regcha},</if>
             <if test="refcode != null  and refcode != ''">#{refcode},</if>
             <if test="puid != null ">#{puid},</if>
             <if test="accsta != null ">#{accsta},</if>
-            <if test="lastlogintime != null ">#{lastlogintime},</if>
-            <if test="lastloginip != null  and lastloginip != ''">#{lastloginip},</if>
+            <if test="lastloginTime != null ">#{lastloginTime},</if>
+            <if test="lastloginIp != null  and lastloginIp != ''">#{lastloginIp},</if>
             <if test="passerr != null ">#{passerr},</if>
             <if test="m1 != null  and m1 != ''">#{m1},</if>
             <if test="m2 != null  and m2 != ''">#{m2},</if>
@@ -132,15 +132,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="password != null  and password != ''">password = #{password},</if>
             <if test="salt != null  and salt != ''">salt = #{salt},</if>
             <if test="email != null  and email != ''">email = #{email},</if>
-            <if test="regtime != null ">regtime = #{regtime},</if>
+            <if test="regTime != null ">reg_time = #{regTime},</if>
             <if test="regip != null  and regip != ''">regip = #{regip},</if>
             <if test="regclt != null ">regclt = #{regclt},</if>
             <if test="regcha != null  and regcha != ''">regcha = #{regcha},</if>
             <if test="refcode != null  and refcode != ''">refcode = #{refcode},</if>
             <if test="puid != null ">puid = #{puid},</if>
             <if test="accsta != null ">accsta = #{accsta},</if>
-            <if test="lastlogintime != null ">lastlogintime = #{lastlogintime},</if>
-            <if test="lastloginip != null  and lastloginip != ''">lastloginip = #{lastloginip},</if>
+            <if test="lastloginTime != null ">lastlogin_time = #{lastloginTime},</if>
+            <if test="lastloginIp != null  and lastloginIp != ''">lastlogin_ip = #{lastloginIp},</if>
             <if test="passerr != null ">passerr = #{passerr},</if>
             <if test="m1 != null  and m1 != ''">m1 = #{m1},</if>
             <if test="m2 != null  and m2 != ''">m2 = #{m2},</if>

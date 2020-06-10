@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
-    <th:block th:include="include :: header('【请填写功能名称】列表')" />
+    <th:block th:include="include :: header('会员休假列表')" />
 </head>
 <body class="gray-bg">
      <div class="container-div">
@@ -11,8 +11,24 @@
                     <div class="select-list">
                         <ul>
                             <li>
+                                <label>平台用户id：</label>
+                                <input type="text" name="mebid"/>
+                            </li>
+                            <li>
                                 <label>姓名：</label>
                                 <input type="text" name="name"/>
+                            </li>
+                            <li class="select-time">
+                                <label>开始时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginStartTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endStartTime]"/>
+                            </li>
+                            <li class="select-time">
+                                <label>结束时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginEndTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endEndTime]"/>
                             </li>
                             <li>
                                 <label>类型：</label>
@@ -20,6 +36,14 @@
                                     <option value="">所有</option>
                                     <option value="-1">代码生成请选择字典属性</option>
                                 </select>
+                            </li>
+                            <li>
+                                <label>审核状态：</label>
+                                <input type="text" name="reversta"/>
+                            </li>
+                            <li>
+                                <label>请假事由：</label>
+                                <input type="text" name="reason"/>
                             </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
@@ -62,7 +86,7 @@
                 updateUrl: prefix + "/edit/{id}",
                 removeUrl: prefix + "/remove",
                 exportUrl: prefix + "/export",
-                modalName: "【请填写功能名称】",
+                modalName: "会员休假",
                 columns: [{
                     checkbox: true
                 },
@@ -80,11 +104,11 @@
                     title: '姓名'
                 },
                 {
-                    field: 'starttime', 
+                    field: 'startTime', 
                     title: '开始时间'
                 },
                 {
-                    field: 'endtime', 
+                    field: 'endTime', 
                     title: '结束时间'
                 },
                 {

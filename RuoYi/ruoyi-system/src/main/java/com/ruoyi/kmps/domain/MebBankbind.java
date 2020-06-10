@@ -9,7 +9,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 绑定银行卡记录对象 meb_bankbind
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class MebBankbind extends BaseEntity
 {
@@ -61,14 +61,6 @@ public class MebBankbind extends BaseEntity
     /** 状态 */
     @Excel(name = "状态")
     private Integer status;
-
-    private Long createtime;
-
-    private Long createby;
-
-    private Long updatetime;
-
-    private Long updateby;
 
     public void setId(Long id) 
     {
@@ -179,38 +171,6 @@ public class MebBankbind extends BaseEntity
         return status;
     }
 
-    public void setCreatetime(Long createtime) {
-        this.createtime = createtime;
-    }
-
-    public Long getCreatetime() {
-        return createtime;
-    }
-
-    public void setCreateby(Long createby) {
-        this.createby = createby;
-    }
-
-    public Long getCreateby() {
-        return createby;
-    }
-
-    public void setUpdatetime(Long updatetime) {
-        this.updatetime = updatetime;
-    }
-
-    public Long getUpdatetime() {
-        return updatetime;
-    }
-
-    public void setUpdateby(Long updateby) {
-        this.updateby = updateby;
-    }
-
-    public Long getUpdateby() {
-        return updateby;
-    }
-
     @Override
     public String toString() {
         return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
@@ -226,10 +186,10 @@ public class MebBankbind extends BaseEntity
             .append("cityno", getCityno())
             .append("subbankaddr", getSubbankaddr())
             .append("status", getStatus())
-            .append("createtime", getCreatetime())
-            .append("createby", getCreateby())
-            .append("updatetime", getUpdatetime())
-            .append("updateby", getUpdateby())
+            .append("createTime", getCreateTime())
+            .append("createBy", getCreateBy())
+            .append("updateTime", getUpdateTime())
+            .append("updateBy", getUpdateBy())
             .toString();
     }
 }

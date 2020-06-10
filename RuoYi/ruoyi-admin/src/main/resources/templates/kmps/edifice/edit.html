@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
-    <th:block th:include="include :: header('修改【请填写功能名称】')" />
+    <th:block th:include="include :: header('修改楼宇')" />
+    <th:block th:include="include :: datetimepicker-css" />
 </head>
 <body class="white-bg">
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
@@ -64,25 +65,37 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">入驻时间：</label>
                 <div class="col-sm-8">
-                    <input name="joinTime" th:field="*{joinTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="joinTime" th:value="${#dates.format(addrEdifice.joinTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">解除时间：</label>
                 <div class="col-sm-8">
-                    <input name="leaveTime" th:field="*{leaveTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="leaveTime" th:value="${#dates.format(addrEdifice.leaveTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">营业开始时间：</label>
                 <div class="col-sm-8">
-                    <input name="startTime" th:field="*{startTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="startTime" th:value="${#dates.format(addrEdifice.startTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
                 <label class="col-sm-3 control-label">营业结束时间：</label>
                 <div class="col-sm-8">
-                    <input name="endTime" th:field="*{endTime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="endTime" th:value="${#dates.format(addrEdifice.endTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
             <div class="form-group">    
@@ -94,6 +107,7 @@
         </form>
     </div>
     <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
     <script type="text/javascript">
         var prefix = ctx + "kmps/edifice";
         $("#form-edifice-edit").validate({
@@ -105,6 +119,30 @@
                 $.operate.save(prefix + "/edit", $('#form-edifice-edit').serialize());
             }
         }
+
+        $("input[name='joinTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='leaveTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='startTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
+
+        $("input[name='endTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
     </script>
 </body>
 </html>

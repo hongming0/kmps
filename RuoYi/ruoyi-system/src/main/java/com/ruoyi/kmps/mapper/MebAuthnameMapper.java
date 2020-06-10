@@ -7,7 +7,7 @@ import com.ruoyi.kmps.domain.MebAuthname;
  * 会员实名认证记录Mapper接口
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public interface MebAuthnameMapper 
 {

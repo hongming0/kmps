@@ -10,10 +10,10 @@ import com.ruoyi.kmps.service.IOrdPayService;
 import com.ruoyi.common.core.text.Convert;
 
 /**
- * 【请填写功能名称】Service业务层处理
+ * 订单支付记录Service业务层处理
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Service
 public class OrdPayServiceImpl implements IOrdPayService 
@@ -22,10 +22,10 @@ public class OrdPayServiceImpl implements IOrdPayService
     private OrdPayMapper ordPayMapper;
 
     /**
-     * 查询【请填写功能名称】
+     * 查询订单支付记录
      * 
-     * @param id 【请填写功能名称】ID
-     * @return 【请填写功能名称】
+     * @param id 订单支付记录ID
+     * @return 订单支付记录
      */
     @Override
     public OrdPay selectOrdPayById(Long id)
@@ -34,10 +34,10 @@ public class OrdPayServiceImpl implements IOrdPayService
     }
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询订单支付记录列表
      * 
-     * @param ordPay 【请填写功能名称】
-     * @return 【请填写功能名称】
+     * @param ordPay 订单支付记录
+     * @return 订单支付记录
      */
     @Override
     public List<OrdPay> selectOrdPayList(OrdPay ordPay)
@@ -46,9 +46,9 @@ public class OrdPayServiceImpl implements IOrdPayService
     }
 
     /**
-     * 新增【请填写功能名称】
+     * 新增订单支付记录
      * 
-     * @param ordPay 【请填写功能名称】
+     * @param ordPay 订单支付记录
      * @return 结果
      */
     @Override
@@ -59,9 +59,9 @@ public class OrdPayServiceImpl implements IOrdPayService
     }
 
     /**
-     * 修改【请填写功能名称】
+     * 修改订单支付记录
      * 
-     * @param ordPay 【请填写功能名称】
+     * @param ordPay 订单支付记录
      * @return 结果
      */
     @Override
@@ -71,7 +71,7 @@ public class OrdPayServiceImpl implements IOrdPayService
     }
 
     /**
-     * 删除【请填写功能名称】对象
+     * 删除订单支付记录对象
      * 
      * @param ids 需要删除的数据ID
      * @return 结果
@@ -83,9 +83,9 @@ public class OrdPayServiceImpl implements IOrdPayService
     }
 
     /**
-     * 删除【请填写功能名称】信息
+     * 删除订单支付记录信息
      * 
-     * @param id 【请填写功能名称】ID
+     * @param id 订单支付记录ID
      * @return 结果
      */
     @Override

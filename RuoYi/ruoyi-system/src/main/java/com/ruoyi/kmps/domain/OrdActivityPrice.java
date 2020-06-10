@@ -1,15 +1,16 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
- * 【请填写功能名称】对象 ord_activity_price
+ * 楼宇价格对象 ord_activity_price
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class OrdActivityPrice extends BaseEntity
 {
@@ -35,12 +36,12 @@ public class OrdActivityPrice extends BaseEntity
     private Double discountPrice;
 
     /** 开始时间 */
-    @Excel(name = "开始时间")
-    private Long startTime;
+    @Excel(name = "开始时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date startTime;
 
     /** 结束时间 */
-    @Excel(name = "结束时间")
-    private Long endTime;
+    @Excel(name = "结束时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date endTime;
 
     public void setId(Long id) 
     {
@@ -87,21 +88,21 @@ public class OrdActivityPrice extends BaseEntity
     {
         return discountPrice;
     }
-    public void setStartTime(Long startTime) 
+    public void setStartTime(Date startTime) 
     {
         this.startTime = startTime;
     }
 
-    public Long getStartTime() 
+    public Date getStartTime() 
     {
         return startTime;
     }
-    public void setEndTime(Long endTime) 
+    public void setEndTime(Date endTime) 
     {
         this.endTime = endTime;
     }
 
-    public Long getEndTime() 
+    public Date getEndTime() 
     {
         return endTime;
     }

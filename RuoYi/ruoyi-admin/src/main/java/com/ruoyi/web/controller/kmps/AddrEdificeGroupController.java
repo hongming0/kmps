@@ -20,10 +20,10 @@ import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
- * 【请填写功能名称】Controller
+ * 分组Controller
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Controller
 @RequestMapping("/kmps/group")
@@ -42,7 +42,7 @@ public class AddrEdificeGroupController extends BaseController
     }
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询分组列表
      */
     @RequiresPermissions("kmps:group:list")
     @PostMapping("/list")
@@ -55,10 +55,10 @@ public class AddrEdificeGroupController extends BaseController
     }
 
     /**
-     * 导出【请填写功能名称】列表
+     * 导出分组列表
      */
     @RequiresPermissions("kmps:group:export")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.EXPORT)
+    @Log(title = "分组", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
     public AjaxResult export(AddrEdificeGroup addrEdificeGroup)
@@ -69,7 +69,7 @@ public class AddrEdificeGroupController extends BaseController
     }
 
     /**
-     * 新增【请填写功能名称】
+     * 新增分组
      */
     @GetMapping("/add")
     public String add()
@@ -78,10 +78,10 @@ public class AddrEdificeGroupController extends BaseController
     }
 
     /**
-     * 新增保存【请填写功能名称】
+     * 新增保存分组
      */
     @RequiresPermissions("kmps:group:add")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.INSERT)
+    @Log(title = "分组", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
     public AjaxResult addSave(AddrEdificeGroup addrEdificeGroup)
@@ -90,7 +90,7 @@ public class AddrEdificeGroupController extends BaseController
     }
 
     /**
-     * 修改【请填写功能名称】
+     * 修改分组
      */
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Long id, ModelMap mmap)
@@ -101,10 +101,10 @@ public class AddrEdificeGroupController extends BaseController
     }
 
     /**
-     * 修改保存【请填写功能名称】
+     * 修改保存分组
      */
     @RequiresPermissions("kmps:group:edit")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.UPDATE)
+    @Log(title = "分组", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
     public AjaxResult editSave(AddrEdificeGroup addrEdificeGroup)
@@ -113,10 +113,10 @@ public class AddrEdificeGroupController extends BaseController
     }
 
     /**
-     * 删除【请填写功能名称】
+     * 删除分组
      */
     @RequiresPermissions("kmps:group:remove")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.DELETE)
+    @Log(title = "分组", businessType = BusinessType.DELETE)
     @PostMapping( "/remove")
     @ResponseBody
     public AjaxResult remove(String ids)

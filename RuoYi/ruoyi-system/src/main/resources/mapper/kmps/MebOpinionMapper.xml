@@ -7,7 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <resultMap type="MebOpinion" id="MebOpinionResult">
         <result property="id"    column="id"    />
         <result property="type"    column="type"    />
-        <result property="desc"    column="desc"    />
+        <result property="remarks"    column="remarks"    />
         <result property="mebId"    column="meb_id"    />
         <result property="orderSl"    column="order_sl"    />
         <result property="orderNum"    column="order_num"    />
@@ -18,19 +18,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="fj2"    column="fj2"    />
         <result property="fj3"    column="fj3"    />
         <result property="fj4"    column="fj4"    />
-        <result property="userId"    column="user_id"    />
+        <result property="createBy"    column="create_by"    />
         <result property="opinionsta"    column="opinionsta"    />
     </resultMap>
 
     <sql id="selectMebOpinionVo">
-        select id, type, desc, meb_id, order_sl, order_num, addr_id, submit_time, handle_time, fj1, fj2, fj3, fj4, user_id, opinionsta from meb_opinion
+        select id, type, remarks, meb_id, order_sl, order_num, addr_id, submit_time, handle_time, fj1, fj2, fj3, fj4, create_by, opinionsta from meb_opinion
     </sql>
 
     <select id="selectMebOpinionList" parameterType="MebOpinion" resultMap="MebOpinionResult">
         <include refid="selectMebOpinionVo"/>
         <where>  
             <if test="type != null "> and type = #{type}</if>
-            <if test="desc != null  and desc != ''"> and desc = #{desc}</if>
+            <if test="remarks != null  and remarks != ''"> and remarks = #{remarks}</if>
             <if test="mebId != null "> and meb_id = #{mebId}</if>
             <if test="orderSl != null  and orderSl != ''"> and order_sl = #{orderSl}</if>
             <if test="orderNum != null "> and order_num = #{orderNum}</if>
@@ -41,7 +41,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="fj2 != null  and fj2 != ''"> and fj2 = #{fj2}</if>
             <if test="fj3 != null  and fj3 != ''"> and fj3 = #{fj3}</if>
             <if test="fj4 != null  and fj4 != ''"> and fj4 = #{fj4}</if>
-            <if test="userId != null "> and user_id = #{userId}</if>
             <if test="opinionsta != null "> and opinionsta = #{opinionsta}</if>
         </where>
     </select>
@@ -51,12 +50,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where id = #{id}
     </select>
         
-    <insert id="insertMebOpinion" parameterType="MebOpinion">
+    <insert id="insertMebOpinion" parameterType="MebOpinion" useGeneratedKeys="true" keyProperty="id">
         insert into meb_opinion
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null ">id,</if>
             <if test="type != null ">type,</if>
-            <if test="desc != null  and desc != ''">desc,</if>
+            <if test="remarks != null  and remarks != ''">remarks,</if>
             <if test="mebId != null ">meb_id,</if>
             <if test="orderSl != null  and orderSl != ''">order_sl,</if>
             <if test="orderNum != null ">order_num,</if>
@@ -67,13 +65,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="fj2 != null  and fj2 != ''">fj2,</if>
             <if test="fj3 != null  and fj3 != ''">fj3,</if>
             <if test="fj4 != null  and fj4 != ''">fj4,</if>
-            <if test="userId != null ">user_id,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
             <if test="opinionsta != null ">opinionsta,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null ">#{id},</if>
             <if test="type != null ">#{type},</if>
-            <if test="desc != null  and desc != ''">#{desc},</if>
+            <if test="remarks != null  and remarks != ''">#{remarks},</if>
             <if test="mebId != null ">#{mebId},</if>
             <if test="orderSl != null  and orderSl != ''">#{orderSl},</if>
             <if test="orderNum != null ">#{orderNum},</if>
@@ -84,7 +81,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="fj2 != null  and fj2 != ''">#{fj2},</if>
             <if test="fj3 != null  and fj3 != ''">#{fj3},</if>
             <if test="fj4 != null  and fj4 != ''">#{fj4},</if>
-            <if test="userId != null ">#{userId},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
             <if test="opinionsta != null ">#{opinionsta},</if>
          </trim>
     </insert>
@@ -93,7 +90,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         update meb_opinion
         <trim prefix="SET" suffixOverrides=",">
             <if test="type != null ">type = #{type},</if>
-            <if test="desc != null  and desc != ''">desc = #{desc},</if>
+            <if test="remarks != null  and remarks != ''">remarks = #{remarks},</if>
             <if test="mebId != null ">meb_id = #{mebId},</if>
             <if test="orderSl != null  and orderSl != ''">order_sl = #{orderSl},</if>
             <if test="orderNum != null ">order_num = #{orderNum},</if>
@@ -104,7 +101,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="fj2 != null  and fj2 != ''">fj2 = #{fj2},</if>
             <if test="fj3 != null  and fj3 != ''">fj3 = #{fj3},</if>
             <if test="fj4 != null  and fj4 != ''">fj4 = #{fj4},</if>
-            <if test="userId != null ">user_id = #{userId},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
             <if test="opinionsta != null ">opinionsta = #{opinionsta},</if>
         </trim>
         where id = #{id}

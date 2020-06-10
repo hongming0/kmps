@@ -15,6 +15,62 @@
                                 <input type="text" name="addrName"/>
                             </li>
                             <li>
+                                <label>图片地址：</label>
+                                <input type="text" name="addrPath"/>
+                            </li>
+                            <li>
+                                <label>省：</label>
+                                <input type="text" name="province"/>
+                            </li>
+                            <li>
+                                <label>市：</label>
+                                <input type="text" name="city"/>
+                            </li>
+                            <li>
+                                <label>区：</label>
+                                <input type="text" name="area"/>
+                            </li>
+                            <li>
+                                <label>经度：</label>
+                                <input type="text" name="longitude"/>
+                            </li>
+                            <li>
+                                <label>纬度：</label>
+                                <input type="text" name="latitude"/>
+                            </li>
+                            <li>
+                                <label>楼层：</label>
+                                <input type="text" name="layerNum"/>
+                            </li>
+                            <li>
+                                <label>业务员：</label>
+                                <input type="text" name="userId"/>
+                            </li>
+                            <li class="select-time">
+                                <label>入驻时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginJoinTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endJoinTime]"/>
+                            </li>
+                            <li class="select-time">
+                                <label>解除时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginLeaveTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endLeaveTime]"/>
+                            </li>
+                            <li class="select-time">
+                                <label>营业开始时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginStartTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endStartTime]"/>
+                            </li>
+                            <li class="select-time">
+                                <label>营业结束时间：</label>
+                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginEndTime]"/>
+                                <span>-</span>
+                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endEndTime]"/>
+                            </li>
+                            <li>
                                 <label>状态：</label>
                                 <input type="text" name="addrsta"/>
                             </li>
@@ -59,7 +115,7 @@
                 updateUrl: prefix + "/edit/{id}",
                 removeUrl: prefix + "/remove",
                 exportUrl: prefix + "/export",
-                modalName: "【请填写功能名称】",
+                modalName: "楼宇",
                 columns: [{
                     checkbox: true
                 },
@@ -74,33 +130,27 @@
                 },
                 {
                     field: 'addrPath', 
-                    title: '图片地址',
-                    visible: false
+                    title: '图片地址'
                 },
                 {
                     field: 'province', 
-                    title: '省',
-                    visible: false
+                    title: '省'
                 },
                 {
                     field: 'city', 
-                    title: '市',
-                    visible: false
+                    title: '市'
                 },
                 {
                     field: 'area', 
-                    title: '区',
-                    visible: false
+                    title: '区'
                 },
                 {
                     field: 'longitude', 
-                    title: '经度',
-                    visible: false
+                    title: '经度'
                 },
                 {
                     field: 'latitude', 
-                    title: '纬度',
-                    visible: false
+                    title: '纬度'
                 },
                 {
                     field: 'layerNum', 
@@ -108,28 +158,23 @@
                 },
                 {
                     field: 'userId', 
-                    title: '业务员',
-                    visible: false
+                    title: '业务员'
                 },
                 {
                     field: 'joinTime', 
-                    title: '入驻时间',
-                    visible: false
+                    title: '入驻时间'
                 },
                 {
                     field: 'leaveTime', 
-                    title: '解除时间',
-                    visible: false
+                    title: '解除时间'
                 },
                 {
                     field: 'startTime', 
-                    title: '营业开始时间',
-                    visible: false
+                    title: '营业开始时间'
                 },
                 {
                     field: 'endTime', 
-                    title: '营业结束时间',
-                    visible: false
+                    title: '营业结束时间'
                 },
                 {
                     field: 'addrsta', 

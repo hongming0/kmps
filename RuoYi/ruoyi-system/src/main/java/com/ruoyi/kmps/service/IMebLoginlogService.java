@@ -7,7 +7,7 @@ import com.ruoyi.kmps.domain.MebLoginlog;
  * 会员登录日志Service接口
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public interface IMebLoginlogService 
 {

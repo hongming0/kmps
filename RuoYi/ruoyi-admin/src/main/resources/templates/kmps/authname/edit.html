@@ -2,13 +2,14 @@
 <html lang="zh" xmlns:th="http://www.thymeleaf.org" >
 <head>
     <th:block th:include="include :: header('修改会员实名认证记录')" />
+    <th:block th:include="include :: datetimepicker-css" />
 </head>
 <body class="white-bg">
     <div class="wrapper wrapper-content animated fadeInRight ibox-content">
         <form class="form-horizontal m" id="form-authname-edit" th:object="${mebAuthname}">
             <input name="id" th:field="*{id}" type="hidden">
             <div class="form-group">    
-                <label class="col-sm-3 control-label">会员ID：</label>
+                <label class="col-sm-3 control-label">平台用户id：</label>
                 <div class="col-sm-8">
                     <input name="mebid" th:field="*{mebid}" class="form-control" type="text">
                 </div>
@@ -76,12 +77,16 @@
             <div class="form-group">    
                 <label class="col-sm-3 control-label">审核时间：</label>
                 <div class="col-sm-8">
-                    <input name="audittime" th:field="*{audittime}" class="form-control" type="text">
+                    <div class="input-group date">
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                        <input name="auditTime" th:value="${#dates.format(mebAuthname.auditTime, 'yyyy-MM-dd')}" class="form-control" placeholder="yyyy-MM-dd" type="text">
+                    </div>
                 </div>
             </div>
         </form>
     </div>
     <th:block th:include="include :: footer" />
+    <th:block th:include="include :: datetimepicker-js" />
     <script type="text/javascript">
         var prefix = ctx + "kmps/authname";
         $("#form-authname-edit").validate({
@@ -93,6 +98,12 @@
                 $.operate.save(prefix + "/edit", $('#form-authname-edit').serialize());
             }
         }
+
+        $("input[name='auditTime']").datetimepicker({
+            format: "yyyy-mm-dd",
+            minView: "month",
+            autoclose: true
+        });
     </script>
 </body>
 </html>

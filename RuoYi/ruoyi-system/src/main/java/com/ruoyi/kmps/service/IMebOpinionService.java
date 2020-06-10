@@ -7,7 +7,7 @@ import com.ruoyi.kmps.domain.MebOpinion;
  * 投诉Service接口
  * 
  * @author ruoyi
- * @date 2020-06-08
+ * @date 2020-06-10
  */
 public interface IMebOpinionService 
 {

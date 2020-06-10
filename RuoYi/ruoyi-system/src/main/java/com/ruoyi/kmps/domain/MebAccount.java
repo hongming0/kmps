@@ -1,5 +1,6 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
@@ -9,7 +10,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * 会员账号对象 meb_account
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class MebAccount extends BaseEntity
 {
@@ -43,8 +44,8 @@ public class MebAccount extends BaseEntity
     private String email;
 
     /** 注册时间 */
-    @Excel(name = "注册时间")
-    private Long regtime;
+    @Excel(name = "注册时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date regTime;
 
     /** 注册ip */
     @Excel(name = "注册ip")
@@ -71,12 +72,12 @@ public class MebAccount extends BaseEntity
     private Integer accsta;
 
     /** 最后登录时间 */
-    @Excel(name = "最后登录时间")
-    private Long lastlogintime;
+    @Excel(name = "最后登录时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date lastloginTime;
 
     /** 最后登录IP */
     @Excel(name = "最后登录IP")
-    private String lastloginip;
+    private String lastloginIp;
 
     /** 当前密码连续错误次数 */
     @Excel(name = "当前密码连续错误次数")
@@ -173,14 +174,14 @@ public class MebAccount extends BaseEntity
     {
         return email;
     }
-    public void setRegtime(Long regtime) 
+    public void setRegTime(Date regTime) 
     {
-        this.regtime = regtime;
+        this.regTime = regTime;
     }
 
-    public Long getRegtime() 
+    public Date getRegTime() 
     {
-        return regtime;
+        return regTime;
     }
     public void setRegip(String regip) 
     {
@@ -236,23 +237,23 @@ public class MebAccount extends BaseEntity
     {
         return accsta;
     }
-    public void setLastlogintime(Long lastlogintime) 
+    public void setLastloginTime(Date lastloginTime) 
     {
-        this.lastlogintime = lastlogintime;
+        this.lastloginTime = lastloginTime;
     }
 
-    public Long getLastlogintime() 
+    public Date getLastloginTime() 
     {
-        return lastlogintime;
+        return lastloginTime;
     }
-    public void setLastloginip(String lastloginip) 
+    public void setLastloginIp(String lastloginIp) 
     {
-        this.lastloginip = lastloginip;
+        this.lastloginIp = lastloginIp;
     }
 
-    public String getLastloginip() 
+    public String getLastloginIp() 
     {
-        return lastloginip;
+        return lastloginIp;
     }
     public void setPasserr(Long passerr) 
     {
@@ -337,15 +338,15 @@ public class MebAccount extends BaseEntity
             .append("password", getPassword())
             .append("salt", getSalt())
             .append("email", getEmail())
-            .append("regtime", getRegtime())
+            .append("regTime", getRegTime())
             .append("regip", getRegip())
             .append("regclt", getRegclt())
             .append("regcha", getRegcha())
             .append("refcode", getRefcode())
             .append("puid", getPuid())
             .append("accsta", getAccsta())
-            .append("lastlogintime", getLastlogintime())
-            .append("lastloginip", getLastloginip())
+            .append("lastloginTime", getLastloginTime())
+            .append("lastloginIp", getLastloginIp())
             .append("passerr", getPasserr())
             .append("m1", getM1())
             .append("m2", getM2())

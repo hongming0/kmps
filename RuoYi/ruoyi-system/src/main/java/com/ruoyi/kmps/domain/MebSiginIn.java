@@ -1,15 +1,16 @@
 package com.ruoyi.kmps.domain;
 
+import java.util.Date;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
 import com.ruoyi.common.core.domain.BaseEntity;
 
 /**
- * 【请填写功能名称】对象 meb_sigin_in
+ * 会员打卡对象 meb_sigin_in
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 public class MebSiginIn extends BaseEntity
 {
@@ -31,8 +32,8 @@ public class MebSiginIn extends BaseEntity
     private String loginip;
 
     /** 时间 */
-    @Excel(name = "时间")
-    private Long logintime;
+    @Excel(name = "时间", width = 30, dateFormat = "yyyy-MM-dd")
+    private Date loginTime;
 
     /** 地点 */
     @Excel(name = "地点")
@@ -94,14 +95,14 @@ public class MebSiginIn extends BaseEntity
     {
         return loginip;
     }
-    public void setLogintime(Long logintime) 
+    public void setLoginTime(Date loginTime) 
     {
-        this.logintime = logintime;
+        this.loginTime = loginTime;
     }
 
-    public Long getLogintime() 
+    public Date getLoginTime() 
     {
-        return logintime;
+        return loginTime;
     }
     public void setDistrict(String district) 
     {
@@ -165,7 +166,7 @@ public class MebSiginIn extends BaseEntity
             .append("mebid", getMebid())
             .append("name", getName())
             .append("loginip", getLoginip())
-            .append("logintime", getLogintime())
+            .append("loginTime", getLoginTime())
             .append("district", getDistrict())
             .append("latitude", getLatitude())
             .append("longitude", getLongitude())

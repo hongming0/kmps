@@ -20,10 +20,10 @@ import com.ruoyi.common.utils.poi.ExcelUtil;
 import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
- * 【请填写功能名称】Controller
+ * 楼宇Controller
  * 
  * @author ruoyi
- * @date 2020-06-06
+ * @date 2020-06-10
  */
 @Controller
 @RequestMapping("/kmps/edifice")
@@ -42,7 +42,7 @@ public class AddrEdificeController extends BaseController
     }
 
     /**
-     * 查询【请填写功能名称】列表
+     * 查询楼宇列表
      */
     @RequiresPermissions("kmps:edifice:list")
     @PostMapping("/list")
@@ -55,10 +55,10 @@ public class AddrEdificeController extends BaseController
     }
 
     /**
-     * 导出【请填写功能名称】列表
+     * 导出楼宇列表
      */
     @RequiresPermissions("kmps:edifice:export")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.EXPORT)
+    @Log(title = "楼宇", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
     public AjaxResult export(AddrEdifice addrEdifice)
@@ -69,7 +69,7 @@ public class AddrEdificeController extends BaseController
     }
 
     /**
-     * 新增【请填写功能名称】
+     * 新增楼宇
      */
     @GetMapping("/add")
     public String add()
@@ -78,10 +78,10 @@ public class AddrEdificeController extends BaseController
     }
 
     /**
-     * 新增保存【请填写功能名称】
+     * 新增保存楼宇
      */
     @RequiresPermissions("kmps:edifice:add")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.INSERT)
+    @Log(title = "楼宇", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
     public AjaxResult addSave(AddrEdifice addrEdifice)
@@ -90,7 +90,7 @@ public class AddrEdificeController extends BaseController
     }
 
     /**
-     * 修改【请填写功能名称】
+     * 修改楼宇
      */
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable("id") Long id, ModelMap mmap)
@@ -101,10 +101,10 @@ public class AddrEdificeController extends BaseController
     }
 
     /**
-     * 修改保存【请填写功能名称】
+     * 修改保存楼宇
      */
     @RequiresPermissions("kmps:edifice:edit")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.UPDATE)
+    @Log(title = "楼宇", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
     public AjaxResult editSave(AddrEdifice addrEdifice)
@@ -113,10 +113,10 @@ public class AddrEdificeController extends BaseController
     }
 
     /**
-     * 删除【请填写功能名称】
+     * 删除楼宇
      */
     @RequiresPermissions("kmps:edifice:remove")
-    @Log(title = "【请填写功能名称】", businessType = BusinessType.DELETE)
+    @Log(title = "楼宇", businessType = BusinessType.DELETE)
     @PostMapping( "/remove")
     @ResponseBody
     public AjaxResult remove(String ids)

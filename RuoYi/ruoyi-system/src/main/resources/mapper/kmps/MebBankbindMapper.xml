@@ -17,14 +17,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="cityno"    column="cityno"    />
         <result property="subbankaddr"    column="subbankaddr"    />
         <result property="status"    column="status"    />
-        <result property="createtime"    column="createtime"    />
-        <result property="createby"    column="createby"    />
-        <result property="updatetime"    column="updatetime"    />
-        <result property="updateby"    column="updateby"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="updateBy"    column="update_by"    />
     </resultMap>
 
     <sql id="selectMebBankbindVo">
-        select id, mebid, bankid, ctype, accname, accidno, cardno, dscardno, bankneme, cityno, subbankaddr, status, createtime, createby, updatetime, updateby from meb_bankbind
+        select id, mebid, bankid, ctype, accname, accidno, cardno, dscardno, bankneme, cityno, subbankaddr, status, create_time, create_by, update_time, update_by from meb_bankbind
     </sql>
 
     <select id="selectMebBankbindList" parameterType="MebBankbind" resultMap="MebBankbindResult">
@@ -41,10 +41,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="cityno != null  and cityno != ''"> and cityno = #{cityno}</if>
             <if test="subbankaddr != null  and subbankaddr != ''"> and subbankaddr = #{subbankaddr}</if>
             <if test="status != null "> and status = #{status}</if>
-            <if test="createtime != null "> and createtime = #{createtime}</if>
-            <if test="createby != null "> and createby = #{createby}</if>
-            <if test="updatetime != null "> and updatetime = #{updatetime}</if>
-            <if test="updateby != null "> and updateby = #{updateby}</if>
         </where>
     </select>
     
@@ -67,10 +63,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="cityno != null  and cityno != ''">cityno,</if>
             <if test="subbankaddr != null  and subbankaddr != ''">subbankaddr,</if>
             <if test="status != null ">status,</if>
-            <if test="createtime != null ">createtime,</if>
-            <if test="createby != null ">createby,</if>
-            <if test="updatetime != null ">updatetime,</if>
-            <if test="updateby != null ">updateby,</if>
+            <if test="createTime != null ">create_time,</if>
+            <if test="createBy != null  and createBy != ''">create_by,</if>
+            <if test="updateTime != null ">update_time,</if>
+            <if test="updateBy != null ">update_by,</if>
          </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="mebid != null ">#{mebid},</if>
@@ -84,10 +80,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="cityno != null  and cityno != ''">#{cityno},</if>
             <if test="subbankaddr != null  and subbankaddr != ''">#{subbankaddr},</if>
             <if test="status != null ">#{status},</if>
-            <if test="createtime != null ">#{createtime},</if>
-            <if test="createby != null ">#{createby},</if>
-            <if test="updatetime != null ">#{updatetime},</if>
-            <if test="updateby != null ">#{updateby},</if>
+            <if test="createTime != null ">#{createTime},</if>
+            <if test="createBy != null  and createBy != ''">#{createBy},</if>
+            <if test="updateTime != null ">#{updateTime},</if>
+            <if test="updateBy != null ">#{updateBy},</if>
          </trim>
     </insert>
 
@@ -105,10 +101,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             <if test="cityno != null  and cityno != ''">cityno = #{cityno},</if>
             <if test="subbankaddr != null  and subbankaddr != ''">subbankaddr = #{subbankaddr},</if>
             <if test="status != null ">status = #{status},</if>
-            <if test="createtime != null ">createtime = #{createtime},</if>
-            <if test="createby != null ">createby = #{createby},</if>
-            <if test="updatetime != null ">updatetime = #{updatetime},</if>
-            <if test="updateby != null ">updateby = #{updateby},</if>
+            <if test="createTime != null ">create_time = #{createTime},</if>
+            <if test="createBy != null  and createBy != ''">create_by = #{createBy},</if>
+            <if test="updateTime != null ">update_time = #{updateTime},</if>
+            <if test="updateBy != null ">update_by = #{updateBy},</if>
         </trim>
         where id = #{id}
     </update>
