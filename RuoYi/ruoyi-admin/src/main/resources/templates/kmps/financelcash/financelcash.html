@@ -15,59 +15,8 @@
                                 <input type="text" name="mebid"/>
                             </li>
                             <li>
-                                <label>序列号：</label>
-                                <input type="text" name="sl"/>
-                            </li>
-                            <li>
-                                <label>发生金额：</label>
-                                <input type="text" name="actamt"/>
-                            </li>
-                            <li>
-                                <label>当前余额：</label>
-                                <input type="text" name="nowamt"/>
-                            </li>
-                            <li>
-                                <label>银行卡类型：</label>
-                                <select name="ctype">
-                                    <option value="">所有</option>
-                                    <option value="-1">代码生成请选择字典属性</option>
-                                </select>
-                            </li>
-                            <li>
-                                <label>银行名称：</label>
-                                <input type="text" name="bankneme"/>
-                            </li>
-                            <li>
-                                <label>开户支行详细地址：</label>
-                                <input type="text" name="subbankaddr"/>
-                            </li>
-                            <li>
-                                <label>账户名：</label>
-                                <input type="text" name="accname"/>
-                            </li>
-                            <li>
-                                <label>银行卡账号：</label>
-                                <input type="text" name="cardno"/>
-                            </li>
-                            <li>
                                 <label>提现状态：</label>
                                 <input type="text" name="cashSta"/>
-                            </li>
-                            <li>
-                                <label>备注：</label>
-                                <input type="text" name="memo"/>
-                            </li>
-                            <li>
-                                <label>预留字段一：</label>
-                                <input type="text" name="m1"/>
-                            </li>
-                            <li>
-                                <label>预留字段二：</label>
-                                <input type="text" name="m2"/>
-                            </li>
-                            <li>
-                                <label>预留字段三：</label>
-                                <input type="text" name="m3"/>
                             </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
@@ -115,69 +64,26 @@
                     checkbox: true
                 },
                 {
-                    field: 'id', 
-                    title: '编号',
-                    visible: false
-                },
-                {
                     field: 'mebid', 
                     title: '平台用户id'
                 },
                 {
-                    field: 'sl', 
-                    title: '序列号'
-                },
-                {
                     field: 'actamt', 
-                    title: '发生金额'
+                    title: '提现金额'
                 },
                 {
                     field: 'nowamt', 
                     title: '当前余额'
                 },
-                {
-                    field: 'ctype', 
-                    title: '银行卡类型'
-                },
-                {
-                    field: 'bankneme', 
-                    title: '银行名称'
-                },
-                {
-                    field: 'subbankaddr', 
-                    title: '开户支行详细地址'
-                },
-                {
-                    field: 'accname', 
-                    title: '账户名'
-                },
-                {
-                    field: 'cardno', 
-                    title: '银行卡账号'
-                },
+
+
                 {
                     field: 'cashSta', 
                     title: '提现状态'
                 },
                 {
-                    field: 'cashDesc', 
-                    title: '提现处理备注'
-                },
-                {
                     field: 'memo', 
                     title: '备注'
-                },
-                {
-                    field: 'm1', 
-                    title: '预留字段一'
-                },
-                {
-                    field: 'm2', 
-                    title: '预留字段二'
-                },
-                {
-                    field: 'm3', 
-                    title: '预留字段三'
                 },
                 {
                     title: '操作',

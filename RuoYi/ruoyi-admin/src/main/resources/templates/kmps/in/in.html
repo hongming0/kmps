@@ -11,38 +11,8 @@
                     <div class="select-list">
                         <ul>
                             <li>
-                                <label>平台用户id：</label>
-                                <input type="text" name="mebid"/>
-                            </li>
-                            <li>
                                 <label>姓名：</label>
                                 <input type="text" name="name"/>
-                            </li>
-                            <li>
-                                <label>IP：</label>
-                                <input type="text" name="loginip"/>
-                            </li>
-                            <li class="select-time">
-                                <label>时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginLoginTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endLoginTime]"/>
-                            </li>
-                            <li>
-                                <label>地点：</label>
-                                <input type="text" name="district"/>
-                            </li>
-                            <li>
-                                <label>纬度：</label>
-                                <input type="text" name="latitude"/>
-                            </li>
-                            <li>
-                                <label>经度：</label>
-                                <input type="text" name="longitude"/>
-                            </li>
-                            <li>
-                                <label>终端设备：</label>
-                                <input type="text" name="client"/>
                             </li>
                             <li>
                                 <label>类型：</label>
@@ -107,7 +77,8 @@
                 },
                 {
                     field: 'mebid', 
-                    title: '平台用户id'
+                    title: '平台用户id',
+                    visible: false
                 },
                 {
                     field: 'name', 
@@ -127,15 +98,18 @@
                 },
                 {
                     field: 'latitude', 
-                    title: '纬度'
+                    title: '纬度',
+                    visible: false
                 },
                 {
                     field: 'longitude', 
-                    title: '经度'
+                    title: '经度',
+                    visible: false
                 },
                 {
                     field: 'client', 
-                    title: '终端设备'
+                    title: '终端设备',
+                    visible: false
                 },
                 {
                     field: 'type', 

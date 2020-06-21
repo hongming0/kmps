@@ -23,43 +23,6 @@
                                 <input type="text" name="nickname"/>
                             </li>
                             <li>
-                                <label>头像：</label>
-                                <input type="text" name="avatar"/>
-                            </li>
-                            <li>
-                                <label>性别：</label>
-                                <select name="sex">
-                                    <option value="">所有</option>
-                                    <option value="-1">代码生成请选择字典属性</option>
-                                </select>
-                            </li>
-                            <li>
-                                <label>出生日期：</label>
-                                <input type="text" name="birthday"/>
-                            </li>
-                            <li>
-                                <label>是否通过实名认证：</label>
-                                <input type="text" name="isauthper"/>
-                            </li>
-                            <li class="select-time">
-                                <label>实名认证时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginAuthperTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endAuthperTime]"/>
-                            </li>
-                            <li>
-                                <label>真实姓名：</label>
-                                <input type="text" name="pername"/>
-                            </li>
-                            <li>
-                                <label>会员等级：</label>
-                                <input type="text" name="level"/>
-                            </li>
-                            <li>
-                                <label>微信账号：</label>
-                                <input type="text" name="wxAccount"/>
-                            </li>
-                            <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
                                 <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
                             </li>
@@ -119,19 +82,23 @@
                 },
                 {
                     field: 'nickname', 
-                    title: '昵称'
+                    title: '昵称',
+                    visible: false
                 },
                 {
                     field: 'avatar', 
-                    title: '头像'
+                    title: '头像',
+                    visible: false
                 },
                 {
                     field: 'sex', 
-                    title: '性别'
+                    title: '性别',
+                    visible: false
                 },
                 {
                     field: 'birthday', 
-                    title: '出生日期'
+                    title: '出生日期',
+                    visible: false
                 },
                 {
                     field: 'isauthper', 
@@ -139,7 +106,8 @@
                 },
                 {
                     field: 'authperTime', 
-                    title: '实名认证时间'
+                    title: '实名认证时间',
+                    visible: false
                 },
                 {
                     field: 'pername', 
@@ -147,7 +115,8 @@
                 },
                 {
                     field: 'level', 
-                    title: '会员等级'
+                    title: '会员等级',
+                    visible: false
                 },
                 {
                     field: 'remark', 
@@ -155,7 +124,8 @@
                 },
                 {
                     field: 'extjson', 
-                    title: '扩展信息'
+                    title: '扩展信息',
+                    visible: false
                 },
                 {
                     field: 'wxAccount', 

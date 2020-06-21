@@ -11,15 +11,7 @@
                     <div class="select-list">
                         <ul>
                             <li>
-                                <label>平台用户id：</label>
-                                <input type="text" name="mebid"/>
-                            </li>
-                            <li>
-                                <label>实名类型：</label>
-                                <input type="text" name="mebidty"/>
-                            </li>
-                            <li>
-                                <label>名称：</label>
+                                <label>姓名：</label>
                                 <input type="text" name="realname"/>
                             </li>
                             <li>
@@ -30,16 +22,6 @@
                             <li>
                                 <label>状态：</label>
                                 <input type="text" name="authsta"/>
-                            </li>
-                            <li>
-                                <label>审核员：</label>
-                                <input type="text" name="auditor"/>
-                            </li>
-                            <li class="select-time">
-                                <label>审核时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginAuditTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endAuditTime]"/>
                             </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
@@ -87,41 +69,12 @@
                     checkbox: true
                 },
                 {
-                    field: 'id', 
-                    title: '编号',
-                    visible: false
-                },
-                {
-                    field: 'mebid', 
-                    title: '平台用户id'
-                },
-                {
-                    field: 'mebidty', 
-                    title: '实名类型'
-                },
-                {
                     field: 'realname', 
-                    title: '名称'
+                    title: '姓名'
                 },
                 {
                     field: 'idno', 
                     title: '证件号码'
-                },
-                {
-                    field: 'fj1', 
-                    title: '附件一'
-                },
-                {
-                    field: 'fj2', 
-                    title: '附件二'
-                },
-                {
-                    field: 'fj3', 
-                    title: '附件三'
-                },
-                {
-                    field: 'fj4', 
-                    title: '附件四'
                 },
                 {
                     field: 'auditopn', 
@@ -130,14 +83,6 @@
                 {
                     field: 'authsta', 
                     title: '状态'
-                },
-                {
-                    field: 'auditor', 
-                    title: '审核员'
-                },
-                {
-                    field: 'auditTime', 
-                    title: '审核时间'
                 },
                 {
                     title: '操作',

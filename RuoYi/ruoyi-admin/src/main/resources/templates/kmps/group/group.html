@@ -19,36 +19,6 @@
                                 <input type="text" name="edificeName"/>
                             </li>
                             <li>
-                                <label>会员id：</label>
-                                <input type="text" name="mebId"/>
-                            </li>
-                            <li>
-                                <label>会员职务：</label>
-                                <input type="text" name="mebJob"/>
-                            </li>
-                            <li>
-                                <label>楼层：</label>
-                                <input type="text" name="layerNum"/>
-                            </li>
-                            <li>
-                                <label>起始楼层：</label>
-                                <input type="text" name="layerStart"/>
-                            </li>
-                            <li>
-                                <label>结束楼层：</label>
-                                <input type="text" name="layerEnd"/>
-                            </li>
-                            <li class="select-time">
-                                <label>解除时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginEndTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endEndTime]"/>
-                            </li>
-                            <li>
-                                <label>状态：</label>
-                                <input type="text" name="addrSta"/>
-                            </li>
-                            <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
                                 <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
                             </li>
@@ -100,7 +70,8 @@
                 },
                 {
                     field: 'edificeId', 
-                    title: '大厦id'
+                    title: '大厦id',
+                    visible: false
                 },
                 {
                     field: 'edificeName', 
@@ -128,7 +99,8 @@
                 },
                 {
                     field: 'endTime', 
-                    title: '解除时间'
+                    title: '解除时间',
+                    visible: false
                 },
                 {
                     field: 'addrSta', 

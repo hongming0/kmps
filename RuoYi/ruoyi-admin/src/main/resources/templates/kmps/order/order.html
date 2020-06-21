@@ -14,126 +14,17 @@
                                 <label>订单编号：</label>
                                 <input type="text" name="orderSl"/>
                             </li>
-                            <li>
-                                <label>订单序列号：</label>
-                                <input type="text" name="orderNum"/>
-                            </li>
-                            <li>
-                                <label>价格：</label>
-                                <input type="text" name="price"/>
-                            </li>
+
                             <li>
                                 <label>大厦id：</label>
                                 <input type="text" name="edificeId"/>
                             </li>
-                            <li>
-                                <label>骑手id：</label>
-                                <input type="text" name="putinId"/>
-                            </li>
+
                             <li>
                                 <label>骑手电话：</label>
                                 <input type="text" name="putinPhone"/>
                             </li>
-                            <li>
-                                <label>分拣员id：</label>
-                                <input type="text" name="sortId"/>
-                            </li>
-                            <li>
-                                <label>送货员id：</label>
-                                <input type="text" name="deliveryId"/>
-                            </li>
-                            <li>
-                                <label>送货员电话：</label>
-                                <input type="text" name="deliveryPhone"/>
-                            </li>
-                            <li class="select-time">
-                                <label>分拣时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginSorTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endSorTime]"/>
-                            </li>
-                            <li class="select-time">
-                                <label>取货时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginPickupTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endPickupTime]"/>
-                            </li>
-                            <li class="select-time">
-                                <label>送达时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginFinshTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endFinshTime]"/>
-                            </li>
-                            <li class="select-time">
-                                <label>取消时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginCloseTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endCloseTime]"/>
-                            </li>
-                            <li>
-                                <label>取消原因：</label>
-                                <input type="text" name="closeDesc"/>
-                            </li>
-                            <li class="select-time">
-                                <label>下单时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginOrderTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endOrderTime]"/>
-                            </li>
-                            <li class="select-time">
-                                <label>支付时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginPayTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endPayTime]"/>
-                            </li>
-                            <li class="select-time">
-                                <label>预计自动关闭时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginAutocloseTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endAutocloseTime]"/>
-                            </li>
-                            <li>
-                                <label>支付方式：</label>
-                                <input type="text" name="payMode"/>
-                            </li>
-                            <li>
-                                <label>商品件数：</label>
-                                <input type="text" name="goodsNum"/>
-                            </li>
-                            <li>
-                                <label>下单客户端：</label>
-                                <input type="text" name="orderClt"/>
-                            </li>
-                            <li>
-                                <label>第三方品牌名称：</label>
-                                <input type="text" name="thirdName"/>
-                            </li>
-                            <li>
-                                <label>第三方订单号：</label>
-                                <input type="text" name="thirdNum"/>
-                            </li>
-                            <li>
-                                <label>第三方平台取货地址：</label>
-                                <input type="text" name="thirdTakeAddr"/>
-                            </li>
-                            <li>
-                                <label>第三方平台送货地址：</label>
-                                <input type="text" name="thirdGiveAddr"/>
-                            </li>
-                            <li class="select-time">
-                                <label>顾客期望送达时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginExpectTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endExpectTime]"/>
-                            </li>
-                            <li>
-                                <label>第三方订单截图：</label>
-                                <input type="text" name="orderImgPath"/>
-                            </li>
-                            <li>
-                                <label>楼层：</label>
-                                <input type="text" name="floor"/>
-                            </li>
+
                             <li>
                                 <label>状态：</label>
                                 <input type="text" name="orderSta"/>
@@ -194,7 +85,8 @@
                 },
                 {
                     field: 'orderNum', 
-                    title: '订单序列号'
+                    title: '订单序列号',
+                    visible: false
                 },
                 {
                     field: 'price', 
@@ -202,11 +94,12 @@
                 },
                 {
                     field: 'edificeId', 
-                    title: '大厦id'
+                    title: '大厦名称'
                 },
                 {
                     field: 'putinId', 
-                    title: '骑手id'
+                    title: '骑手id',
+                    visible: false
                 },
                 {
                     field: 'putinPhone', 
@@ -214,83 +107,102 @@
                 },
                 {
                     field: 'sortId', 
-                    title: '分拣员id'
+                    title: '分拣员id',
+                    visible: false
                 },
                 {
                     field: 'deliveryId', 
-                    title: '送货员id'
+                    title: '送货员id',
+                    visible: false
                 },
                 {
                     field: 'deliveryPhone', 
-                    title: '送货员电话'
+                    title: '送货员电话',
+                    visible: false
                 },
                 {
                     field: 'sorTime', 
-                    title: '分拣时间'
+                    title: '分拣时间',
+                    visible: false
                 },
                 {
                     field: 'pickupTime', 
-                    title: '取货时间'
+                    title: '取货时间',
+                    visible: false
                 },
                 {
                     field: 'finshTime', 
-                    title: '送达时间'
+                    title: '送达时间',
+                    visible: false
                 },
                 {
                     field: 'closeTime', 
-                    title: '取消时间'
+                    title: '取消时间',
+                    visible: false
                 },
                 {
                     field: 'closeDesc', 
-                    title: '取消原因'
+                    title: '取消原因',
+                    visible: false
                 },
                 {
                     field: 'orderTime', 
-                    title: '下单时间'
+                    title: '下单时间',
+                    visible: false
                 },
                 {
                     field: 'payTime', 
-                    title: '支付时间'
+                    title: '支付时间',
+                    visible: false
                 },
                 {
                     field: 'autocloseTime', 
-                    title: '预计自动关闭时间'
+                    title: '预计自动关闭时间',
+                    visible: false
                 },
                 {
                     field: 'payMode', 
-                    title: '支付方式'
+                    title: '支付方式',
+                    visible: false
                 },
                 {
                     field: 'goodsNum', 
-                    title: '商品件数'
+                    title: '商品件数',
+                    visible: false
                 },
                 {
                     field: 'orderClt', 
-                    title: '下单客户端'
+                    title: '下单客户端',
+                    visible: false
                 },
                 {
                     field: 'thirdName', 
-                    title: '第三方品牌名称'
+                    title: '外卖名称'
                 },
                 {
                     field: 'thirdNum', 
-                    title: '第三方订单号'
+                    title: '第三方订单号',
+                    visible: false
                 },
                 {
                     field: 'thirdTakeAddr', 
-                    title: '第三方平台取货地址'
+                    title: '第三方平台取货地址',
+                    visible: false
                 },
                 {
                     field: 'thirdGiveAddr', 
-                    title: '第三方平台送货地址'
+                    title: '第三方平台送货地址',
+                    visible: false
                 },
                 {
                     field: 'expectTime', 
-                    title: '顾客期望送达时间'
+                    title: '顾客期望送达时间',
+                    visible: false
                 },
                 {
                     field: 'orderImgPath', 
-                    title: '第三方订单截图'
+                    title: '第三方订单截图',
+                    visible: false
                 },
                 {
                     field: 'floor', 

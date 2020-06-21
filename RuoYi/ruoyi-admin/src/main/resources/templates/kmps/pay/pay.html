@@ -23,53 +23,10 @@
                                 <input type="text" name="mebId"/>
                             </li>
                             <li>
-                                <label>应付总金额：</label>
-                                <input type="text" name="totleAmount"/>
-                            </li>
-                            <li>
-                                <label>使用红包金额(预留)：</label>
-                                <input type="text" name="totleCouponAmount"/>
-                            </li>
-                            <li>
-                                <label>实际付款金额：</label>
-                                <input type="text" name="totleActAmount"/>
-                            </li>
-                            <li>
-                                <label>支付方式 ：</label>
-                                <input type="text" name="payMode"/>
-                            </li>
-                            <li>
-                                <label>支付渠道：</label>
-                                <input type="text" name="payChannel"/>
-                            </li>
-                            <li>
-                                <label>支付参数：</label>
-                                <input type="text" name="payPara"/>
-                            </li>
-                            <li>
-                                <label>返回值 第三方支付流水号，含银行转账流水号：</label>
-                                <input type="text" name="returnVal"/>
-                            </li>
-                            <li>
                                 <label>支付状态：</label>
                                 <input type="text" name="paySta"/>
                             </li>
-                            <li class="select-time">
-                                <label>完成支付时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginFinishTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endFinishTime]"/>
-                            </li>
-                            <li class="select-time">
-                                <label>支付关闭时间：</label>
-                                <input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginCloseTime]"/>
-                                <span>-</span>
-                                <input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endCloseTime]"/>
-                            </li>
-                            <li>
-                                <label>关闭操作人：</label>
-                                <input type="text" name="closeBy"/>
-                            </li>
+
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
                                 <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
@@ -122,7 +79,8 @@
                 },
                 {
                     field: 'paySl', 
-                    title: '支付流水号'
+                    title: '支付流水号',
+                    visible: false
                 },
                 {
                     field: 'orderId', 
@@ -138,7 +96,8 @@
                 },
                 {
                     field: 'totleCouponAmount', 
-                    title: '使用红包金额(预留)'
+                    title: '使用红包金额(预留)',
+                    visible: false
                 },
                 {
                     field: 'totleActAmount', 
@@ -150,15 +109,18 @@
                 },
                 {
                     field: 'payChannel', 
-                    title: '支付渠道'
+                    title: '支付渠道',
+                    visible: false
                 },
                 {
                     field: 'payPara', 
-                    title: '支付参数'
+                    title: '支付参数',
+                    visible: false
                 },
                 {
                     field: 'returnVal', 
-                    title: '返回值 第三方支付流水号，含银行转账流水号'
+                    title: '返回值 第三方支付流水号，含银行转账流水号',
+                    visible: false
                 },
                 {
                     field: 'paySta', 
@@ -166,15 +128,18 @@
                 },
                 {
                     field: 'finishTime', 
-                    title: '完成支付时间'
+                    title: '完成支付时间',
+                    visible: false
                 },
                 {
                     field: 'closeTime', 
-                    title: '支付关闭时间'
+                    title: '支付关闭时间',
+                    visible: false
                 },
                 {
                     field: 'closeBy', 
-                    title: '关闭操作人'
+                    title: '关闭操作人',
+                    visible: false
                 },
                 {
                     title: '操作',
